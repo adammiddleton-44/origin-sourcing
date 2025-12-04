@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { SEO } from "@/components/SEO";
 
 const contactInfo = [
   {
@@ -148,6 +149,11 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEO 
+        title="Contact Us"
+        description="Get a free packaging procurement consultation. Contact PackProConsult to discuss your supply chain challenges and discover cost-saving opportunities."
+        canonical="/contact"
+      />
       {/* Hero */}
       <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">
         {/* Background decoration */}
