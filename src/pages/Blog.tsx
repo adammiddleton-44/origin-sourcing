@@ -1,72 +1,26 @@
 import { Layout } from "@/components/layout/Layout";
 import { BlogSubscribe } from "@/components/blog/BlogSubscribe";
 import { BlogCard } from "@/components/blog/BlogCard";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
-
-const blogPosts = [
-  {
-    id: 1,
-    title: "How EPR Regulations Will Impact UK Packaging in 2025",
-    excerpt: "Extended Producer Responsibility is changing the landscape. Here's what procurement leaders need to know to stay compliant and competitive.",
-    category: "EPR Compliance",
-    date: "2024-12-01",
-    readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
-    slug: "epr-regulations-uk-packaging-2025"
-  },
-  {
-    id: 2,
-    title: "5 Strategies to Reduce Packaging Costs Without Sacrificing Quality",
-    excerpt: "Learn proven procurement techniques that have helped our clients achieve 20-35% cost savings while maintaining product protection.",
-    category: "Cost Optimisation",
-    date: "2024-11-28",
-    readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80",
-    slug: "reduce-packaging-costs-strategies"
-  },
-  {
-    id: 3,
-    title: "Sustainable Packaging Materials: A Buyer's Guide",
-    excerpt: "Navigate the complex world of eco-friendly packaging options with our comprehensive guide to sustainable materials and suppliers.",
-    category: "Sustainability",
-    date: "2024-11-20",
-    readTime: "10 min read",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-    slug: "sustainable-packaging-materials-guide"
-  },
-  {
-    id: 4,
-    title: "Supply Chain Resilience: Lessons from Recent Disruptions",
-    excerpt: "Discover how leading companies are building more resilient packaging supply chains and what you can learn from their approaches.",
-    category: "Supply Chain",
-    date: "2024-11-15",
-    readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&q=80",
-    slug: "supply-chain-resilience-lessons"
-  },
-  {
-    id: 5,
-    title: "Negotiating with Packaging Suppliers: Expert Tips",
-    excerpt: "Master the art of supplier negotiations with these insider tips from our 15+ years in the packaging procurement industry.",
-    category: "Procurement",
-    date: "2024-11-10",
-    readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
-    slug: "negotiating-packaging-suppliers-tips"
-  },
-  {
-    id: 6,
-    title: "The Future of Smart Packaging Technology",
-    excerpt: "From QR codes to NFC tags, explore how smart packaging is revolutionising supply chain visibility and consumer engagement.",
-    category: "Innovation",
-    date: "2024-11-05",
-    readTime: "9 min read",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-    slug: "smart-packaging-technology-future"
-  }
-];
+import { ArrowRight } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Blog() {
+  const { data: blogPosts, isLoading, error } = useQuery({
+    queryKey: ['blog-posts'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .eq('published', true)
+        .order('published_at', { ascending: false });
+      
+      if (error) throw error;
+      return data;
+    }
+  });
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -101,11 +55,45 @@ export default function Blog() {
       {/* Blog Posts Grid */}
       <section className="section-padding bg-background">
         <div className="container-narrow">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <BlogCard key={post.id} post={post} />
-            ))}
-          </div>
+          {isLoading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="space-y-4">
+                  <Skeleton className="h-48 w-full rounded-xl" />
+                  <Skeleton className="h-4 w-24" />
+                  <Skeleton className="h-6 w-full" />
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-3/4" />
+                </div>
+              ))}
+            </div>
+          ) : error ? (
+            <div className="text-center py-12">
+              <p className="text-destructive">Failed to load blog posts. Please try again later.</p>
+            </div>
+          ) : blogPosts && blogPosts.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {blogPosts.map((post) => (
+                <BlogCard 
+                  key={post.id} 
+                  post={{
+                    id: post.id,
+                    title: post.title,
+                    excerpt: post.excerpt,
+                    category: post.category,
+                    date: post.published_at || post.created_at,
+                    readTime: post.read_time,
+                    image: post.image_url || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800',
+                    slug: post.slug
+                  }} 
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">No blog posts available yet.</p>
+            </div>
+          )}
         </div>
       </section>
 
