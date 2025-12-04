@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { ArrowRight, TrendingDown, Clock, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 const caseStudies = [
   {
@@ -51,6 +52,11 @@ const caseStudies = [
 const CaseStudies = () => {
   return (
     <Layout>
+      <SEO 
+        title="Case Studies"
+        description="See real results from UK businesses. Discover how PackProConsult has delivered £310K+ in packaging cost savings through expert procurement consultancy."
+        canonical="/case-studies"
+      />
       {/* Hero */}
       <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">
         {/* Background decoration */}

@@ -11,6 +11,7 @@ import {
   CheckCircle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 const services = [
   {
@@ -96,6 +97,11 @@ const services = [
 const Services = () => {
   return (
     <Layout>
+      <SEO 
+        title="Packaging Procurement Services"
+        description="Expert packaging procurement, EPR compliance, and supply chain transformation services. Reduce costs by 20-35% with PackProConsult's specialist consultancy."
+        canonical="/services"
+      />
       {/* Hero */}
       <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">
         {/* Background decoration */}

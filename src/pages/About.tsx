@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Target, Users, Award, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 const values = [
   {
@@ -27,6 +28,11 @@ const values = [
 const About = () => {
   return (
     <Layout>
+      <SEO 
+        title="About Us"
+        description="Learn about PackProConsult, the UK's trusted packaging procurement consultancy with 15+ years of experience helping businesses achieve £5M+ in savings."
+        canonical="/about"
+      />
       {/* Hero */}
       <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">
         {/* Background decoration */}

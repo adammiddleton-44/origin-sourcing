@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { format } from "date-fns";
+import { SEO } from "@/components/SEO";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -73,6 +74,18 @@ export default function BlogPost() {
 
   return (
     <Layout>
+      <SEO 
+        title={post.title}
+        description={post.excerpt}
+        canonical={`/blog/${post.slug}`}
+        ogImage={post.image_url || undefined}
+        ogType="article"
+        article={{
+          publishedTime: post.published_at || post.created_at,
+          modifiedTime: post.updated_at,
+          section: post.category,
+        }}
+      />
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 bg-gradient-to-br from-section-primary via-background to-section-accent overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">

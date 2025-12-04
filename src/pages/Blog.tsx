@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Skeleton } from "@/components/ui/skeleton";
+import { SEO } from "@/components/SEO";
 
 export default function Blog() {
   const { data: blogPosts, isLoading, error } = useQuery({
@@ -23,6 +24,11 @@ export default function Blog() {
 
   return (
     <Layout>
+      <SEO 
+        title="Blog"
+        description="Expert insights on packaging procurement, EPR compliance, sustainability, and supply chain optimisation. Stay informed with PackProConsult's industry blog."
+        canonical="/blog"
+      />
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 bg-gradient-to-br from-section-primary via-background to-section-accent overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
