@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Package } from "lucide-react";
+import { Menu, X, RefreshCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -22,10 +22,10 @@ export function Header() {
       <nav className="container-narrow flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center group-hover:scale-105 transition-transform">
-            <Package className="w-5 h-5 text-primary-foreground" />
+            <RefreshCcw className="w-5 h-5 text-primary-foreground" />
           </div>
           <span className="font-heading font-bold text-xl text-foreground">
-            PackPro<span className="text-primary">Consult</span>
+            Circular<span className="text-primary">Sourcing</span>
           </span>
         </Link>
 
