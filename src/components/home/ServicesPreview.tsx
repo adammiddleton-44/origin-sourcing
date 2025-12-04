@@ -9,6 +9,7 @@ const services = [
     description:
       "Strategic sourcing and supplier management to reduce costs while maintaining quality and reliability across your packaging portfolio.",
     href: "/services#procurement",
+    accentColor: "from-primary to-primary/70",
   },
   {
     icon: Leaf,
@@ -16,6 +17,7 @@ const services = [
     description:
       "Navigate Extended Producer Responsibility regulations with confidence. We ensure your packaging meets all UK environmental obligations.",
     href: "/services#epr",
+    accentColor: "from-accent to-accent/70",
   },
   {
     icon: GitBranch,
@@ -23,6 +25,7 @@ const services = [
     description:
       "End-to-end optimization of your packaging supply chain, from supplier diversification to logistics efficiency improvements.",
     href: "/services#supply-chain",
+    accentColor: "from-primary via-primary/80 to-accent",
   },
 ];
 
@@ -44,10 +47,13 @@ export function ServicesPreview() {
             <Link
               key={service.title}
               to={service.href}
-              className="group p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-elevated hover:border-primary/30 transition-all duration-300 animate-fade-up"
+              className="group relative p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-elevated hover:border-primary/30 transition-all duration-300 animate-fade-up overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+              {/* Left accent bar */}
+              <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${service.accentColor} opacity-0 group-hover:opacity-100 transition-opacity`} />
+              
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-6 group-hover:from-primary group-hover:to-primary/80 group-hover:scale-110 transition-all duration-300">
                 <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <h3 className="text-xl font-heading font-bold text-foreground mb-3 group-hover:text-primary transition-colors">

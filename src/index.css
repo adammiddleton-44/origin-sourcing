@@ -6,22 +6,22 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
+    --background: 214 30% 96%;
     --foreground: 215 28% 17%;
 
-    --card: 0 0% 100%;
+    --card: 210 20% 99%;
     --card-foreground: 215 28% 17%;
 
-    --popover: 0 0% 100%;
+    --popover: 210 20% 99%;
     --popover-foreground: 215 28% 17%;
 
     --primary: 214 100% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 20% 96%;
+    --secondary: 214 40% 94%;
     --secondary-foreground: 215 28% 17%;
 
-    --muted: 210 20% 96%;
+    --muted: 214 25% 93%;
     --muted-foreground: 215 16% 47%;
 
     --accent: 160 84% 39%;
@@ -30,11 +30,16 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
+    --border: 214 32% 88%;
     --input: 214 32% 91%;
     --ring: 214 100% 40%;
 
     --radius: 0.75rem;
+
+    /* Section background tokens */
+    --section-primary: 214 60% 97%;
+    --section-accent: 160 50% 97%;
+    --section-dark: 215 50% 15%;
 
     /* Custom tokens */
     --font-heading: 'Poppins', sans-serif;
@@ -47,25 +52,30 @@
   }
 
   .dark {
-    --background: 215 28% 10%;
+    --background: 215 35% 10%;
     --foreground: 210 20% 98%;
-    --card: 215 28% 13%;
+    --card: 215 30% 14%;
     --card-foreground: 210 20% 98%;
-    --popover: 215 28% 13%;
+    --popover: 215 30% 14%;
     --popover-foreground: 210 20% 98%;
-    --primary: 214 100% 50%;
+    --primary: 214 100% 55%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 215 28% 17%;
+    --secondary: 215 30% 18%;
     --secondary-foreground: 210 20% 98%;
-    --muted: 215 28% 17%;
+    --muted: 215 28% 20%;
     --muted-foreground: 215 16% 65%;
     --accent: 160 84% 45%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62% 30%;
     --destructive-foreground: 210 20% 98%;
-    --border: 215 28% 20%;
+    --border: 215 30% 22%;
     --input: 215 28% 20%;
-    --ring: 214 100% 50%;
+    --ring: 214 100% 55%;
+
+    /* Section background tokens */
+    --section-primary: 215 40% 12%;
+    --section-accent: 170 30% 12%;
+    --section-dark: 215 50% 8%;
   }
 }
 

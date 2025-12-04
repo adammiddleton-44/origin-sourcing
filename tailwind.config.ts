@@ -47,6 +47,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        section: {
+          primary: "hsl(var(--section-primary))",
+          accent: "hsl(var(--section-accent))",
+          dark: "hsl(var(--section-dark))",
+        },
       },
       fontFamily: {
         heading: ['Poppins', 'sans-serif'],
