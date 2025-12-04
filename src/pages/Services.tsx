@@ -24,6 +24,7 @@ const services = [
       "Contract negotiation",
       "Supplier performance monitoring",
     ],
+    accentColor: "from-primary to-primary/70",
   },
   {
     id: "epr",
@@ -36,6 +37,7 @@ const services = [
       "Compliance strategy development",
       "Producer responsibility scheme selection",
     ],
+    accentColor: "from-accent to-accent/70",
   },
   {
     id: "supply-chain",
@@ -48,6 +50,7 @@ const services = [
       "Logistics optimization",
       "Inventory management improvement",
     ],
+    accentColor: "from-primary via-primary/80 to-accent",
   },
   {
     id: "cost",
@@ -60,6 +63,7 @@ const services = [
       "Specification optimization",
       "Total cost of ownership analysis",
     ],
+    accentColor: "from-accent to-primary/70",
   },
   {
     id: "audit",
@@ -72,6 +76,7 @@ const services = [
       "Improvement roadmap",
       "Implementation support",
     ],
+    accentColor: "from-primary/80 to-accent/80",
   },
   {
     id: "sustainability",
@@ -84,6 +89,7 @@ const services = [
       "Circularity strategy",
       "Carbon footprint reduction",
     ],
+    accentColor: "from-accent via-accent/80 to-primary",
   },
 ];
 
@@ -91,11 +97,17 @@ const Services = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="section-padding bg-gradient-to-b from-card to-background">
-        <div className="container-narrow">
+      <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container-narrow relative">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-              Our <span className="text-primary">Services</span>
+              Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Services</span>
             </h1>
             <p className="text-lg text-muted-foreground">
               Comprehensive packaging consultancy services designed to deliver measurable results. From strategic sourcing to sustainability, we've got you covered.
@@ -112,26 +124,34 @@ const Services = () => {
               <div
                 key={service.id}
                 id={service.id}
-                className="p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-elevated transition-all duration-300 animate-fade-up"
+                className="group relative p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-elevated transition-all duration-300 animate-fade-up overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                  <service.icon className="w-7 h-7 text-primary" />
+                {/* Left accent bar */}
+                <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${service.accentColor} opacity-0 group-hover:opacity-100 transition-opacity`} />
+                
+                {/* Card accent gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-accent/[0.02] opacity-0 group-hover:opacity-100 transition-opacity" />
+                
+                <div className="relative">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-6 group-hover:from-primary/25 group-hover:to-primary/10 transition-all">
+                    <service.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h2 className="text-2xl font-heading font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h2>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <ul className="space-y-3">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                        <span className="text-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h2 className="text-2xl font-heading font-bold text-foreground mb-3">
-                  {service.title}
-                </h2>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-                <ul className="space-y-3">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
@@ -139,15 +159,21 @@ const Services = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-primary">
-        <div className="container-narrow text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-4">
-            Need a Custom Solution?
+      <section className="section-padding bg-section-dark relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/25 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/15 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container-narrow text-center relative">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-card mb-4">
+            Need a <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Custom Solution</span>?
           </h2>
-          <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-card/70 mb-8 max-w-2xl mx-auto">
             Every business is unique. Let's discuss your specific packaging challenges and create a tailored approach.
           </p>
-          <Button asChild variant="secondary" size="xl">
+          <Button asChild variant="hero" size="xl">
             <Link to="/contact">
               Get in Touch
               <ArrowRight className="w-5 h-5" />
