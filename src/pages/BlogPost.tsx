@@ -75,8 +75,8 @@ export default function BlogPost() {
   return (
     <Layout>
       <SEO 
-        title={post.title}
-        description={post.excerpt}
+        title={post.seo_title || post.title}
+        description={post.meta_description || post.excerpt}
         canonical={`/blog/${post.slug}`}
         ogImage={post.image_url || undefined}
         ogType="article"
