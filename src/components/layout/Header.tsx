@@ -1,30 +1,40 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, RefreshCcw } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, RefreshCcw, ChevronDown, Package, Leaf, GitBranch, TrendingDown, Search, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-const navigation = [{
-  name: "Home",
-  href: "/"
-}, {
-  name: "Services",
-  href: "/services"
-}, {
-  name: "Case Studies",
-  href: "/case-studies"
-}, {
-  name: "Blog",
-  href: "/blog"
-}, {
-  name: "About",
-  href: "/about"
-}, {
-  name: "Contact",
-  href: "/contact"
-}];
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "Case Studies", href: "/case-studies" },
+  { name: "Blog", href: "/blog" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
+
+const services = [
+  { id: "procurement", title: "Packaging Procurement", icon: Package },
+  { id: "epr", title: "EPR Compliance", icon: Leaf },
+  { id: "supply-chain", title: "Supply Chain Transformation", icon: GitBranch },
+  { id: "cost", title: "Cost Optimization", icon: TrendingDown },
+  { id: "audit", title: "Packaging Audit", icon: Search },
+  { id: "sustainability", title: "Sustainability Strategy", icon: Shield },
+];
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleServiceClick = (serviceId: string) => {
+    navigate(`/services#${serviceId}`);
+    setMobileMenuOpen(false);
+  };
   return <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border/50">
       <nav className="container-narrow flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2 group">
@@ -38,9 +48,39 @@ export function Header() {
 
         {/* Desktop navigation */}
         <div className="hidden md:flex items-center gap-1">
-          {navigation.map(item => <Link key={item.name} to={item.href} className={cn("px-4 py-2 rounded-lg text-sm font-medium transition-colors", location.pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
+          <Link to="/" className={cn("px-4 py-2 rounded-lg text-sm font-medium transition-colors", location.pathname === "/" ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
+            Home
+          </Link>
+          
+          <DropdownMenu>
+            <DropdownMenuTrigger className={cn(
+              "px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 outline-none",
+              location.pathname === "/services" 
+                ? "text-primary bg-primary/10" 
+                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+            )}>
+              Services
+              <ChevronDown className="w-4 h-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56 bg-card border border-border shadow-lg z-50">
+              {services.map((service) => (
+                <DropdownMenuItem 
+                  key={service.id}
+                  onClick={() => handleServiceClick(service.id)}
+                  className="flex items-center gap-3 cursor-pointer"
+                >
+                  <service.icon className="w-4 h-4 text-primary" />
+                  {service.title}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {navigation.slice(1).map(item => (
+            <Link key={item.name} to={item.href} className={cn("px-4 py-2 rounded-lg text-sm font-medium transition-colors", location.pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
               {item.name}
-            </Link>)}
+            </Link>
+          ))}
         </div>
 
         <div className="hidden md:block">
@@ -56,11 +96,48 @@ export function Header() {
       </nav>
 
       {/* Mobile navigation */}
-      {mobileMenuOpen && <div className="md:hidden bg-card border-b border-border animate-fade-in">
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-card border-b border-border animate-fade-in">
           <div className="container-narrow py-4 space-y-2">
-            {navigation.map(item => <Link key={item.name} to={item.href} onClick={() => setMobileMenuOpen(false)} className={cn("block px-4 py-3 rounded-lg text-base font-medium transition-colors", location.pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
+            <Link to="/" onClick={() => setMobileMenuOpen(false)} className={cn("block px-4 py-3 rounded-lg text-base font-medium transition-colors", location.pathname === "/" ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
+              Home
+            </Link>
+            
+            {/* Mobile Services Dropdown */}
+            <div>
+              <button
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                className={cn(
+                  "w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-colors",
+                  location.pathname === "/services" 
+                    ? "text-primary bg-primary/10" 
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                )}
+              >
+                Services
+                <ChevronDown className={cn("w-4 h-4 transition-transform", mobileServicesOpen && "rotate-180")} />
+              </button>
+              {mobileServicesOpen && (
+                <div className="ml-4 mt-1 space-y-1">
+                  {services.map((service) => (
+                    <button
+                      key={service.id}
+                      onClick={() => handleServiceClick(service.id)}
+                      className="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                    >
+                      <service.icon className="w-4 h-4 text-primary" />
+                      {service.title}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {navigation.slice(1).map(item => (
+              <Link key={item.name} to={item.href} onClick={() => setMobileMenuOpen(false)} className={cn("block px-4 py-3 rounded-lg text-base font-medium transition-colors", location.pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
                 {item.name}
-              </Link>)}
+              </Link>
+            ))}
             <div className="pt-2">
               <Button asChild variant="hero" className="w-full">
                 <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
@@ -69,6 +146,7 @@ export function Header() {
               </Button>
             </div>
           </div>
-        </div>}
+        </div>
+      )}
     </header>;
 }
