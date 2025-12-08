@@ -1,23 +1,31 @@
+import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+
+// Eager load homepage for fastest initial render
 import Index from "./pages/Index";
-import Services from "./pages/Services";
-import ServiceDetail from "./pages/ServiceDetail";
-import CaseStudies from "./pages/CaseStudies";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import Auth from "./pages/Auth";
-import NotFound from "./pages/NotFound";
-import { AdminLayout } from "./components/admin/AdminLayout";
-import AdminDashboard from "./pages/admin/AdminDashboard";
-import AdminBlog from "./pages/admin/AdminBlog";
-import AdminContacts from "./pages/admin/AdminContacts";
-import AdminSEO from "./pages/admin/AdminSEO";
+
+// Lazy load all other pages
+const Services = lazy(() => import("./pages/Services"));
+const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
+const CaseStudies = lazy(() => import("./pages/CaseStudies"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const Auth = lazy(() => import("./pages/Auth"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+// Lazy load admin pages (largest bundle savings)
+const AdminLayout = lazy(() => import("./components/admin/AdminLayout").then(m => ({ default: m.AdminLayout })));
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
+const AdminBlog = lazy(() => import("./pages/admin/AdminBlog"));
+const AdminContacts = lazy(() => import("./pages/admin/AdminContacts"));
+const AdminSEO = lazy(() => import("./pages/admin/AdminSEO"));
 
 const queryClient = new QueryClient();
 
@@ -27,24 +35,26 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/:serviceId" element={<ServiceDetail />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="blog" element={<AdminBlog />} />
-            <Route path="contacts" element={<AdminContacts />} />
-            <Route path="seo" element={<AdminSEO />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/:serviceId" element={<ServiceDetail />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="blog" element={<AdminBlog />} />
+              <Route path="contacts" element={<AdminContacts />} />
+              <Route path="seo" element={<AdminSEO />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

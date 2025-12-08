@@ -4,6 +4,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
 
+/* Ensure font-display: swap is applied via the URL parameter above */
+/* This prevents FOIT (Flash of Invisible Text) during font loading */
+
 @layer base {
   :root {
     --background: 214 30% 96%;
