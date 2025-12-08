@@ -4,10 +4,16 @@ import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, CheckCircle, ImageIcon } from "lucide-react";
 import { getServiceById, services } from "@/data/services";
+import { usePageSEO } from "@/hooks/usePageSEO";
 
 const ServiceDetail = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
   const service = serviceId ? getServiceById(serviceId) : undefined;
+
+  const seo = usePageSEO(`/services/${serviceId}`, {
+    fallbackTitle: service?.title,
+    fallbackDescription: service?.shortDescription
+  });
 
   if (!service) {
     return <Navigate to="/services" replace />;
@@ -21,9 +27,11 @@ const ServiceDetail = () => {
   return (
     <Layout>
       <SEO
-        title={`${service.title} | Packaging Consultancy Services`}
-        description={service.shortDescription}
+        title={seo.title || service.title}
+        description={seo.description || service.shortDescription}
         canonical={`/services/${service.id}`}
+        ogImage={seo.ogImage}
+        noindex={seo.noindex}
       />
 
       {/* Hero Section */}
