@@ -7,14 +7,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { SEO } from "@/components/SEO";
+import { usePageSEO } from "@/hooks/usePageSEO";
 import { supabase } from "@/integrations/supabase/client";
 
 const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@packproconsult.co.uk",
-    href: "mailto:hello@packproconsult.co.uk",
+    value: "hello@circularsourcing.co.uk",
+    href: "mailto:hello@circularsourcing.co.uk",
   },
   {
     icon: Phone,
@@ -42,6 +43,11 @@ const Contact = () => {
     message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const seo = usePageSEO("/contact", {
+    fallbackTitle: "Get in Touch",
+    fallbackDescription: "Contact Circular Sourcing for expert packaging procurement consultancy. Get a free consultation today."
+  });
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -169,9 +175,11 @@ const Contact = () => {
   return (
     <Layout>
       <SEO 
-        title="Contact Us"
-        description="Get a free packaging procurement consultation. Contact PackProConsult to discuss your supply chain challenges and discover cost-saving opportunities."
+        title={seo.title}
+        description={seo.description}
         canonical="/contact"
+        ogImage={seo.ogImage}
+        noindex={seo.noindex}
       />
       {/* Hero */}
       <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">

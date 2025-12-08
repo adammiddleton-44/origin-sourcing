@@ -101,6 +101,42 @@ export type Database = {
         }
         Relationships: []
       }
+      page_seo: {
+        Row: {
+          canonical_url: string | null
+          created_at: string
+          id: string
+          meta_description: string | null
+          noindex: boolean
+          og_image: string | null
+          page_path: string
+          seo_title: string | null
+          updated_at: string
+        }
+        Insert: {
+          canonical_url?: string | null
+          created_at?: string
+          id?: string
+          meta_description?: string | null
+          noindex?: boolean
+          og_image?: string | null
+          page_path: string
+          seo_title?: string | null
+          updated_at?: string
+        }
+        Update: {
+          canonical_url?: string | null
+          created_at?: string
+          id?: string
+          meta_description?: string | null
+          noindex?: boolean
+          og_image?: string | null
+          page_path?: string
+          seo_title?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

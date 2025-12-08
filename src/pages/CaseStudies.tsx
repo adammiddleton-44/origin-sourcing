@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, TrendingDown, Clock, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
+import { usePageSEO } from "@/hooks/usePageSEO";
 
 const caseStudies = [
   {
@@ -17,7 +18,7 @@ const caseStudies = [
       { label: "Timeline", value: "6 months", icon: Clock },
       { label: "Suppliers Optimized", value: "12", icon: Building2 },
     ],
-    testimonial: "PackProConsult transformed our packaging procurement. The savings exceeded our expectations and the new supplier relationships are much stronger.",
+    testimonial: "Circular Sourcing transformed our packaging procurement. The savings exceeded our expectations and the new supplier relationships are much stronger.",
   },
   {
     id: "retail-chain",
@@ -50,12 +51,19 @@ const caseStudies = [
 ];
 
 const CaseStudies = () => {
+  const seo = usePageSEO("/case-studies", {
+    fallbackTitle: "Client Success Stories",
+    fallbackDescription: "Discover how Circular Sourcing has helped clients achieve significant cost savings and operational improvements."
+  });
+
   return (
     <Layout>
       <SEO 
-        title="Case Studies"
-        description="See real results from UK businesses. Discover how PackProConsult has delivered £310K+ in packaging cost savings through expert procurement consultancy."
+        title={seo.title}
+        description={seo.description}
         canonical="/case-studies"
+        ogImage={seo.ogImage}
+        noindex={seo.noindex}
       />
       {/* Hero */}
       <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">

@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SEO } from "@/components/SEO";
+import { usePageSEO } from "@/hooks/usePageSEO";
 
 export default function Blog() {
   const { data: blogPosts, isLoading, error } = useQuery({
@@ -22,12 +23,19 @@ export default function Blog() {
     }
   });
 
+  const seo = usePageSEO("/blog", {
+    fallbackTitle: "Packaging Industry Insights & News",
+    fallbackDescription: "Expert insights on packaging procurement, sustainability, EPR compliance, and supply chain optimization from Circular Sourcing."
+  });
+
   return (
     <Layout>
       <SEO 
-        title="Blog"
-        description="Expert insights on packaging procurement, EPR compliance, sustainability, and supply chain optimisation. Stay informed with PackProConsult's industry blog."
+        title={seo.title}
+        description={seo.description}
         canonical="/blog"
+        ogImage={seo.ogImage}
+        noindex={seo.noindex}
       />
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 bg-gradient-to-br from-section-primary via-background to-section-accent overflow-hidden">

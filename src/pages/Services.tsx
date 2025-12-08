@@ -3,15 +3,23 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
+import { usePageSEO } from "@/hooks/usePageSEO";
 import { services } from "@/data/services";
 
 const Services = () => {
+  const seo = usePageSEO("/services", {
+    fallbackTitle: "Packaging Procurement Services",
+    fallbackDescription: "Comprehensive packaging procurement services including EPR compliance, supply chain transformation, cost optimization, and sustainability strategy."
+  });
+
   return (
     <Layout>
       <SEO
-        title="Packaging Procurement Services"
-        description="Expert packaging procurement, EPR compliance, and supply chain transformation services. Reduce costs by 20-35% with PackProConsult's specialist consultancy."
+        title={seo.title}
+        description={seo.description}
         canonical="/services"
+        ogImage={seo.ogImage}
+        noindex={seo.noindex}
       />
       {/* Hero */}
       <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">

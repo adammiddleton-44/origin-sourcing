@@ -4,13 +4,22 @@ import { StatsSection } from "@/components/home/StatsSection";
 import { ServicesPreview } from "@/components/home/ServicesPreview";
 import { CTASection } from "@/components/home/CTASection";
 import { SEO } from "@/components/SEO";
+import { usePageSEO } from "@/hooks/usePageSEO";
 
 const Index = () => {
+  const seo = usePageSEO("/", {
+    fallbackTitle: "Expert Packaging Procurement Consultancy",
+    fallbackDescription: "Transform your packaging supply chain with expert procurement strategy. Achieve 20-35% cost savings with Circular Sourcing's specialist consulting services."
+  });
+
   return (
     <Layout>
       <SEO 
+        title={seo.title}
+        description={seo.description}
         canonical="/"
-        description="Transform your packaging supply chain with expert procurement strategy. Achieve 20-35% cost savings with PackProConsult's specialist consulting services in the UK."
+        ogImage={seo.ogImage}
+        noindex={seo.noindex}
       />
       <HeroSection />
       <StatsSection />
