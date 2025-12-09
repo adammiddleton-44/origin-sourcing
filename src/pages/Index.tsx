@@ -18,7 +18,7 @@ const Index = () => {
       <HeroSection />
       <StatsSection className="py-[30px]" />
       <ServicesPreview className="py-[30px]" />
-      <FounderSection />
+      <FounderSection className="py-[30px]" />
       <TestimonialsSection />
       <ClientLogos />
       <CTASection />
