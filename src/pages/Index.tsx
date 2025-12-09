@@ -5,28 +5,17 @@ import { ServicesPreview } from "@/components/home/ServicesPreview";
 import { CTASection } from "@/components/home/CTASection";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
-
 const Index = () => {
   const seo = usePageSEO("/", {
     fallbackTitle: "Expert Packaging Procurement Consultancy",
     fallbackDescription: "Transform your packaging supply chain with expert procurement strategy. Achieve 20-35% cost savings with Circular Sourcing's specialist consulting services."
   });
-
-  return (
-    <Layout>
-      <SEO 
-        title={seo.title}
-        description={seo.description}
-        canonical="/"
-        ogImage={seo.ogImage}
-        noindex={seo.noindex}
-      />
+  return <Layout>
+      <SEO title={seo.title} description={seo.description} canonical="/" ogImage={seo.ogImage} noindex={seo.noindex} />
       <HeroSection />
-      <StatsSection />
-      <ServicesPreview />
+      <StatsSection className="py-[20px]" />
+      <ServicesPreview className="py-[40px]" />
       <CTASection />
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Index;
