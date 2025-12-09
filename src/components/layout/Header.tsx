@@ -3,24 +3,47 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, RefreshCcw, ChevronDown, Package, Leaf, GitBranch, TrendingDown, Search, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Case Studies", href: "/case-studies" },
-  { name: "Blog", href: "/blog" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-];
-
-const services = [
-  { id: "procurement", title: "Packaging Procurement", icon: Package },
-  { id: "epr", title: "EPR Compliance", icon: Leaf },
-  { id: "supply-chain", title: "Supply Chain Transformation", icon: GitBranch },
-  { id: "cost", title: "Cost Optimization", icon: TrendingDown },
-  { id: "audit", title: "Packaging Audit", icon: Search },
-  { id: "sustainability", title: "Sustainability Strategy", icon: Shield },
-];
-
+const navigation = [{
+  name: "Home",
+  href: "/"
+}, {
+  name: "Case Studies",
+  href: "/case-studies"
+}, {
+  name: "Blog",
+  href: "/blog"
+}, {
+  name: "About",
+  href: "/about"
+}, {
+  name: "Contact",
+  href: "/contact"
+}];
+const services = [{
+  id: "procurement",
+  title: "Packaging Procurement",
+  icon: Package
+}, {
+  id: "epr",
+  title: "EPR Compliance",
+  icon: Leaf
+}, {
+  id: "supply-chain",
+  title: "Supply Chain Transformation",
+  icon: GitBranch
+}, {
+  id: "cost",
+  title: "Cost Optimization",
+  icon: TrendingDown
+}, {
+  id: "audit",
+  title: "Packaging Audit",
+  icon: Search
+}, {
+  id: "sustainability",
+  title: "Sustainability Strategy",
+  icon: Shield
+}];
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -28,13 +51,11 @@ export function Header() {
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
-
   const handleServiceClick = (serviceId: string) => {
     navigate(`/services/${serviceId}`);
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
   };
-
   const handleMouseEnter = () => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
@@ -42,15 +63,12 @@ export function Header() {
     }
     setServicesDropdownOpen(true);
   };
-
   const handleMouseLeave = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setServicesDropdownOpen(false);
     }, 150);
   };
-
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border/50">
+  return <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border/50">
       <nav className="container-narrow flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -63,182 +81,79 @@ export function Header() {
 
         {/* Desktop navigation */}
         <div className="hidden md:flex items-center gap-1">
-          <Link
-            to="/"
-            className={cn(
-              "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
-              location.pathname === "/"
-                ? "text-primary bg-primary/10"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted"
-            )}
-          >
+          <Link to="/" className={cn("px-4 py-2 rounded-lg text-sm font-medium transition-colors", location.pathname === "/" ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
             Home
           </Link>
 
           {/* Hover-based Services Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Link
-              to="/services"
-              className={cn(
-                "px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1",
-                location.pathname.startsWith("/services")
-                  ? "text-primary bg-primary/10"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
-              )}
-            >
+          <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <Link to="/services" className={cn("px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1", location.pathname.startsWith("/services") ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
               Services
-              <ChevronDown
-                className={cn(
-                  "w-4 h-4 transition-transform duration-200",
-                  servicesDropdownOpen && "rotate-180"
-                )}
-              />
+              <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", servicesDropdownOpen && "rotate-180")} />
             </Link>
 
             {/* Dropdown Content */}
-            {servicesDropdownOpen && (
-              <div className="absolute top-full left-0 pt-2 z-50">
+            {servicesDropdownOpen && <div className="absolute top-full left-0 pt-2 z-50">
                 <div className="w-64 bg-card border border-border rounded-lg shadow-lg overflow-hidden animate-fade-in">
                   <div className="py-2">
-                    {services.map((service) => (
-                      <button
-                        key={service.id}
-                        onClick={() => handleServiceClick(service.id)}
-                        className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer"
-                      >
+                    {services.map(service => <button key={service.id} onClick={() => handleServiceClick(service.id)} className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer">
                         <service.icon className="w-4 h-4 text-primary" />
                         {service.title}
-                      </button>
-                    ))}
+                      </button>)}
                   </div>
                   <div className="border-t border-border">
-                    <Link
-                      to="/services"
-                      onClick={() => setServicesDropdownOpen(false)}
-                      className="block px-4 py-2.5 text-sm text-primary hover:bg-muted transition-colors text-center font-medium"
-                    >
+                    <Link to="/services" onClick={() => setServicesDropdownOpen(false)} className="block px-4 py-2.5 text-sm text-primary hover:bg-muted transition-colors text-center font-medium">
                       View All Services
                     </Link>
                   </div>
                 </div>
-              </div>
-            )}
+              </div>}
           </div>
 
-          {navigation.slice(1).map((item) => (
-            <Link
-              key={item.name}
-              to={item.href}
-              className={cn(
-                "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
-                location.pathname === item.href
-                  ? "text-primary bg-primary/10"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
-              )}
-            >
+          {navigation.slice(1).map(item => <Link key={item.name} to={item.href} className={cn("px-4 py-2 rounded-lg text-sm font-medium transition-colors", location.pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
               {item.name}
-            </Link>
-          ))}
+            </Link>)}
         </div>
 
         <div className="hidden md:block">
           <Button asChild variant="hero" size="default">
-            <Link to="/contact">Get Started</Link>
+            <Link to="/contact">Let's Talk </Link>
           </Button>
         </div>
 
         {/* Mobile menu button */}
-        <button
-          type="button"
-          className="md:hidden p-2 rounded-lg hover:bg-muted"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? (
-            <X className="w-6 h-6 text-foreground" />
-          ) : (
-            <Menu className="w-6 h-6 text-foreground" />
-          )}
+        <button type="button" className="md:hidden p-2 rounded-lg hover:bg-muted" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          {mobileMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
         </button>
       </nav>
 
       {/* Mobile navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-card border-b border-border animate-fade-in">
+      {mobileMenuOpen && <div className="md:hidden bg-card border-b border-border animate-fade-in">
           <div className="container-narrow py-4 space-y-2">
-            <Link
-              to="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className={cn(
-                "block px-4 py-3 rounded-lg text-base font-medium transition-colors",
-                location.pathname === "/"
-                  ? "text-primary bg-primary/10"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
-              )}
-            >
+            <Link to="/" onClick={() => setMobileMenuOpen(false)} className={cn("block px-4 py-3 rounded-lg text-base font-medium transition-colors", location.pathname === "/" ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
               Home
             </Link>
 
             {/* Mobile Services Dropdown */}
             <div>
-              <button
-                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className={cn(
-                  "w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-colors",
-                  location.pathname.startsWith("/services")
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                )}
-              >
+              <button onClick={() => setMobileServicesOpen(!mobileServicesOpen)} className={cn("w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-colors", location.pathname.startsWith("/services") ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
                 Services
-                <ChevronDown
-                  className={cn(
-                    "w-4 h-4 transition-transform",
-                    mobileServicesOpen && "rotate-180"
-                  )}
-                />
+                <ChevronDown className={cn("w-4 h-4 transition-transform", mobileServicesOpen && "rotate-180")} />
               </button>
-              {mobileServicesOpen && (
-                <div className="ml-4 mt-1 space-y-1">
-                  {services.map((service) => (
-                    <button
-                      key={service.id}
-                      onClick={() => handleServiceClick(service.id)}
-                      className="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-                    >
+              {mobileServicesOpen && <div className="ml-4 mt-1 space-y-1">
+                  {services.map(service => <button key={service.id} onClick={() => handleServiceClick(service.id)} className="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
                       <service.icon className="w-4 h-4 text-primary" />
                       {service.title}
-                    </button>
-                  ))}
-                  <Link
-                    to="/services"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block px-4 py-2 rounded-lg text-sm font-medium text-primary hover:bg-muted transition-colors"
-                  >
+                    </button>)}
+                  <Link to="/services" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-2 rounded-lg text-sm font-medium text-primary hover:bg-muted transition-colors">
                     View All Services
                   </Link>
-                </div>
-              )}
+                </div>}
             </div>
 
-            {navigation.slice(1).map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={cn(
-                  "block px-4 py-3 rounded-lg text-base font-medium transition-colors",
-                  location.pathname === item.href
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                )}
-              >
+            {navigation.slice(1).map(item => <Link key={item.name} to={item.href} onClick={() => setMobileMenuOpen(false)} className={cn("block px-4 py-3 rounded-lg text-base font-medium transition-colors", location.pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
                 {item.name}
-              </Link>
-            ))}
+              </Link>)}
             <div className="pt-2">
               <Button asChild variant="hero" className="w-full">
                 <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
@@ -247,8 +162,6 @@ export function Header() {
               </Button>
             </div>
           </div>
-        </div>
-      )}
-    </header>
-  );
+        </div>}
+    </header>;
 }
