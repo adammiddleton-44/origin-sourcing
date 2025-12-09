@@ -19,7 +19,7 @@ const Index = () => {
       <StatsSection className="py-[30px]" />
       <ServicesPreview className="py-[30px]" />
       <FounderSection className="py-[30px]" />
-      <TestimonialsSection />
+      <TestimonialsSection className="py-[40px]" />
       <ClientLogos />
       <CTASection />
     </Layout>;
