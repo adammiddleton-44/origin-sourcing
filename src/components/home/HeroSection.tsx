@@ -39,7 +39,7 @@ export function HeroSection() {
         }}>
             <Button asChild variant="hero" size="xl">
               <Link to="/contact">
-                Get Started
+                Let's Talk
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
