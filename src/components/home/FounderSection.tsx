@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 export function FounderSection() {
   return (
     <section className="section-padding bg-background">
-      <div className="container-wide max-w-3xl">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with LinkedIn-style photo */}
         <div className="flex items-center gap-4 mb-6">
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-border overflow-hidden flex-shrink-0 flex items-center justify-center">
