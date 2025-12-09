@@ -2,6 +2,9 @@ import { Layout } from "@/components/layout/Layout";
 import { HeroSection } from "@/components/home/HeroSection";
 import { StatsSection } from "@/components/home/StatsSection";
 import { ServicesPreview } from "@/components/home/ServicesPreview";
+import { FounderSection } from "@/components/home/FounderSection";
+import { TestimonialsSection } from "@/components/home/TestimonialsSection";
+import { ClientLogos } from "@/components/home/ClientLogos";
 import { CTASection } from "@/components/home/CTASection";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
@@ -13,8 +16,11 @@ const Index = () => {
   return <Layout>
       <SEO title={seo.title} description={seo.description} canonical="/" ogImage={seo.ogImage} noindex={seo.noindex} />
       <HeroSection />
-      <StatsSection className="py-[20px]" />
-      <ServicesPreview className="py-[40px]" />
+      <StatsSection />
+      <ServicesPreview />
+      <FounderSection />
+      <TestimonialsSection />
+      <ClientLogos />
       <CTASection />
     </Layout>;
 };

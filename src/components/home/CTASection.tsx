@@ -28,7 +28,7 @@ export function CTASection() {
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">supply chain?</span>
           </h2>
           <p className="text-lg text-card/70 mb-8 max-w-2xl mx-auto">
-            Join dozens of UK businesses who have achieved significant cost savings and operational improvements with our expert procurement consultancy.
+            I'd love to understand your packaging challenges and show you how we can achieve real, measurable improvements together.
           </p>
 
           <div className="flex flex-wrap justify-center gap-6 mb-10">
@@ -46,7 +46,7 @@ export function CTASection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild variant="hero" size="xl">
               <Link to="/contact">
-                Get Started
+                Let's Talk
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
