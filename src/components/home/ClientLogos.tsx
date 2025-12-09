@@ -2,9 +2,6 @@ const placeholderLogos = [
   "Brand 1",
   "Brand 2",
   "Brand 3",
-  "Brand 4",
-  "Brand 5",
-  "Brand 6",
 ];
 
 export function ClientLogos() {
