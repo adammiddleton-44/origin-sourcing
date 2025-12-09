@@ -16,7 +16,7 @@ const Index = () => {
   return <Layout>
       <SEO title={seo.title} description={seo.description} canonical="/" ogImage={seo.ogImage} noindex={seo.noindex} />
       <HeroSection />
-      <StatsSection />
+      <StatsSection className="py-[30px]" />
       <ServicesPreview />
       <FounderSection />
       <TestimonialsSection />
