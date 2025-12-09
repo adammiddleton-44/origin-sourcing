@@ -32,9 +32,7 @@ export function HeroSection() {
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-up" style={{
           animationDelay: "0.2s"
-        }}>
-            Achieve 20-35% cost savings with expert procurement strategy. We help UK businesses optimize packaging spend, ensure compliance, and build resilient supply chains.
-          </p>
+        }}>We help UK businesses optimise packaging spend, ensure compliance, and build resilient supply chains. Achieve 20-35% cost savings with a direct procurement strategy whilst leveraging 3PL logstics</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{
           animationDelay: "0.3s"
