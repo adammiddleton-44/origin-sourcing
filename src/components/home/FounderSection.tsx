@@ -1,10 +1,8 @@
 import { Linkedin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
 export function FounderSection() {
-  return (
-    <section className="section-padding bg-background">
+  return <section className="section-padding bg-background">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with LinkedIn-style photo */}
         <div className="flex items-center gap-4 mb-6">
@@ -42,7 +40,7 @@ export function FounderSection() {
             <div className="text-sm text-muted-foreground">Years Experience</div>
           </div>
           <div className="bg-card p-4 rounded-xl border border-border">
-            <div className="text-2xl font-bold text-accent">£2M+</div>
+            <div className="text-2xl font-bold text-accent">Global Sourcing</div>
             <div className="text-sm text-muted-foreground">Client Savings</div>
           </div>
         </div>
@@ -55,17 +53,11 @@ export function FounderSection() {
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </Button>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-          >
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
             <Linkedin className="w-5 h-5" />
             <span className="font-medium">Connect on LinkedIn</span>
           </a>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
