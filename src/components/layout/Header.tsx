@@ -75,7 +75,7 @@ export function Header() {
             <RefreshCcw className="w-5 h-5 text-primary-foreground" />
           </div>
           <span className="font-heading font-bold text-xl text-foreground">
-            Circular<span className="text-primary"> Sourcing</span>
+            ​Middleton<span className="text-primary"> Direct</span>
           </span>
         </Link>
 
