@@ -20,8 +20,8 @@ const services = [{
   href: "/services#supply-chain",
   accentColor: "from-primary via-primary/80 to-accent"
 }];
-export function ServicesPreview() {
-  return <section className="section-padding bg-background">
+export function ServicesPreview({ className }: { className?: string }) {
+  return <section className={`section-padding bg-background ${className || ""}`}>
       <div className="container-narrow">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">

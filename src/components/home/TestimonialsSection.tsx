@@ -21,9 +21,9 @@ const testimonials = [
   },
 ];
 
-export function TestimonialsSection() {
+export function TestimonialsSection({ className }: { className?: string }) {
   return (
-    <section className="section-padding bg-muted/30">
+    <section className={`section-padding bg-muted/30 ${className || ""}`}>
       <div className="container-wide">
         <div className="text-center mb-12">
           <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">

@@ -1,8 +1,8 @@
 import { Linkedin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-export function FounderSection() {
-  return <section className="section-padding bg-background">
+export function FounderSection({ className }: { className?: string }) {
+  return <section className={`section-padding bg-background ${className || ""}`}>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with LinkedIn-style photo */}
         <div className="flex items-center gap-4 mb-6">
