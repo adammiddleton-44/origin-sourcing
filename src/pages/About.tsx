@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import { Target, Users, Award, ArrowRight } from "lucide-react";
+import { Target, Users, Award, ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 const values = [{
   icon: Target,
   title: "Results-Driven",
@@ -20,6 +22,46 @@ const values = [{
   description: "15+ years of packaging procurement experience across multiple industries gives us unmatched insight.",
   accentColor: "from-primary via-primary/80 to-accent"
 }];
+
+const ReadMoreSection = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+      <CollapsibleContent className="space-y-4">
+        <p>
+          These operators had done the hard part: they'd created winning concepts, built operational systems, trained teams, and proven they could replicate success. Yet when it came to purchasing power—the one area where scale should deliver massive advantage—they were stuck paying small-operator pricing.
+        </p>
+        
+        <p>
+          The merchant model serves an important purpose for businesses with 1-5 sites: consolidated ordering, flexible stock management, multi-site delivery. But beyond that threshold, the convenience premium becomes prohibitively expensive.
+        </p>
+        
+        <p>
+          I saw this pattern repeat dozens of times. Talented operators, squeezed by rising costs—NICs, wages, business rates—leaving significant savings on the table simply because they didn't know there was a better way. So I decided to show them.
+        </p>
+        
+        <p>
+          I left the merchant world to help multi-site food service businesses transition to direct manufacturer relationships with integrated 3PL logistics. The results speak for themselves: <strong className="text-foreground">28-34% cost reductions</strong>, improved working capital, better supply chain control.
+        </p>
+        
+        <p>
+          My first client saved <strong className="text-foreground">£340K annually</strong>. That's not just a number—it's funding for their next three locations, or breathing room during tough economic times, or finally the margins they deserved for building something successful.
+        </p>
+        
+        <p className="text-foreground font-medium">
+          If you've scaled beyond 5 locations, let's talk about getting you the pricing power you've earned.
+        </p>
+      </CollapsibleContent>
+      
+      <CollapsibleTrigger className="flex items-center gap-2 text-primary hover:text-primary/80 font-medium mt-4 transition-colors">
+        {isOpen ? "Read less" : "Read more"}
+        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+      </CollapsibleTrigger>
+    </Collapsible>
+  );
+};
+
 const About = () => {
   const seo = usePageSEO("/about", {
     fallbackTitle: "About Us - Our Mission & Values",
@@ -55,15 +97,18 @@ const About = () => {
               <h2 className="text-3xl font-heading font-bold text-foreground mb-6">
                 Our Mission
               </h2>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                For years, I worked as COO at one of the UK's leading packaging merchants serving the food-to-go industry. I had a front-row seat to how the merchant model works—and more importantly, where it breaks down.
-
-I watched successful restaurant groups scale from 5 to 10 to 20+ locations, celebrating each opening while unknowingly paying an increasing "scale tax" on every piece of packaging they purchased. The more they grew, the more margin they handed over to their supplier.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">These operators had done the hard part: they'd created winning concepts, built operational systems, trained teams, and proven they could replicate success. Yet when it came to purchasing power—the one area where scale should deliver massive advantage—they were stuck paying small-operator pricing. 
-
-The merchant model serves an important purpose for businesses with 1-5 sites: consolidated ordering, flexible stock management, multi-site delivery. But beyond that threshold, the convenience premium becomes prohibitively expensive. I saw this pattern repeat dozens of times. Talented operators, squeezed by rising costs—NICs, wages, business rates—leaving significant savings on the table simply because they didn't know there was a better way. So I decided to show them. I left the merchant world to help multi-site food service businesses transition to direct manufacturer relationships with integrated 3PL logistics. The results speak for themselves: 28-34% cost reductions, improved working capital, better supply chain control. My first client saved £340K annually. That's not just a number—it's funding for their next three locations, or breathing room during tough economic times, or finally the margins they deserved for building something successful. If you've scaled beyond 5 locations, let's talk about getting you the pricing power you've earned.
-            </p>
+              
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  For years, I worked as COO at one of the UK's leading packaging merchants serving the food-to-go industry. I had a front-row seat to how the merchant model works—and more importantly, where it breaks down.
+                </p>
+                
+                <p>
+                  I watched successful restaurant groups scale from 5 to 10 to 20+ locations, celebrating each opening while unknowingly paying an increasing "scale tax" on every piece of packaging they purchased. The more they grew, the more margin they handed over to their supplier.
+                </p>
+                
+                <ReadMoreSection />
+              </div>
             </div>
             <div className="animate-fade-up" style={{
             animationDelay: "0.2s"
