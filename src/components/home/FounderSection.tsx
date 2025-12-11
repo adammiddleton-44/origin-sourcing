@@ -45,7 +45,7 @@ I left the merchant world to help multi-site operators transition to direct manu
           </div>
           <div className="bg-card p-4 rounded-xl border border-border">
             <div className="text-2xl font-bold text-accent">Global Sourcing</div>
-            <div className="text-sm text-muted-foreground">Client Savings</div>
+            <div className="text-sm text-muted-foreground">Network of  Factories: UK, EU & ASIA</div>
           </div>
         </div>
 
