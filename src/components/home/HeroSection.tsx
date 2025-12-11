@@ -23,15 +23,21 @@ export function HeroSection() {
             Trusted by leading UK brands
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-6 animate-fade-up" style={{
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-4 animate-fade-up" style={{
           animationDelay: "0.1s"
         }}>
             Transform Your{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Packaging Supply Chain</span>
           </h1>
 
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-heading font-semibold text-primary mb-6 animate-fade-up" style={{
+          animationDelay: "0.15s"
+        }}>
+            Direct Sourcing Specialists
+          </h2>
+
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-up" style={{
-          animationDelay: "0.2s"
+          animationDelay: "0.25s"
         }}>We help UK businesses optimise packaging spend, ensure compliance, and build resilient supply chains. Achieve 20-35% cost savings with a direct procurement strategy whilst leveraging 3PL logstics</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{
