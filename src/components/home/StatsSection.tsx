@@ -1,4 +1,11 @@
-import { TrendingUp, PoundSterling, Award } from "lucide-react";
+import { TrendingUp, PoundSterling, Award, Users, Sparkles } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 const stats = [
   {
@@ -19,9 +26,25 @@ const stats = [
     label: "Years in Industry",
     description: "Deep packaging procurement expertise",
   },
+  {
+    icon: Sparkles,
+    value: "£340K",
+    label: "First Client Savings",
+    description: "Annual savings achieved in first engagement",
+  },
+  {
+    icon: Users,
+    value: "50+",
+    label: "Clients Served",
+    description: "Across hospitality and food service sectors",
+  },
 ];
 
 export function StatsSection({ className }: { className?: string }) {
+  const plugin = useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
+
   return (
     <section className={`section-padding bg-section-primary relative overflow-hidden ${className || ""}`}>
       {/* Subtle background accents */}
@@ -31,36 +54,45 @@ export function StatsSection({ className }: { className?: string }) {
       </div>
 
       <div className="container-narrow relative">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stats.map((stat, index) => (
-            <div
-              key={stat.label}
-              className="relative p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-elevated transition-all duration-300 group animate-fade-up overflow-hidden"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Card accent gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-accent/[0.02] opacity-0 group-hover:opacity-100 transition-opacity" />
-              
-              <div className="relative">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-6 group-hover:from-primary/25 group-hover:to-primary/10 transition-all">
-                  <stat.icon className="w-7 h-7 text-primary" />
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[plugin.current]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {stats.map((stat, index) => (
+              <CarouselItem key={stat.label} className="pl-4 basis-full md:basis-1/3">
+                <div
+                  className="relative p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-elevated transition-all duration-300 group overflow-hidden h-full"
+                >
+                  {/* Card accent gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-accent/[0.02] opacity-0 group-hover:opacity-100 transition-opacity" />
+                  
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-6 group-hover:from-primary/25 group-hover:to-primary/10 transition-all">
+                      <stat.icon className="w-7 h-7 text-primary" />
+                    </div>
+                    <div className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-2">
+                      {stat.value}
+                    </div>
+                    <div className="text-lg font-semibold text-foreground mb-1">
+                      {stat.label}
+                    </div>
+                    <p className="text-muted-foreground text-sm">
+                      {stat.description}
+                    </p>
+                  </div>
+                  
+                  {/* Accent line */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/50 to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <div className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-lg font-semibold text-foreground mb-1">
-                  {stat.label}
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  {stat.description}
-                </p>
-              </div>
-              
-              {/* Accent line */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/50 to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
-          ))}
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );
