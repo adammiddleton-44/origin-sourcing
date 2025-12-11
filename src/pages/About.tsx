@@ -60,9 +60,10 @@ const About = () => {
 
 I watched successful restaurant groups scale from 5 to 10 to 20+ locations, celebrating each opening while unknowingly paying an increasing "scale tax" on every piece of packaging they purchased. The more they grew, the more margin they handed over to their supplier.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Founded in 2009, Circular Sourcing has grown from a specialist consultancy into a trusted partner for businesses across food and beverage, retail, pharmaceutical, and industrial sectors. Our team brings together decades of experience in packaging procurement, supply chain management, and sustainability strategy.
-              </p>
+              <p className="text-muted-foreground leading-relaxed">These operators had done the hard part: they'd created winning concepts, built operational systems, trained teams, and proven they could replicate success. Yet when it came to purchasing power—the one area where scale should deliver massive advantage—they were stuck paying small-operator pricing. 
+
+The merchant model serves an important purpose for businesses with 1-5 sites: consolidated ordering, flexible stock management, multi-site delivery. But beyond that threshold, the convenience premium becomes prohibitively expensive. I saw this pattern repeat dozens of times. Talented operators, squeezed by rising costs—NICs, wages, business rates—leaving significant savings on the table simply because they didn't know there was a better way. So I decided to show them. I left the merchant world to help multi-site food service businesses transition to direct manufacturer relationships with integrated 3PL logistics. The results speak for themselves: 28-34% cost reductions, improved working capital, better supply chain control. My first client saved £340K annually. That's not just a number—it's funding for their next three locations, or breathing room during tough economic times, or finally the margins they deserved for building something successful. If you've scaled beyond 5 locations, let's talk about getting you the pricing power you've earned.
+            </p>
             </div>
             <div className="animate-fade-up" style={{
             animationDelay: "0.2s"
