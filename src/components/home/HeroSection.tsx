@@ -30,7 +30,7 @@ export function HeroSection() {
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Packaging Supply Chain</span>
           </h1>
 
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-heading font-semibold text-primary mb-6 animate-fade-up" style={{
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-heading font-semibold mb-6 animate-fade-up bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-gradient-shift bg-clip-text text-transparent" style={{
           animationDelay: "0.15s"
         }}>
             Direct Sourcing Specialists
