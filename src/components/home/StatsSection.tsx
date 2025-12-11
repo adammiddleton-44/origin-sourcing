@@ -21,9 +21,9 @@ const stats = [
   },
 ];
 
-export function StatsSection() {
+export function StatsSection({ className }: { className?: string }) {
   return (
-    <section className="section-padding bg-section-primary relative overflow-hidden">
+    <section className={`section-padding bg-section-primary relative overflow-hidden ${className || ""}`}>
       {/* Subtle background accents */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
