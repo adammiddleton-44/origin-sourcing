@@ -4,43 +4,29 @@ import { Target, Users, Award, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
-
-const values = [
-  {
-    icon: Target,
-    title: "Results-Driven",
-    description: "We measure our success by your savings. Every engagement is focused on delivering tangible, measurable results.",
-    accentColor: "from-primary to-primary/70",
-  },
-  {
-    icon: Users,
-    title: "Partnership Approach",
-    description: "We work alongside your team, transferring knowledge and building capabilities that last beyond our engagement.",
-    accentColor: "from-accent to-accent/70",
-  },
-  {
-    icon: Award,
-    title: "Industry Expertise",
-    description: "15+ years of packaging procurement experience across multiple industries gives us unmatched insight.",
-    accentColor: "from-primary via-primary/80 to-accent",
-  },
-];
-
+const values = [{
+  icon: Target,
+  title: "Results-Driven",
+  description: "We measure our success by your savings. Every engagement is focused on delivering tangible, measurable results.",
+  accentColor: "from-primary to-primary/70"
+}, {
+  icon: Users,
+  title: "Partnership Approach",
+  description: "We work alongside your team, transferring knowledge and building capabilities that last beyond our engagement.",
+  accentColor: "from-accent to-accent/70"
+}, {
+  icon: Award,
+  title: "Industry Expertise",
+  description: "15+ years of packaging procurement experience across multiple industries gives us unmatched insight.",
+  accentColor: "from-primary via-primary/80 to-accent"
+}];
 const About = () => {
   const seo = usePageSEO("/about", {
     fallbackTitle: "About Us - Our Mission & Values",
     fallbackDescription: "Learn about Circular Sourcing's mission to transform packaging procurement. 15+ years of expertise delivering sustainable, cost-effective solutions."
   });
-
-  return (
-    <Layout>
-      <SEO 
-        title={seo.title}
-        description={seo.description}
-        canonical="/about"
-        ogImage={seo.ogImage}
-        noindex={seo.noindex}
-      />
+  return <Layout>
+      <SEO title={seo.title} description={seo.description} canonical="/about" ogImage={seo.ogImage} noindex={seo.noindex} />
       {/* Hero */}
       <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">
         {/* Background decoration */}
@@ -70,13 +56,17 @@ const About = () => {
                 Our Mission
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                We exist to help UK businesses unlock the hidden value in their packaging supply chains. Through strategic procurement, expert negotiation, and deep industry knowledge, we deliver cost savings that directly impact your bottom line.
+                For years, I worked as COO at one of the UK's leading packaging merchants serving the food-to-go industry. I had a front-row seat to how the merchant model works—and more importantly, where it breaks down.
+
+I watched successful restaurant groups scale from 5 to 10 to 20+ locations, celebrating each opening while unknowingly paying an increasing "scale tax" on every piece of packaging they purchased. The more they grew, the more margin they handed over to their supplier.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Founded in 2009, Circular Sourcing has grown from a specialist consultancy into a trusted partner for businesses across food and beverage, retail, pharmaceutical, and industrial sectors. Our team brings together decades of experience in packaging procurement, supply chain management, and sustainability strategy.
               </p>
             </div>
-            <div className="animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            <div className="animate-fade-up" style={{
+            animationDelay: "0.2s"
+          }}>
               <div className="bg-card rounded-2xl border border-border/50 shadow-soft p-8 relative overflow-hidden">
                 {/* Card accent gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-accent/[0.03]" />
@@ -124,12 +114,9 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <div
-                key={value.title}
-                className="group relative p-8 rounded-2xl bg-card border border-border/50 shadow-soft text-center animate-fade-up overflow-hidden"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+            {values.map((value, index) => <div key={value.title} className="group relative p-8 rounded-2xl bg-card border border-border/50 shadow-soft text-center animate-fade-up overflow-hidden" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                 {/* Bottom accent bar */}
                 <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${value.accentColor} opacity-0 group-hover:opacity-100 transition-opacity`} />
                 
@@ -140,8 +127,7 @@ const About = () => {
                   {value.title}
                 </h3>
                 <p className="text-muted-foreground">{value.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -169,8 +155,6 @@ const About = () => {
           </Button>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default About;
