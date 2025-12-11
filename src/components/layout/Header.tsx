@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, ChevronDown, Package, Leaf, GitBranch, TrendingDown, Search, Shield, Compass } from "lucide-react";
+import { Menu, X, ChevronDown, Package, Leaf, GitBranch, TrendingDown, Search, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 const navigation = [{
@@ -70,13 +70,12 @@ export function Header() {
   };
   return <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border/50">
       <nav className="container-narrow flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center group-hover:scale-105 transition-transform">
-            <Compass className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <span className="font-heading font-bold text-xl text-foreground">
-            First Mile   <span className="text-primary"> Supply</span>
-          </span>
+        <Link to="/" className="flex items-center group">
+          <img 
+            src="/logo.png" 
+            alt="First Mile Supply" 
+            className="h-10 md:h-12 w-auto group-hover:scale-105 transition-transform"
+          />
         </Link>
 
         {/* Desktop navigation */}
