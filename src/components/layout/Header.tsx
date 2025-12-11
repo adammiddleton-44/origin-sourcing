@@ -75,7 +75,7 @@ export function Header() {
             <RefreshCcw className="w-5 h-5 text-primary-foreground" />
           </div>
           <span className="font-heading font-bold text-xl text-foreground">
-            ​Middleton<span className="text-primary"> Direct</span>
+            First Mile   <span className="text-primary"> Supply</span>
           </span>
         </Link>
 
