@@ -1,7 +1,11 @@
 import { Linkedin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-export function FounderSection({ className }: { className?: string }) {
+export function FounderSection({
+  className
+}: {
+  className?: string;
+}) {
   return <section className={`section-padding bg-background ${className || ""}`}>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with LinkedIn-style photo */}
@@ -22,9 +26,9 @@ export function FounderSection({ className }: { className?: string }) {
         {/* Bio */}
         <div className="space-y-4 text-muted-foreground text-lg leading-relaxed mb-8">
           <p>
-            With over 15 years in packaging procurement, I've seen firsthand how the right 
-            sourcing strategy can transform a business. That's why I founded Circular Sourcing — 
-            to bring enterprise-level procurement expertise to businesses of all sizes.
+            ​After years as COO at one of the UK's leading packaging merchants, I saw the same pattern repeat: successful restaurant groups scaling from 5 to 20+ locations, unknowingly paying an increasing 'scale tax' on every piece of packaging.
+
+
           </p>
           <p>
             I believe in building genuine partnerships, not just client relationships. When we 
