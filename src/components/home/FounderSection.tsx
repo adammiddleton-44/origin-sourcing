@@ -31,9 +31,9 @@ export function FounderSection({
 
           </p>
           <p>
-            I believe in building genuine partnerships, not just client relationships. When we 
-            work together, you get my direct involvement on every project — no handoffs, no 
-            junior consultants, just decades of experience focused on your success.
+            
+
+I left the merchant world to help multi-site operators transition to direct manufacturer relationships. The result? My first client saved £340K annually. If you've scaled beyond 5 locations, you deserve that same pricing power
           </p>
         </div>
 
