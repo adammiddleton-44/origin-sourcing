@@ -75,7 +75,7 @@ export function Header() {
             <Compass className="w-5 h-5 text-primary-foreground" />
           </div>
           <span className="font-heading font-bold text-xl text-foreground">
-            Elevate     <span className="text-primary"> Sourcing</span>
+            Elev8     <span className="text-primary"> Sourcing</span>
           </span>
         </Link>
 
