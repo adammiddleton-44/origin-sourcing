@@ -75,7 +75,7 @@ export function Header() {
             <Compass className="w-5 h-5 text-primary-foreground" />
           </div>
           <span className="font-heading font-bold text-xl text-foreground">
-            First Mile   <span className="text-primary"> Supply</span>
+            Re   <span className="text-primary"> Source</span>
           </span>
         </Link>
 
