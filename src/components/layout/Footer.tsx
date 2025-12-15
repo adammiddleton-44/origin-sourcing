@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { RefreshCcw, Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
+import { Compass, Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 
 const footerLinks = {
   services: [
@@ -24,10 +24,10 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <RefreshCcw className="w-5 h-5 text-primary-foreground" />
+                <Compass className="w-5 h-5 text-primary-foreground" />
               </div>
               <span className="font-heading font-bold text-xl">
-                Circular<span className="text-primary">Sourcing</span>
+                Origin<span className="text-primary">Sourcing</span>
               </span>
             </Link>
             <p className="text-card/70 text-sm leading-relaxed mb-6">
@@ -93,7 +93,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-card/70 text-sm">
                 <Mail className="w-4 h-4 text-primary" />
-                hello@circularsourcing.co.uk
+                info@originsourcing.co.uk
               </li>
               <li className="flex items-center gap-3 text-card/70 text-sm">
                 <Phone className="w-4 h-4 text-primary" />
@@ -109,7 +109,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-card/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-card/50 text-sm">
-            © {new Date().getFullYear()} Circular Sourcing. All rights reserved.
+            © {new Date().getFullYear()} Origin Sourcing. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <Link to="/privacy" className="text-card/50 hover:text-primary transition-colors">

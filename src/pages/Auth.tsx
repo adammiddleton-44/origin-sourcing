@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { RefreshCcw, Mail, Lock, ArrowLeft } from 'lucide-react';
+import { Compass, Mail, Lock, ArrowLeft, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const emailSchema = z.string().email('Please enter a valid email address');
@@ -117,7 +117,7 @@ const Auth = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <RefreshCcw className="h-8 w-8 animate-spin text-primary" />
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
   }
@@ -137,8 +137,8 @@ const Auth = () => {
           <CardHeader className="text-center pb-4">
             <div className="flex justify-center mb-4">
               <div className="flex items-center gap-2">
-                <RefreshCcw className="h-8 w-8 text-primary" />
-                <span className="text-xl font-bold text-foreground">Circular Sourcing</span>
+                <Compass className="h-8 w-8 text-primary" />
+                <span className="text-xl font-bold text-foreground">Origin Sourcing</span>
               </div>
             </div>
             <CardTitle className="text-2xl">
@@ -194,7 +194,7 @@ const Auth = () => {
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
-                  <RefreshCcw className="h-4 w-4 animate-spin mr-2" />
+                  <Loader2 className="h-4 w-4 animate-spin mr-2" />
                 ) : null}
                 {isLogin ? 'Sign In' : 'Sign Up'}
               </Button>

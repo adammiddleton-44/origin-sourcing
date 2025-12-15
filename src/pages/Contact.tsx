@@ -14,8 +14,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@circularsourcing.co.uk",
-    href: "mailto:hello@circularsourcing.co.uk",
+    value: "info@originsourcing.co.uk",
+    href: "mailto:info@originsourcing.co.uk",
   },
   {
     icon: Phone,
@@ -46,7 +46,7 @@ const Contact = () => {
 
   const seo = usePageSEO("/contact", {
     fallbackTitle: "Get in Touch",
-    fallbackDescription: "Contact Circular Sourcing for expert packaging procurement consultancy. Get a free consultation today."
+    fallbackDescription: "Contact Origin Sourcing for expert packaging procurement consultancy. Get a free consultation today."
   });
 
   const validateForm = () => {

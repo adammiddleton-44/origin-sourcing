@@ -18,7 +18,7 @@ const caseStudies = [
       { label: "Timeline", value: "6 months", icon: Clock },
       { label: "Suppliers Optimized", value: "12", icon: Building2 },
     ],
-    testimonial: "Circular Sourcing transformed our packaging procurement. The savings exceeded our expectations and the new supplier relationships are much stronger.",
+    testimonial: "Origin Sourcing transformed our packaging procurement. The savings exceeded our expectations and the new supplier relationships are much stronger.",
   },
   {
     id: "retail-chain",
@@ -53,7 +53,7 @@ const caseStudies = [
 const CaseStudies = () => {
   const seo = usePageSEO("/case-studies", {
     fallbackTitle: "Client Success Stories",
-    fallbackDescription: "Discover how Circular Sourcing has helped clients achieve significant cost savings and operational improvements."
+    fallbackDescription: "Discover how Origin Sourcing has helped clients achieve significant cost savings and operational improvements."
   });
 
   return (
