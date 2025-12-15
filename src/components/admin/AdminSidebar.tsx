@@ -15,7 +15,7 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar';
 import { Button } from '@/components/ui/button';
-import { RefreshCcw } from 'lucide-react';
+import { Compass } from 'lucide-react';
 
 const menuItems = [
   { title: 'Dashboard', url: '/admin', icon: Home },
@@ -40,8 +40,8 @@ export function AdminSidebar() {
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="flex items-center gap-2 px-2">
-            <RefreshCcw className="h-5 w-5 text-primary" />
-            {!collapsed && <span>Circular Sourcing</span>}
+            <Compass className="h-5 w-5 text-primary" />
+            {!collapsed && <span>Origin Sourcing</span>}
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>

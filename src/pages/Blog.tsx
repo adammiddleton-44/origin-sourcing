@@ -25,7 +25,7 @@ export default function Blog() {
 
   const seo = usePageSEO("/blog", {
     fallbackTitle: "Packaging Industry Insights & News",
-    fallbackDescription: "Expert insights on packaging procurement, sustainability, EPR compliance, and supply chain optimization from Circular Sourcing."
+    fallbackDescription: "Expert insights on packaging procurement, sustainability, EPR compliance, and supply chain optimization from Origin Sourcing."
   });
 
   return (

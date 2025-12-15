@@ -65,7 +65,7 @@ const ReadMoreSection = () => {
 const About = () => {
   const seo = usePageSEO("/about", {
     fallbackTitle: "About Us - Our Mission & Values",
-    fallbackDescription: "Learn about Circular Sourcing's mission to transform packaging procurement. 15+ years of expertise delivering sustainable, cost-effective solutions."
+    fallbackDescription: "Learn about Origin Sourcing's mission to transform packaging procurement. 15+ years of expertise delivering sustainable, cost-effective solutions."
   });
   return <Layout>
       <SEO title={seo.title} description={seo.description} canonical="/about" ogImage={seo.ogImage} noindex={seo.noindex} />
@@ -80,7 +80,7 @@ const About = () => {
         <div className="container-narrow relative">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-              About <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Circular Sourcing</span>
+              About <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Origin Sourcing</span>
             </h1>
             <p className="text-lg text-muted-foreground">
               Expert packaging procurement consultancy helping UK businesses optimize costs and transform their supply chains.

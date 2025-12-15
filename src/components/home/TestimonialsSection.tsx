@@ -2,7 +2,7 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Working with Circular Sourcing transformed our procurement process. The personal attention and industry expertise made all the difference.",
+    quote: "Working with Origin Sourcing transformed our procurement process. The personal attention and industry expertise made all the difference.",
     name: "Client Name",
     title: "Procurement Director",
     company: "Manufacturing Company",
