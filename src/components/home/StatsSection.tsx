@@ -34,7 +34,7 @@ const stats = [
   },
   {
     icon: Users,
-    value: "50+",
+    value: "",
     label: "Clients Served",
     description: "Across hospitality and food service sectors",
   },
