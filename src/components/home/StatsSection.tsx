@@ -1,4 +1,4 @@
-import { TrendingUp, PoundSterling, Award, Users, Sparkles } from "lucide-react";
+import { TrendingUp, PoundSterling, Award, Users, Globe } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -27,10 +27,10 @@ const stats = [
     description: "Deep packaging procurement expertise",
   },
   {
-    icon: Sparkles,
-    value: "£340K",
-    label: "First Client Savings",
-    description: "Annual savings achieved in first engagement",
+    icon: Globe,
+    value: "10+",
+    label: "Countries",
+    description: "Network of factories across UK, EU and Asia",
   },
   {
     icon: Users,
