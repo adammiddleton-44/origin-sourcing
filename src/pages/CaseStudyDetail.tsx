@@ -8,13 +8,31 @@ import { TrendingDown, Clock, Building2, Package, Leaf, Shield, LucideIcon } fro
 import { supabase } from "@/integrations/supabase/client";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
-
-type KeyMetric = { label: string; value: string; icon: string; context?: string };
-type TimelinePhase = { title: string; duration: string; description: string };
-type ClientQuote = { quote: string; author: string; role: string; company: string };
-type SolutionSection = { title: string; items: string[] };
-type StructuredSolution = { intro: string; sections: SolutionSection[] };
-
+type KeyMetric = {
+  label: string;
+  value: string;
+  icon: string;
+  context?: string;
+};
+type TimelinePhase = {
+  title: string;
+  duration: string;
+  description: string;
+};
+type ClientQuote = {
+  quote: string;
+  author: string;
+  role: string;
+  company: string;
+};
+type SolutionSection = {
+  title: string;
+  items: string[];
+};
+type StructuredSolution = {
+  intro: string;
+  sections: SolutionSection[];
+};
 type CaseStudy = {
   id: string;
   client: string;
@@ -33,42 +51,44 @@ type CaseStudy = {
   display_order: number;
   published: boolean;
 };
-
 const iconMap: Record<string, LucideIcon> = {
   TrendingDown,
   Clock,
   Building2,
   Package,
   Leaf,
-  Shield,
+  Shield
 };
-
 const CaseStudyDetail = () => {
-  const { caseId } = useParams<{ caseId: string }>();
-
-  const { data: caseStudies, isLoading } = useQuery({
+  const {
+    caseId
+  } = useParams<{
+    caseId: string;
+  }>();
+  const {
+    data: caseStudies,
+    isLoading
+  } = useQuery({
     queryKey: ['case-studies'],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('case_studies')
-        .select('*')
-        .eq('published', true)
-        .order('display_order', { ascending: true });
+      const {
+        data,
+        error
+      } = await supabase.from('case_studies').select('*').eq('published', true).order('display_order', {
+        ascending: true
+      });
       if (error) throw error;
       return data as unknown as CaseStudy[];
-    },
+    }
   });
-
   const caseStudy = caseStudies?.find(cs => cs.id === caseId);
   const seo = usePageSEO(`/case-studies/${caseId}`, {
     fallbackTitle: caseStudy ? `${caseStudy.client} Case Study` : "Case Study",
     fallbackDescription: caseStudy?.challenge || "Discover how Origin Sourcing helped transform packaging procurement."
   });
-
   if (isLoading) {
     return <LoadingSpinner />;
   }
-
   if (!caseStudy) {
     return <Navigate to="/case-studies" replace />;
   }
@@ -80,19 +100,11 @@ const CaseStudyDetail = () => {
 
   // Helper to get icon component
   const getIcon = (iconName: string) => iconMap[iconName] || TrendingDown;
-
-  return (
-    <Layout>
-      <SEO
-        title={seo.title}
-        description={seo.description}
-        canonical={`/case-studies/${caseId}`}
-        ogImage={seo.ogImage}
-        noindex={seo.noindex}
-      />
+  return <Layout>
+      <SEO title={seo.title} description={seo.description} canonical={`/case-studies/${caseId}`} ogImage={seo.ogImage} noindex={seo.noindex} />
 
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden py-[10px]">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
@@ -119,26 +131,20 @@ const CaseStudyDetail = () => {
               {/* Key Results Preview */}
               <div className="grid grid-cols-3 gap-4">
                 {caseStudy.key_metrics.slice(0, 3).map(metric => {
-                  const MetricIcon = getIcon(metric.icon);
-                  return (
-                    <div key={metric.label} className="text-center p-4 rounded-xl bg-card border border-border/50">
+                const MetricIcon = getIcon(metric.icon);
+                return <div key={metric.label} className="text-center p-4 rounded-xl bg-card border border-border/50">
                       <MetricIcon className="w-6 h-6 text-accent mx-auto mb-2" />
                       <div className="text-2xl font-heading font-bold text-foreground">
                         {metric.value}
                       </div>
                       <div className="text-xs text-muted-foreground">{metric.label}</div>
-                    </div>
-                  );
-                })}
+                    </div>;
+              })}
               </div>
             </div>
 
             <div className="relative">
-              <img
-                src={caseStudy.image || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=60'}
-                alt={caseStudy.client}
-                className="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-elevated"
-              />
+              <img src={caseStudy.image || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=60'} alt={caseStudy.client} className="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-elevated" />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent rounded-2xl" />
             </div>
           </div>
@@ -153,11 +159,9 @@ const CaseStudyDetail = () => {
               The <span className="text-primary">Challenge</span>
             </h2>
             <div className="space-y-4">
-              {caseStudy.full_challenge.map((paragraph, index) => (
-                <p key={index} className="text-muted-foreground leading-relaxed">
+              {caseStudy.full_challenge.map((paragraph, index) => <p key={index} className="text-muted-foreground leading-relaxed">
                   {paragraph}
-                </p>
-              ))}
+                </p>)}
             </div>
           </div>
         </div>
@@ -171,40 +175,30 @@ const CaseStudyDetail = () => {
               The <span className="text-accent">Solution</span>
             </h2>
 
-            {caseStudy.structured_solution ? (
-              <div className="space-y-8">
+            {caseStudy.structured_solution ? <div className="space-y-8">
                 <p className="text-muted-foreground leading-relaxed">
                   {caseStudy.structured_solution.intro}
                 </p>
 
-                {caseStudy.structured_solution.sections.map((section, index) => (
-                  <div key={index} className="space-y-4">
+                {caseStudy.structured_solution.sections.map((section, index) => <div key={index} className="space-y-4">
                     <h3 className="text-xl font-heading font-semibold text-foreground">
                       {section.title}
                     </h3>
                     <ul className="space-y-2">
-                      {section.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="flex gap-3">
+                      {section.items.map((item, itemIndex) => <li key={itemIndex} className="flex gap-3">
                           <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                           <span className="text-muted-foreground">{item}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
-                  </div>
-                ))}
-              </div>
-            ) : caseStudy.full_solution ? (
-              <div className="space-y-4">
-                {caseStudy.full_solution.map((paragraph, index) => (
-                  <div key={index} className="flex gap-4">
+                  </div>)}
+              </div> : caseStudy.full_solution ? <div className="space-y-4">
+                {caseStudy.full_solution.map((paragraph, index) => <div key={index} className="flex gap-4">
                     <CheckCircle className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
                     <p className="text-muted-foreground leading-relaxed">
                       {paragraph}
                     </p>
-                  </div>
-                ))}
-              </div>
-            ) : null}
+                  </div>)}
+              </div> : null}
           </div>
         </div>
       </section>
@@ -217,9 +211,8 @@ const CaseStudyDetail = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {caseStudy.key_metrics.map(metric => {
-              const MetricIcon = getIcon(metric.icon);
-              return (
-                <div key={metric.label} className="bg-card rounded-xl p-6 border border-border/50 shadow-soft hover:shadow-elevated transition-all text-center">
+            const MetricIcon = getIcon(metric.icon);
+            return <div key={metric.label} className="bg-card rounded-xl p-6 border border-border/50 shadow-soft hover:shadow-elevated transition-all text-center">
                   <MetricIcon className="w-10 h-10 text-accent mx-auto mb-4" />
                   <div className="text-3xl font-heading font-bold text-foreground mb-2">
                     {metric.value}
@@ -227,14 +220,11 @@ const CaseStudyDetail = () => {
                   <div className="text-sm font-medium text-foreground mb-1">
                     {metric.label}
                   </div>
-                  {metric.context && (
-                    <div className="text-xs text-muted-foreground">
+                  {metric.context && <div className="text-xs text-muted-foreground">
                       {metric.context}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+                    </div>}
+                </div>;
+          })}
           </div>
         </div>
       </section>
@@ -247,15 +237,12 @@ const CaseStudyDetail = () => {
           </h2>
           <div className="max-w-3xl mx-auto">
             <div className="space-y-6">
-              {caseStudy.timeline.map((phase, index) => (
-                <div key={phase.title} className="flex gap-6 items-start">
+              {caseStudy.timeline.map((phase, index) => <div key={phase.title} className="flex gap-6 items-start">
                   <div className="flex flex-col items-center">
                     <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
                       {index + 1}
                     </div>
-                    {index < caseStudy.timeline.length - 1 && (
-                      <div className="w-0.5 h-16 bg-border mt-2" />
-                    )}
+                    {index < caseStudy.timeline.length - 1 && <div className="w-0.5 h-16 bg-border mt-2" />}
                   </div>
                   <div className="flex-1 pb-6">
                     <div className="flex flex-wrap items-center gap-3 mb-2">
@@ -268,16 +255,14 @@ const CaseStudyDetail = () => {
                     </div>
                     <p className="text-muted-foreground">{phase.description}</p>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonial Section */}
-      {caseStudy.client_quote && (
-        <section className="section-padding bg-section-dark relative overflow-hidden">
+      {caseStudy.client_quote && <section className="section-padding bg-section-dark relative overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/20 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent/15 rounded-full blur-3xl" />
@@ -299,32 +284,27 @@ const CaseStudyDetail = () => {
               </div>
             </div>
           </div>
-        </section>
-      )}
+        </section>}
 
       {/* Navigation */}
       <section className="section-padding bg-background border-t border-border/50">
         <div className="container-narrow">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            {prevCase ? (
-              <Link to={`/case-studies/${prevCase.id}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group">
+            {prevCase ? <Link to={`/case-studies/${prevCase.id}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group">
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <span>
                   <span className="text-xs block">Previous</span>
                   <span className="font-medium">{prevCase.client}</span>
                 </span>
-              </Link>
-            ) : <div />}
+              </Link> : <div />}
 
-            {nextCase ? (
-              <Link to={`/case-studies/${nextCase.id}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group text-right">
+            {nextCase ? <Link to={`/case-studies/${nextCase.id}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group text-right">
                 <span>
                   <span className="text-xs block">Next</span>
                   <span className="font-medium">{nextCase.client}</span>
                 </span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            ) : <div />}
+              </Link> : <div />}
           </div>
         </div>
       </section>
@@ -346,8 +326,6 @@ const CaseStudyDetail = () => {
           </Button>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default CaseStudyDetail;
