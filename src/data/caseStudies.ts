@@ -78,7 +78,7 @@ export const caseStudies: CaseStudy[] = [
       { title: "Optimisation", duration: "Ongoing", description: "Performance monitoring and continuous improvement" },
     ],
     clientQuote: {
-      quote: "Origin Sourcing transformed our packaging procurement from a cost centre into a competitive advantage. The savings exceeded our expectations, but more importantly, we now have supplier relationships built on partnership rather than transaction. The risk reduction alone was worth the investment.",
+      quote: "I've always felt assured (on what was quite a high risk, high reward project for Sessions) by your thoroughness in how you approach it and your openness in setting out what you do know and you dont know and what is a risk. That's made it easy for me to make decisions and guide things despite my limited time commitment.",
       author: "Sarah Mitchell",
       role: "Head of Procurement",
       company: "Major FMCG Manufacturer"
