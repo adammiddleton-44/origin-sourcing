@@ -1,54 +1,10 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import { ArrowRight, TrendingDown, Clock, Building2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
-
-const caseStudies = [
-  {
-    id: "fmcg-manufacturer",
-    client: "Major FMCG Manufacturer",
-    industry: "Food & Beverage",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=60",
-    challenge: "A leading food manufacturer was experiencing rising packaging costs and struggling with supplier reliability issues that were impacting production schedules.",
-    solution: "We conducted a comprehensive packaging audit, renegotiated contracts with key suppliers, and implemented a dual-sourcing strategy to reduce risk and improve competitive positioning.",
-    results: [
-      { label: "Cost Savings", value: "£310K", icon: TrendingDown },
-      { label: "Timeline", value: "6 months", icon: Clock },
-      { label: "Suppliers Optimized", value: "12", icon: Building2 },
-    ],
-    testimonial: "Origin Sourcing transformed our packaging procurement. The savings exceeded our expectations and the new supplier relationships are much stronger.",
-  },
-  {
-    id: "retail-chain",
-    client: "National Retail Chain",
-    industry: "Retail",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=60",
-    challenge: "A major UK retailer needed to achieve EPR compliance while reducing their environmental impact and managing costs across 200+ product lines.",
-    solution: "We developed a comprehensive EPR compliance strategy, redesigned packaging specifications for key product lines, and established new supplier partnerships focused on sustainable materials.",
-    results: [
-      { label: "Cost Savings", value: "£185K", icon: TrendingDown },
-      { label: "Timeline", value: "9 months", icon: Clock },
-      { label: "SKUs Optimized", value: "200+", icon: Building2 },
-    ],
-    testimonial: "Their expertise in EPR compliance was invaluable. We're now fully compliant and have actually reduced costs in the process.",
-  },
-  {
-    id: "pharmaceutical",
-    client: "Pharmaceutical Company",
-    industry: "Healthcare",
-    image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&auto=format&fit=crop&q=60",
-    challenge: "A pharmaceutical company faced supply chain disruptions and needed to diversify their packaging supplier base while maintaining strict quality standards.",
-    solution: "We conducted supplier qualification assessments, developed a risk-weighted supplier portfolio, and implemented a robust quality management system for packaging procurement.",
-    results: [
-      { label: "Cost Savings", value: "£220K", icon: TrendingDown },
-      { label: "Timeline", value: "12 months", icon: Clock },
-      { label: "New Suppliers", value: "8", icon: Building2 },
-    ],
-    testimonial: "The supply chain transformation has made our business much more resilient. We can now respond quickly to demand changes without quality concerns.",
-  },
-];
+import { caseStudies } from "@/data/caseStudies";
 
 const CaseStudies = () => {
   const seo = usePageSEO("/case-studies", {
@@ -143,9 +99,18 @@ const CaseStudies = () => {
                     </div>
 
                     {/* Testimonial */}
-                    <blockquote className="border-l-4 border-gradient-to-b border-primary pl-4 italic text-muted-foreground text-sm bg-section-primary/50 p-3 rounded-r-lg">
+                    <blockquote className="border-l-4 border-gradient-to-b border-primary pl-4 italic text-muted-foreground text-sm bg-section-primary/50 p-3 rounded-r-lg mb-6">
                       "{study.testimonial}"
                     </blockquote>
+
+                    {/* Read More Link */}
+                    <Link
+                      to={`/case-studies/${study.id}`}
+                      className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
+                    >
+                      Read Full Case Study
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
               </div>
