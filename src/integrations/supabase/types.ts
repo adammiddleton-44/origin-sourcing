@@ -65,6 +65,69 @@ export type Database = {
         }
         Relationships: []
       }
+      case_studies: {
+        Row: {
+          challenge: string
+          client: string
+          client_quote: Json | null
+          created_at: string
+          display_order: number
+          full_challenge: Json
+          full_solution: Json | null
+          id: string
+          image: string | null
+          industry: string
+          key_metrics: Json
+          published: boolean
+          related_services: Json
+          solution: string
+          structured_solution: Json | null
+          testimonial: string | null
+          timeline: Json
+          updated_at: string
+        }
+        Insert: {
+          challenge: string
+          client: string
+          client_quote?: Json | null
+          created_at?: string
+          display_order?: number
+          full_challenge?: Json
+          full_solution?: Json | null
+          id: string
+          image?: string | null
+          industry: string
+          key_metrics?: Json
+          published?: boolean
+          related_services?: Json
+          solution: string
+          structured_solution?: Json | null
+          testimonial?: string | null
+          timeline?: Json
+          updated_at?: string
+        }
+        Update: {
+          challenge?: string
+          client?: string
+          client_quote?: Json | null
+          created_at?: string
+          display_order?: number
+          full_challenge?: Json
+          full_solution?: Json | null
+          id?: string
+          image?: string | null
+          industry?: string
+          key_metrics?: Json
+          published?: boolean
+          related_services?: Json
+          solution?: string
+          structured_solution?: Json | null
+          testimonial?: string | null
+          timeline?: Json
+          updated_at?: string
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           company: string
@@ -133,6 +196,51 @@ export type Database = {
           og_image?: string | null
           page_path?: string
           seo_title?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      services: {
+        Row: {
+          accent_color: string
+          benefits: Json
+          created_at: string
+          display_order: number
+          features: Json
+          full_description: string
+          icon_name: string
+          id: string
+          process: Json
+          short_description: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          accent_color?: string
+          benefits?: Json
+          created_at?: string
+          display_order?: number
+          features?: Json
+          full_description: string
+          icon_name?: string
+          id: string
+          process?: Json
+          short_description: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          accent_color?: string
+          benefits?: Json
+          created_at?: string
+          display_order?: number
+          features?: Json
+          full_description?: string
+          icon_name?: string
+          id?: string
+          process?: Json
+          short_description?: string
+          title?: string
           updated_at?: string
         }
         Relationships: []
