@@ -1,30 +1,82 @@
 import { useParams, Link, Navigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, CheckCircle, ImageIcon } from "lucide-react";
-import { getServiceById, services } from "@/data/services";
+import { Package, Leaf, GitBranch, TrendingDown, Search, Shield, LucideIcon } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import { usePageSEO } from "@/hooks/usePageSEO";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+
+type ServiceFeature = { title: string; description: string };
+type ProcessStep = { step: number; title: string; description: string };
+
+type Service = {
+  id: string;
+  title: string;
+  short_description: string;
+  full_description: string;
+  icon_name: string;
+  accent_color: string;
+  features: ServiceFeature[];
+  process: ProcessStep[];
+  benefits: string[];
+  display_order: number;
+};
+
+const iconMap: Record<string, LucideIcon> = {
+  Package,
+  Leaf,
+  GitBranch,
+  TrendingDown,
+  Search,
+  Shield,
+};
+
 const ServiceDetail = () => {
-  const {
-    serviceId
-  } = useParams<{
-    serviceId: string;
-  }>();
-  const service = serviceId ? getServiceById(serviceId) : undefined;
+  const { serviceId } = useParams<{ serviceId: string }>();
+
+  const { data: services, isLoading } = useQuery({
+    queryKey: ['services'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('services')
+        .select('*')
+        .order('display_order', { ascending: true });
+      if (error) throw error;
+      return data as unknown as Service[];
+    },
+  });
+
+  const service = services?.find(s => s.id === serviceId);
   const seo = usePageSEO(`/services/${serviceId}`, {
     fallbackTitle: service?.title,
-    fallbackDescription: service?.shortDescription
+    fallbackDescription: service?.short_description
   });
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   if (!service) {
     return <Navigate to="/services" replace />;
   }
-  const Icon = service.icon;
-  const currentIndex = services.findIndex(s => s.id === service.id);
-  const nextService = services[(currentIndex + 1) % services.length];
-  const prevService = services[(currentIndex - 1 + services.length) % services.length];
-  return <Layout>
-      <SEO title={seo.title || service.title} description={seo.description || service.shortDescription} canonical={`/services/${service.id}`} ogImage={seo.ogImage} noindex={seo.noindex} />
+
+  const Icon = iconMap[service.icon_name] || Package;
+  const currentIndex = services?.findIndex(s => s.id === service.id) || 0;
+  const nextService = services?.[(currentIndex + 1) % (services?.length || 1)];
+  const prevService = services?.[(currentIndex - 1 + (services?.length || 1)) % (services?.length || 1)];
+
+  return (
+    <Layout>
+      <SEO
+        title={seo.title || service.title}
+        description={seo.description || service.short_description}
+        canonical={`/services/${service.id}`}
+        ogImage={seo.ogImage}
+        noindex={seo.noindex}
+      />
 
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden py-[20px]">
@@ -43,14 +95,14 @@ const ServiceDetail = () => {
           </nav>
 
           <div className="max-w-3xl">
-            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.accentColor} flex items-center justify-center mb-6`}>
+            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.accent_color} flex items-center justify-center mb-6`}>
               <Icon className="w-8 h-8 text-primary-foreground" />
             </div>
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
               {service.title}
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              {service.fullDescription}
+              {service.full_description}
             </p>
             <Button asChild variant="hero" size="lg">
               <Link to="/contact">
@@ -82,12 +134,16 @@ const ServiceDetail = () => {
             Key <span className="gradient-text">Benefits</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {service.benefits.map((benefit, index) => <div key={benefit} className="p-6 rounded-xl bg-card border border-border/50 shadow-soft text-center animate-fade-up" style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
+            {service.benefits.map((benefit, index) => (
+              <div
+                key={benefit}
+                className="p-6 rounded-xl bg-card border border-border/50 shadow-soft text-center animate-fade-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <CheckCircle className="w-8 h-8 text-accent mx-auto mb-3" />
                 <p className="text-foreground font-medium">{benefit}</p>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -99,16 +155,20 @@ const ServiceDetail = () => {
             What's <span className="gradient-text">Included</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {service.features.map((feature, index) => <div key={feature.title} className="group p-6 rounded-xl bg-card border border-border/50 shadow-soft hover:shadow-elevated transition-all animate-fade-up" style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
+            {service.features.map((feature, index) => (
+              <div
+                key={feature.title}
+                className="group p-6 rounded-xl bg-card border border-border/50 shadow-soft hover:shadow-elevated transition-all animate-fade-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <h3 className="text-xl font-heading font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {feature.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -131,10 +191,12 @@ const ServiceDetail = () => {
                 With over 15 years of experience in the packaging industry, we bring deep expertise and a proven track record of delivering results. Our team combines strategic thinking with hands-on implementation to ensure real, measurable outcomes.
               </p>
               <ul className="space-y-3">
-                {service.benefits.map(benefit => <li key={benefit} className="flex items-center gap-3">
+                {service.benefits.map(benefit => (
+                  <li key={benefit} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
                     <span className="text-foreground">{benefit}</span>
-                  </li>)}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -148,9 +210,12 @@ const ServiceDetail = () => {
             Our <span className="gradient-text">Process</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {service.process.map((step, index) => <div key={step.step} className="relative p-6 rounded-xl bg-card border border-border/50 shadow-soft animate-fade-up" style={{
-            animationDelay: `${index * 0.15}s`
-          }}>
+            {service.process.map((step, index) => (
+              <div
+                key={step.step}
+                className="relative p-6 rounded-xl bg-card border border-border/50 shadow-soft animate-fade-up"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
                 <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-lg">
                   {step.step}
                 </div>
@@ -160,7 +225,8 @@ const ServiceDetail = () => {
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {step.description}
                 </p>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -190,26 +256,30 @@ const ServiceDetail = () => {
       </section>
 
       {/* Navigation to Other Services */}
-      <section className="section-padding bg-background border-t border-border">
-        <div className="container-narrow">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-            <Link to={`/services/${prevService.id}`} className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-              <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-              <div className="text-right sm:text-left">
-                <p className="text-xs uppercase tracking-wider">Previous Service</p>
-                <p className="font-medium text-foreground group-hover:text-primary transition-colors">{prevService.title}</p>
-              </div>
-            </Link>
-            <Link to={`/services/${nextService.id}`} className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-              <div className="text-left sm:text-right">
-                <p className="text-xs uppercase tracking-wider">Next Service</p>
-                <p className="font-medium text-foreground group-hover:text-primary transition-colors">{nextService.title}</p>
-              </div>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+      {prevService && nextService && (
+        <section className="section-padding bg-background border-t border-border">
+          <div className="container-narrow">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+              <Link to={`/services/${prevService.id}`} className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                <div className="text-right sm:text-left">
+                  <p className="text-xs uppercase tracking-wider">Previous Service</p>
+                  <p className="font-medium text-foreground group-hover:text-primary transition-colors">{prevService.title}</p>
+                </div>
+              </Link>
+              <Link to={`/services/${nextService.id}`} className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                <div className="text-left sm:text-right">
+                  <p className="text-xs uppercase tracking-wider">Next Service</p>
+                  <p className="font-medium text-foreground group-hover:text-primary transition-colors">{nextService.title}</p>
+                </div>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
-    </Layout>;
+        </section>
+      )}
+    </Layout>
+  );
 };
+
 export default ServiceDetail;
