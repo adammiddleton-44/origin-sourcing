@@ -80,8 +80,8 @@ export const caseStudies: CaseStudy[] = [
     clientQuote: {
       quote: "I've always felt assured (on what was quite a high risk, high reward project for Sessions) by your thoroughness in how you approach it and your openness in setting out what you do know and you dont know and what is a risk. That's made it easy for me to make decisions and guide things despite my limited time commitment.",
       author: "Jack Anderson",
-      role: "Head of Procurement",
-      company: "Major FMCG Manufacturer"
+      role: "Chief Operating Officer",
+      company: "Sessions"
     },
     relatedServices: ["procurement", "audit", "supply-chain"]
   },
