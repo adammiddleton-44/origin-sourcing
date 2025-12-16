@@ -1,4 +1,4 @@
-import { FileText, Mail, Search, Home, LogOut } from 'lucide-react';
+import { FileText, Mail, Search, Home, LogOut, Package, Briefcase } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
@@ -19,6 +19,8 @@ import { Compass } from 'lucide-react';
 
 const menuItems = [
   { title: 'Dashboard', url: '/admin', icon: Home },
+  { title: 'Services', url: '/admin/services', icon: Package },
+  { title: 'Case Studies', url: '/admin/case-studies', icon: Briefcase },
   { title: 'Blog Posts', url: '/admin/blog', icon: FileText },
   { title: 'Contact Submissions', url: '/admin/contacts', icon: Mail },
   { title: 'Page SEO', url: '/admin/seo', icon: Search },
