@@ -22,12 +22,9 @@ const values = [{
   description: "15+ years of packaging procurement experience across multiple industries gives us unmatched insight.",
   accentColor: "from-primary via-primary/80 to-accent"
 }];
-
 const ReadMoreSection = () => {
   const [isOpen, setIsOpen] = useState(false);
-  
-  return (
-    <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+  return <Collapsible open={isOpen} onOpenChange={setIsOpen}>
       <CollapsibleContent className="space-y-4">
         <p>
           These operators had done the hard part: they'd created winning concepts, built operational systems, trained teams, and proven they could replicate success. Yet when it came to purchasing power—the one area where scale should deliver massive advantage—they were stuck paying small-operator pricing.
@@ -58,10 +55,8 @@ const ReadMoreSection = () => {
         {isOpen ? "Read less" : "Read more"}
         <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
       </CollapsibleTrigger>
-    </Collapsible>
-  );
+    </Collapsible>;
 };
-
 const About = () => {
   const seo = usePageSEO("/about", {
     fallbackTitle: "About Us - Our Mission & Values",
@@ -70,7 +65,7 @@ const About = () => {
   return <Layout>
       <SEO title={seo.title} description={seo.description} canonical="/about" ogImage={seo.ogImage} noindex={seo.noindex} />
       {/* Hero */}
-      <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden py-[30px]">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -90,7 +85,7 @@ const About = () => {
       </section>
 
       {/* Mission & Story */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background py-[30px]">
         <div className="container-narrow">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-up">
