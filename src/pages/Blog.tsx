@@ -7,38 +7,32 @@ import { supabase } from "@/integrations/supabase/client";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
-
 export default function Blog() {
-  const { data: blogPosts, isLoading, error } = useQuery({
+  const {
+    data: blogPosts,
+    isLoading,
+    error
+  } = useQuery({
     queryKey: ['blog-posts'],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .eq('published', true)
-        .order('published_at', { ascending: false });
-      
+      const {
+        data,
+        error
+      } = await supabase.from('blog_posts').select('*').eq('published', true).order('published_at', {
+        ascending: false
+      });
       if (error) throw error;
       return data;
     }
   });
-
   const seo = usePageSEO("/blog", {
     fallbackTitle: "Packaging Industry Insights & News",
     fallbackDescription: "Expert insights on packaging procurement, sustainability, EPR compliance, and supply chain optimization from Origin Sourcing."
   });
-
-  return (
-    <Layout>
-      <SEO 
-        title={seo.title}
-        description={seo.description}
-        canonical="/blog"
-        ogImage={seo.ogImage}
-        noindex={seo.noindex}
-      />
+  return <Layout>
+      <SEO title={seo.title} description={seo.description} canonical="/blog" ogImage={seo.ogImage} noindex={seo.noindex} />
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 bg-gradient-to-br from-section-primary via-background to-section-accent overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-section-primary via-background to-section-accent overflow-hidden md:py-[30px]">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
@@ -64,50 +58,35 @@ export default function Blog() {
       </section>
 
       {/* Newsletter Subscribe Section */}
-      <BlogSubscribe />
+      <BlogSubscribe className="py-[10px]" />
 
       {/* Blog Posts Grid */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background py-[20px]">
         <div className="container-narrow">
-          {isLoading ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="space-y-4">
+          {isLoading ? <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[1, 2, 3, 4, 5, 6].map(i => <div key={i} className="space-y-4">
                   <Skeleton className="h-48 w-full rounded-xl" />
                   <Skeleton className="h-4 w-24" />
                   <Skeleton className="h-6 w-full" />
                   <Skeleton className="h-4 w-full" />
                   <Skeleton className="h-4 w-3/4" />
-                </div>
-              ))}
-            </div>
-          ) : error ? (
-            <div className="text-center py-12">
+                </div>)}
+            </div> : error ? <div className="text-center py-12">
               <p className="text-destructive">Failed to load blog posts. Please try again later.</p>
-            </div>
-          ) : blogPosts && blogPosts.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post) => (
-                <BlogCard 
-                  key={post.id} 
-                  post={{
-                    id: post.id,
-                    title: post.title,
-                    excerpt: post.excerpt,
-                    category: post.category,
-                    date: post.published_at || post.created_at,
-                    readTime: post.read_time,
-                    image: post.image_url || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800',
-                    slug: post.slug
-                  }} 
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
+            </div> : blogPosts && blogPosts.length > 0 ? <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {blogPosts.map(post => <BlogCard key={post.id} post={{
+            id: post.id,
+            title: post.title,
+            excerpt: post.excerpt,
+            category: post.category,
+            date: post.published_at || post.created_at,
+            readTime: post.read_time,
+            image: post.image_url || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800',
+            slug: post.slug
+          }} />)}
+            </div> : <div className="text-center py-12">
               <p className="text-muted-foreground">No blog posts available yet.</p>
-            </div>
-          )}
+            </div>}
         </div>
       </section>
 
@@ -130,15 +109,11 @@ export default function Blog() {
             Let's discuss how our expertise can help you achieve significant cost savings 
             and operational improvements.
           </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors group"
-          >
+          <a href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors group">
             Get a Free Consultation
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 }
