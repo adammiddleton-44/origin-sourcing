@@ -4,7 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
-export function BlogSubscribe() {
+interface BlogSubscribeProps {
+  className?: string;
+}
+
+export function BlogSubscribe({ className }: BlogSubscribeProps) {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -38,7 +42,7 @@ export function BlogSubscribe() {
   };
 
   return (
-    <section className="py-16 bg-section-primary">
+    <section className={`py-16 bg-section-primary ${className || ''}`}>
       <div className="container-narrow">
         <div className="max-w-2xl mx-auto text-center">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-6">
