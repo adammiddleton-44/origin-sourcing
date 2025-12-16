@@ -13,6 +13,16 @@ export interface CaseStudyPhase {
   description: string;
 }
 
+export interface SolutionSection {
+  title: string;
+  items: string[];
+}
+
+export interface StructuredSolution {
+  intro: string;
+  sections: SolutionSection[];
+}
+
 export interface CaseStudy {
   id: string;
   client: string;
@@ -26,6 +36,7 @@ export interface CaseStudy {
   // Extended content (for detail page)
   fullChallenge: string[];
   fullSolution: string[];
+  structuredSolution?: StructuredSolution;
   keyMetrics: CaseStudyResult[];
   timeline: CaseStudyPhase[];
   clientQuote: {
@@ -64,6 +75,36 @@ export const caseStudies: CaseStudy[] = [
       "Contract renegotiations secured fixed pricing for 24 months with volume-based rebates, protecting them from market volatility while delivering immediate savings.",
       "We implemented a supplier performance dashboard to track delivery reliability, quality metrics, and cost trends in real-time."
     ],
+    structuredSolution: {
+      intro: "Origin Sourcing partnered with Sessions on a comprehensive six-month transformation project to transition from merchant-dependent procurement to direct manufacturer relationships. The project encompassed:",
+      sections: [
+        {
+          title: "Strategic Analysis & Business Case Development",
+          items: [
+            "Comprehensive global supplier and price analysis",
+            "Detailed financial modeling to quantify the opportunity",
+            "Risk assessment and mitigation planning"
+          ]
+        },
+        {
+          title: "Supply Chain Establishment",
+          items: [
+            "Sourcing and vetting suppliers across Eastern Europe and China",
+            "Complex negotiation of pricing structures and payment terms",
+            "Management of import agents and logistics partnerships"
+          ]
+        },
+        {
+          title: "Operational Implementation",
+          items: [
+            "Direct ordering systems and stock management protocols",
+            "Quality assurance and design optimization (achieving visible superiority vs. competitors like KFC)",
+            "Onboarding of new 3PL logistics provider",
+            "Seamless transition from existing merchant supplier"
+          ]
+        }
+      ]
+    },
     keyMetrics: [
       { label: "Annual Cost Savings", value: "£310K", icon: TrendingDown, context: "22% reduction in total packaging spend" },
       { label: "Project Timeline", value: "6 months", icon: Clock, context: "From initial audit to full implementation" },
