@@ -5,24 +5,15 @@ import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { caseStudies } from "@/data/caseStudies";
-
 const CaseStudies = () => {
   const seo = usePageSEO("/case-studies", {
     fallbackTitle: "Client Success Stories",
     fallbackDescription: "Discover how Origin Sourcing has helped clients achieve significant cost savings and operational improvements."
   });
-
-  return (
-    <Layout>
-      <SEO 
-        title={seo.title}
-        description={seo.description}
-        canonical="/case-studies"
-        ogImage={seo.ogImage}
-        noindex={seo.noindex}
-      />
+  return <Layout>
+      <SEO title={seo.title} description={seo.description} canonical="/case-studies" ogImage={seo.ogImage} noindex={seo.noindex} />
       {/* Hero */}
-      <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden py-[30px]">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -42,22 +33,15 @@ const CaseStudies = () => {
       </section>
 
       {/* Case Studies */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background py-[20px]">
         <div className="container-narrow space-y-16">
-          {caseStudies.map((study, index) => (
-            <article
-              key={study.id}
-              className="group bg-card rounded-2xl border border-border/50 shadow-soft overflow-hidden animate-fade-up hover:shadow-elevated transition-all duration-300"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+          {caseStudies.map((study, index) => <article key={study.id} className="group bg-card rounded-2xl border border-border/50 shadow-soft overflow-hidden animate-fade-up hover:shadow-elevated transition-all duration-300" style={{
+          animationDelay: `${index * 0.1}s`
+        }}>
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 {/* Image */}
                 <div className="h-64 lg:h-auto relative overflow-hidden">
-                  <img
-                    src={study.image}
-                    alt={study.client}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  <img src={study.image} alt={study.client} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
                 </div>
 
@@ -87,15 +71,13 @@ const CaseStudies = () => {
 
                     {/* Results */}
                     <div className="grid grid-cols-3 gap-4 mb-6">
-                      {study.results.map((result) => (
-                        <div key={result.label} className="text-center p-3 rounded-lg bg-section-primary">
+                      {study.results.map(result => <div key={result.label} className="text-center p-3 rounded-lg bg-section-primary">
                           <result.icon className="w-5 h-5 text-accent mx-auto mb-1" />
                           <div className="text-xl font-heading font-bold text-foreground">
                             {result.value}
                           </div>
                           <div className="text-xs text-muted-foreground">{result.label}</div>
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
 
                     {/* Testimonial */}
@@ -104,18 +86,14 @@ const CaseStudies = () => {
                     </blockquote>
 
                     {/* Read More Link */}
-                    <Link
-                      to={`/case-studies/${study.id}`}
-                      className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
-                    >
+                    <Link to={`/case-studies/${study.id}`} className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
                       Read Full Case Study
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>
               </div>
-            </article>
-          ))}
+            </article>)}
         </div>
       </section>
 
@@ -143,8 +121,6 @@ const CaseStudies = () => {
           </Button>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default CaseStudies;
