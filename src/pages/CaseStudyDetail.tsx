@@ -93,16 +93,43 @@ const CaseStudyDetail = () => {
         <div className="container-narrow">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-heading font-bold text-foreground mb-8">
-              Our <span className="text-accent">Solution</span>
+              The <span className="text-accent">Solution</span>
             </h2>
-            <div className="space-y-4">
-              {caseStudy.fullSolution.map((paragraph, index) => <div key={index} className="flex gap-4">
-                  <CheckCircle className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                  <p className="text-muted-foreground leading-relaxed">
-                    {paragraph}
-                  </p>
-                </div>)}
-            </div>
+            
+            {caseStudy.structuredSolution ? (
+              <div className="space-y-8">
+                <p className="text-muted-foreground leading-relaxed">
+                  {caseStudy.structuredSolution.intro}
+                </p>
+                
+                {caseStudy.structuredSolution.sections.map((section, index) => (
+                  <div key={index} className="space-y-4">
+                    <h3 className="text-xl font-heading font-semibold text-foreground">
+                      {section.title}
+                    </h3>
+                    <ul className="space-y-2">
+                      {section.items.map((item, itemIndex) => (
+                        <li key={itemIndex} className="flex gap-3">
+                          <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                          <span className="text-muted-foreground">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {caseStudy.fullSolution.map((paragraph, index) => (
+                  <div key={index} className="flex gap-4">
+                    <CheckCircle className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                    <p className="text-muted-foreground leading-relaxed">
+                      {paragraph}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
