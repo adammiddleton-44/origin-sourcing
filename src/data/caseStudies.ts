@@ -64,7 +64,7 @@ export const caseStudies: CaseStudy[] = [
     testimonial: "Origin Sourcing transformed our packaging procurement. The savings exceeded our expectations and the new supplier relationships are much stronger.",
     fullChallenge: [
       "Sessions, a rapidly growing food delivery platform operating across multiple countries, faced a critical challenge common to multi-site food service operators: their packaging costs were escalating under a traditional merchant procurement model, limiting their ability to maintain competitive pricing for partners while protecting margins.",
-      "With ambitious growth plans and operations spanning the UK, Eastern Europe, and beyond, Sessions needed a strategic solution that would: eliminate ongoing packaging price inflation, build internal expertise and supply chain control, deliver immediate cost savings while positioning for long-term growth, and maintain high quality standards across all packaging materials."
+      "With ambitious growth plans and operations spanning the UK, Europe, and beyond, Sessions needed a strategic solution that would: eliminate ongoing packaging price inflation, build internal expertise and supply chain control, deliver immediate cost savings while positioning for long-term growth, and maintain high quality standards across all packaging materials."
     ],
     fullSolution: [
       "We began with a comprehensive packaging audit, analysing spend across all categories, mapping supplier relationships, and identifying opportunities for consolidation.",
