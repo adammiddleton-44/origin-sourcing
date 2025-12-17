@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, Package, Leaf, GitBranch, TrendingDown, Search, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-transparent.png";
 
 const navigation = [{
   name: "Home",
@@ -83,7 +83,7 @@ export function Header() {
           <img 
             src={logo} 
             alt="Origin Sourcing" 
-            className="h-20 w-auto group-hover:scale-105 transition-transform"
+            className="h-28 w-auto group-hover:scale-105 transition-transform"
           />
         </Link>
 
