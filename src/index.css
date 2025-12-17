@@ -18,8 +18,7 @@
     --popover: 210 20% 99%;
     --popover-foreground: 215 28% 17%;
 
-    --primary: 200 75% 22%;
-    --primary-light: 200 70% 35%;
+    --primary: 214 100% 40%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 214 40% 94%;
@@ -36,7 +35,7 @@
 
     --border: 214 32% 88%;
     --input: 214 32% 91%;
-    --ring: 200 75% 22%;
+    --ring: 214 100% 40%;
 
     --radius: 0.75rem;
 
@@ -62,8 +61,7 @@
     --card-foreground: 210 20% 98%;
     --popover: 215 30% 14%;
     --popover-foreground: 210 20% 98%;
-    --primary: 200 70% 45%;
-    --primary-light: 200 65% 55%;
+    --primary: 214 100% 55%;
     --primary-foreground: 0 0% 100%;
     --secondary: 215 30% 18%;
     --secondary-foreground: 210 20% 98%;
@@ -75,7 +73,7 @@
     --destructive-foreground: 210 20% 98%;
     --border: 215 30% 22%;
     --input: 215 28% 20%;
-    --ring: 200 70% 45%;
+    --ring: 214 100% 55%;
 
     /* Section background tokens */
     --section-primary: 215 40% 12%;
