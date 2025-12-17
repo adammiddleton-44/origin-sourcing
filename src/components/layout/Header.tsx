@@ -83,7 +83,7 @@ export function Header() {
           <img 
             src={logo} 
             alt="Origin Sourcing" 
-            className="h-16 w-auto group-hover:scale-105 transition-transform"
+            className="h-24 w-auto group-hover:scale-105 transition-transform"
           />
         </Link>
 
