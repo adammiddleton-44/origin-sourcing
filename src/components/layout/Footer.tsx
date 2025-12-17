@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/origin-logo.png";
 
 const footerLinks = {
   services: [
@@ -27,7 +27,7 @@ export function Footer() {
               <img 
                 src={logo} 
                 alt="Origin Sourcing" 
-                className="h-16 w-auto brightness-0 invert"
+                className="h-8 w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-card/70 text-sm leading-relaxed mb-6">
