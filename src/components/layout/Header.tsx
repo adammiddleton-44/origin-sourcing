@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, Package, Leaf, GitBranch, TrendingDown, Search, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Logo } from "@/components/Logo";
+import logo from "@/assets/logo.svg";
 
 const navigation = [{
   name: "Home",
@@ -79,7 +79,13 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border/50">
       <nav className="container-narrow flex items-center justify-between py-4">
-        <Logo size="xl" />
+        <Link to="/" className="group">
+          <img 
+            src={logo} 
+            alt="Origin Sourcing" 
+            className="h-16 w-auto group-hover:scale-105 transition-transform"
+          />
+        </Link>
 
         {/* Desktop navigation */}
         <div className="hidden md:flex items-center gap-1">
