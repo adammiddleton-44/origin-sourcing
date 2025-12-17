@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
-import logo from "@/assets/logo-transparent.png";
+import { Logo } from "@/components/Logo";
 
 const footerLinks = {
   services: [
@@ -23,13 +23,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-block mb-4">
-              <img 
-                src={logo} 
-                alt="Origin Sourcing" 
-                className="h-20 w-auto brightness-0 invert"
-              />
-            </Link>
+            <div className="mb-4">
+              <Logo size="lg" variant="inverted" />
+            </div>
             <p className="text-card/70 text-sm leading-relaxed mb-6">
               Expert packaging procurement consultancy helping UK businesses optimize costs and transform their supply chains.
             </p>
