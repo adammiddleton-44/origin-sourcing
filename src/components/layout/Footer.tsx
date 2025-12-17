@@ -27,7 +27,7 @@ export function Footer() {
               <img 
                 src={logo} 
                 alt="Origin Sourcing" 
-                className="h-10 w-auto brightness-0 invert"
+                className="h-12 w-auto scale-x-[1.5] origin-left brightness-0 invert"
               />
             </Link>
             <p className="text-card/70 text-sm leading-relaxed mb-6">
