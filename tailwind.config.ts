@@ -52,6 +52,10 @@ export default {
           accent: "hsl(var(--section-accent))",
           dark: "hsl(var(--section-dark))",
         },
+        logo: {
+          "dark-green": "hsl(var(--logo-dark-green))",
+          "light-green": "hsl(var(--logo-light-green))",
+        },
       },
       fontFamily: {
         heading: ['Poppins', 'sans-serif'],
