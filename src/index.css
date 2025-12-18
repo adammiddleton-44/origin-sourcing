@@ -44,10 +44,6 @@
     --section-accent: 160 50% 97%;
     --section-dark: 215 50% 15%;
 
-    /* Logo colors */
-    --logo-dark-green: 152 69% 31%;
-    --logo-light-green: 142 71% 45%;
-
     /* Custom tokens */
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -82,10 +78,6 @@
     /* Section background tokens */
     --section-primary: 215 40% 12%;
     --section-accent: 170 30% 12%;
-
-    /* Logo colors */
-    --logo-dark-green: 152 69% 40%;
-    --logo-light-green: 142 71% 55%;
     --section-dark: 215 50% 8%;
   }
 }
