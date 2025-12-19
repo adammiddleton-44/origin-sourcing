@@ -11,6 +11,7 @@ import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
+
 const contactInfo = [{
   icon: Mail,
   label: "Email",
