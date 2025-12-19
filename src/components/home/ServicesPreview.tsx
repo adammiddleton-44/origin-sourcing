@@ -5,19 +5,19 @@ const services = [{
   icon: Package,
   title: "Packaging Procurement",
   description: "Strategic sourcing and supplier management to reduce costs while maintaining quality and reliability across your packaging portfolio.",
-  href: "/services#procurement",
+  href: "/services/procurement",
   accentColor: "from-primary to-primary/70"
 }, {
   icon: Leaf,
   title: "EPR Compliance",
   description: "Navigate Extended Producer Responsibility regulations with confidence. We ensure your packaging meets all UK environmental obligations.",
-  href: "/services#epr",
+  href: "/services/epr",
   accentColor: "from-accent to-accent/70"
 }, {
   icon: GitBranch,
   title: "Supply Chain Transformation",
   description: "End-to-end optimization of your packaging supply chain, from supplier diversification to logistics efficiency improvements.",
-  href: "/services#supply-chain",
+  href: "/services/supply-chain",
   accentColor: "from-primary via-primary/80 to-accent"
 }];
 export function ServicesPreview({ className }: { className?: string }) {
