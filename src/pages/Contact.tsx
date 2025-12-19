@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { supabase } from "@/integrations/supabase/client";
+import { Link } from "react-router-dom";
 const contactInfo = [{
   icon: Mail,
   label: "Email",
@@ -36,7 +38,8 @@ const Contact = () => {
     email: "",
     phone: "",
     company: "",
-    message: ""
+    message: "",
+    consent: false
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const seo = usePageSEO("/contact", {
@@ -60,6 +63,9 @@ const Contact = () => {
       newErrors.message = "Message is required";
     } else if (formData.message.trim().length < 20) {
       newErrors.message = "Message must be at least 20 characters";
+    }
+    if (!formData.consent) {
+      newErrors.consent = "You must agree to the Privacy Policy to submit this form";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -165,7 +171,8 @@ const Contact = () => {
                 email: "",
                 phone: "",
                 company: "",
-                message: ""
+                message: "",
+                consent: false
               });
             }} variant="outline">
                 Send Another Message
@@ -288,6 +295,39 @@ const Contact = () => {
                         Minimum 20 characters
                       </p>
                     </div>
+
+                    {/* GDPR Consent Checkbox */}
+                    <div className="space-y-2">
+                      <div className="flex items-start gap-3">
+                        <Checkbox
+                          id="consent"
+                          checked={formData.consent}
+                          onCheckedChange={(checked) => {
+                            setFormData(prev => ({ ...prev, consent: checked === true }));
+                            if (errors.consent) {
+                              setErrors(prev => ({ ...prev, consent: "" }));
+                            }
+                          }}
+                          className={errors.consent ? "border-destructive" : ""}
+                        />
+                        <Label htmlFor="consent" className="text-sm leading-relaxed cursor-pointer">
+                          I agree to the{" "}
+                          <Link to="/privacy" className="text-primary hover:underline" target="_blank">
+                            Privacy Policy
+                          </Link>{" "}
+                          and consent to having my data processed to respond to my inquiry.{" "}
+                          <span className="text-destructive">*</span>
+                        </Label>
+                      </div>
+                      {errors.consent && <p className="text-destructive text-sm">{errors.consent}</p>}
+                    </div>
+
+                    {/* Data Processing Notice */}
+                    <p className="text-muted-foreground text-xs">
+                      Your data is securely stored and will only be used to respond to your inquiry. 
+                      Email notifications are sent via a secure third-party service. 
+                      You can request deletion of your data at any time by contacting us.
+                    </p>
 
                     <Button type="submit" variant="hero" size="lg" className="w-full md:w-auto" disabled={isSubmitting}>
                       {isSubmitting ? "Sending..." : <>
