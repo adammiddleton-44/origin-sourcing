@@ -3,6 +3,7 @@ import { Mail, CheckCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface BlogSubscribeProps {
   className?: string;
@@ -28,17 +29,34 @@ export function BlogSubscribe({ className }: BlogSubscribeProps) {
 
     setIsLoading(true);
     
-    // Simulate API call - replace with actual subscription logic
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    setIsLoading(false);
-    setIsSubscribed(true);
-    setEmail("");
-    
-    toast({
-      title: "Successfully subscribed!",
-      description: "You'll receive our latest insights directly in your inbox.",
-    });
+    try {
+      const { data, error } = await supabase.functions.invoke("subscribe-newsletter", {
+        body: { email },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      setIsSubscribed(true);
+      setEmail("");
+      
+      toast({
+        title: data.alreadySubscribed ? "Already subscribed!" : "Successfully subscribed!",
+        description: data.alreadySubscribed 
+          ? "You're already on our mailing list." 
+          : "You'll receive our latest insights directly in your inbox.",
+      });
+    } catch (error) {
+      console.error("Subscription error:", error);
+      toast({
+        title: "Subscription failed",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
