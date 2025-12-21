@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import logo from "@/assets/origin-logo.png";
 
 const footerLinks = {
@@ -35,20 +35,12 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/origin-sourcing-ltd/about/?viewAsMember=true"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-card/10 flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-card/10 flex items-center justify-center hover:bg-primary transition-colors"
-              >
-                <Twitter className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -97,7 +89,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-card/70 text-sm">
                 <Phone className="w-4 h-4 text-primary" />
-                +44 (0) 20 1234 5678
+                +44 (0) 7739 473671
               </li>
               <li className="flex items-start gap-3 text-card/70 text-sm">
                 <MapPin className="w-4 h-4 text-primary mt-0.5" />

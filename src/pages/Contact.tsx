@@ -20,8 +20,8 @@ const contactInfo = [{
 }, {
   icon: Phone,
   label: "Phone",
-  value: "+44 (0) 20 1234 5678",
-  href: "tel:+442012345678"
+  value: "+44 (0) 7739 473671",
+  href: "tel:+447739473671"
 }, {
   icon: MapPin,
   label: "Location",
