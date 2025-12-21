@@ -29,7 +29,7 @@ export function SEO({
   article,
   noindex = false,
 }: SEOProps) {
-  const fullTitle = title ? `${title} | Circular Sourcing` : DEFAULT_TITLE;
+  const fullTitle = title ? `${title} | Origin Sourcing` : DEFAULT_TITLE;
   const fullCanonical = canonical ? `${BASE_URL}${canonical}` : BASE_URL;
 
   return (
