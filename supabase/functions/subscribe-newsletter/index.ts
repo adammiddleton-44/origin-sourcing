@@ -34,7 +34,7 @@ serve(async (req) => {
 
     console.log(`Subscribing email: ${email}`);
 
-    const listId = "RKXdej";
+    const listId = "UFrbqH";
 
     // Step 1: Create or update profile and subscribe to list in one call
     const subscribeResponse = await fetch(
