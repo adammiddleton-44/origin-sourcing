@@ -212,7 +212,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* Our Process Section */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background py-[30px]">
         <div className="container-narrow">
           <h2 className="text-3xl font-heading font-bold text-foreground mb-12 text-center">
             Our <span className="gradient-text">Process</span>
