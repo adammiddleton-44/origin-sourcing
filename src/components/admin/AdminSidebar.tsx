@@ -46,7 +46,7 @@ export function AdminSidebar() {
             {collapsed ? (
               <Leaf className="h-5 w-5 text-accent" />
             ) : (
-              <Logo size="sm" asLink={false} />
+              <Logo size="xl" asLink={false} />
             )}
           </SidebarGroupLabel>
           <SidebarGroupContent>
