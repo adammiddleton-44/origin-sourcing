@@ -1,8 +1,9 @@
 import { useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, ChevronDown, Package, Leaf, GitBranch, TrendingDown, Search, Shield } from "lucide-react";
+import { Menu, X, ChevronDown, Package, Leaf, GitBranch, TrendingDown, Search, Shield, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/hooks/useAuth";
 import logo from "@/assets/origin-logo.png";
 
 const navigation = [{
@@ -55,6 +56,7 @@ export function Header() {
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const { isAdmin } = useAuth();
 
   const handleServiceClick = (serviceId: string) => {
     navigate(`/services/${serviceId}`);
@@ -127,6 +129,13 @@ export function Header() {
               {item.name}
             </Link>
           ))}
+
+          {isAdmin && (
+            <Link to="/admin" className={cn("px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1", location.pathname.startsWith("/admin") ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
+              <Settings className="w-4 h-4" />
+              Admin
+            </Link>
+          )}
         </div>
 
         <div className="hidden md:block">
@@ -175,6 +184,14 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
+
+            {isAdmin && (
+              <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className={cn("flex items-center gap-2 px-4 py-3 rounded-lg text-base font-medium transition-colors", location.pathname.startsWith("/admin") ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
+                <Settings className="w-4 h-4" />
+                Admin
+              </Link>
+            )}
+
             <div className="pt-2">
               <Button asChild variant="hero" className="w-full">
                 <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
