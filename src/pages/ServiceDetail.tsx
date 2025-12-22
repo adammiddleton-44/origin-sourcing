@@ -118,21 +118,17 @@ const ServiceDetail = () => {
       </section>
 
       {/* Overview Section - 50/50 Layout */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background py-[30px]">
         <div className="container-narrow">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Left Column - Text Content */}
             <div>
-              {service.overview_heading && (
-                <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
+              {service.overview_heading && <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
                   {service.overview_heading}
-                </h2>
-              )}
-              {service.overview_text && (
-                <p className="text-muted-foreground leading-relaxed">
+                </h2>}
+              {service.overview_text && <p className="text-muted-foreground leading-relaxed">
                   {service.overview_text}
-                </p>
-              )}
+                </p>}
             </div>
 
             {/* Right Column - Image */}
