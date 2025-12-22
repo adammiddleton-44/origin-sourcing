@@ -79,7 +79,7 @@ const ServiceDetail = () => {
         noindex={seo.noindex}
       />
 
-      {/* Hero Section - 50/50 Split Layout */}
+      {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -95,44 +95,22 @@ const ServiceDetail = () => {
             </Link>
           </nav>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Text Content */}
-            <div>
-              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.accent_color} flex items-center justify-center mb-6`}>
-                <Icon className="w-8 h-8 text-primary-foreground" />
-              </div>
-              <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-                {service.title}
-              </h1>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                {service.full_description}
-              </p>
-              <Button asChild variant="hero" size="lg">
-                <Link to="/contact">
-                  Get Started
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
+          <div className="max-w-3xl">
+            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.accent_color} flex items-center justify-center mb-6`}>
+              <Icon className="w-8 h-8 text-primary-foreground" />
             </div>
-
-            {/* Right Column - Hero Image */}
-            <div>
-              {service.id === 'procurement' ? (
-                <img 
-                  src={packagingProcurementImage} 
-                  alt={`${service.title} - professional packaging solutions`}
-                  className="aspect-[4/3] rounded-2xl object-cover w-full shadow-elevated"
-                />
-              ) : (
-                <div className="aspect-[4/3] rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
-                  <div className="text-center text-muted-foreground">
-                    <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                    <p className="text-lg font-medium">Hero Image</p>
-                    <p className="text-sm">Add an image for {service.title}</p>
-                  </div>
-                </div>
-              )}
-            </div>
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+              {service.title}
+            </h1>
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              {service.full_description}
+            </p>
+            <Button asChild variant="hero" size="lg">
+              <Link to="/contact">
+                Get Started
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
