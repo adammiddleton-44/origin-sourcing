@@ -20,15 +20,15 @@ const Auth = () => {
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { user, loading, signIn, signUp } = useAuth();
+  const { user, loading, isAdmin, signIn, signUp } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
 
   useEffect(() => {
     if (!loading && user) {
-      navigate('/');
+      navigate(isAdmin ? '/admin' : '/');
     }
-  }, [user, loading, navigate]);
+  }, [user, loading, isAdmin, navigate]);
 
   const validateForm = () => {
     const newErrors: { email?: string; password?: string } = {};
@@ -76,7 +76,7 @@ const Auth = () => {
             title: 'Welcome back!',
             description: 'You have successfully logged in.',
           });
-          navigate('/');
+          // Navigation handled by useEffect when isAdmin state updates
         }
       } else {
         const { error } = await signUp(email, password);
@@ -100,7 +100,7 @@ const Auth = () => {
             title: 'Account Created',
             description: 'Your account has been created successfully.',
           });
-          navigate('/');
+          // Navigation handled by useEffect when user state updates
         }
       }
     } catch (error) {

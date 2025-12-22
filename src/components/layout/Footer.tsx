@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 import logo from "@/assets/origin-logo.png";
 
 const footerLinks = {
@@ -17,6 +18,8 @@ const footerLinks = {
 };
 
 export function Footer() {
+  const { isAdmin } = useAuth();
+  
   return (
     <footer className="bg-foreground text-card">
       <div className="container-narrow section-padding">
@@ -110,6 +113,11 @@ export function Footer() {
             <Link to="/terms" className="text-card/50 hover:text-primary transition-colors">
               Terms of Service
             </Link>
+            {isAdmin && (
+              <Link to="/admin" className="text-card/50 hover:text-primary transition-colors">
+                Admin
+              </Link>
+            )}
           </div>
         </div>
       </div>
