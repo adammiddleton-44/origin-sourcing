@@ -42,11 +42,11 @@ export function AdminSidebar() {
     <Sidebar collapsible="icon">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="flex items-center gap-2 px-2 py-3">
+          <SidebarGroupLabel className="flex items-center gap-2 px-2 py-6 mb-4">
             {collapsed ? (
               <Leaf className="h-5 w-5 text-accent" />
             ) : (
-              <Logo size="xl" asLink={false} />
+              <Logo size="lg" asLink={false} />
             )}
           </SidebarGroupLabel>
           <SidebarGroupContent>

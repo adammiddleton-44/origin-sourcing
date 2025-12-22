@@ -136,11 +136,11 @@ const Auth = () => {
 
         <Card className="border-border/50 shadow-lg">
           <CardHeader className="text-center pb-4">
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center items-center mb-4 w-full">
               <img 
                 src={logo} 
                 alt="Origin Sourcing" 
-                className="h-20 w-auto"
+                className="h-20 w-auto mx-auto"
               />
             </div>
             <CardTitle className="text-2xl">
