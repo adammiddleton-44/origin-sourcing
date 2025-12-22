@@ -10,6 +10,7 @@ import { usePageSEO } from "@/hooks/usePageSEO";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import packagingProcurementImage from "@/assets/packaging-procurement.jpg";
 
+
 type ServiceFeature = { title: string; description: string };
 type ProcessStep = { step: number; title: string; description: string };
 
@@ -24,6 +25,9 @@ type Service = {
   process: ProcessStep[];
   benefits: string[];
   display_order: number;
+  overview_heading: string | null;
+  overview_text: string | null;
+  overview_image_url: string | null;
 };
 
 const iconMap: Record<string, LucideIcon> = {
@@ -116,43 +120,46 @@ const ServiceDetail = () => {
       </section>
 
       {/* Overview Section - 50/50 Layout */}
-      <section className="section-padding bg-background">
-        <div className="container-narrow">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left Column - Text Content */}
-            <div>
-              <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
-                Overview <span className="gradient-text">Heading</span>
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                This section is ready for your custom content. Add a compelling description about the service, key differentiators, or any introductory information you'd like visitors to see.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                You can provide the specific text and image you'd like to display here.
-              </p>
-            </div>
+      {(service.overview_heading || service.overview_text || service.overview_image_url) && (
+        <section className="section-padding bg-background">
+          <div className="container-narrow">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Left Column - Text Content */}
+              <div>
+                {service.overview_heading && (
+                  <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
+                    {service.overview_heading}
+                  </h2>
+                )}
+                {service.overview_text && (
+                  <p className="text-muted-foreground leading-relaxed">
+                    {service.overview_text}
+                  </p>
+                )}
+              </div>
 
-            {/* Right Column - Image */}
-            <div>
-              {service.id === 'procurement' ? (
-                <img 
-                  src={packagingProcurementImage} 
-                  alt={`${service.title} overview`}
-                  className="aspect-square rounded-2xl object-cover w-full shadow-elevated"
-                />
-              ) : (
-                <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
-                  <div className="text-center text-muted-foreground">
-                    <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                    <p className="text-lg font-medium">Service Image</p>
-                    <p className="text-sm">Add an image for {service.title}</p>
+              {/* Right Column - Image */}
+              <div>
+                {service.overview_image_url ? (
+                  <img 
+                    src={service.overview_image_url} 
+                    alt={`${service.title} overview`}
+                    className="aspect-square rounded-2xl object-cover w-full shadow-elevated"
+                  />
+                ) : (
+                  <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
+                    <div className="text-center text-muted-foreground">
+                      <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-50" />
+                      <p className="text-lg font-medium">Service Image</p>
+                      <p className="text-sm">Add an image for {service.title}</p>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Benefits Section */}
       <section className="section-padding bg-section-primary">
