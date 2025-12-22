@@ -120,7 +120,7 @@ const ServiceDetail = () => {
             </div>
             
             {service.id === 'purchasing' && (
-              <div className="hidden lg:block">
+              <div className="block">
                 <img 
                   src={packagingPurchasingHero} 
                   alt={`${service.title} - warehouse and logistics`}
