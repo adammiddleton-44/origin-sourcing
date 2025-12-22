@@ -336,9 +336,9 @@ const Contact = () => {
                           setFormData(prev => ({ ...prev, marketingConsent: checked === true }));
                         }}
                       />
-                      <Label htmlFor="marketingConsent" className="text-sm leading-relaxed cursor-pointer text-muted-foreground">
-                        I would like to receive marketing communications, industry insights, and updates from Origin Packaging. (optional)
-                      </Label>
+                <Label htmlFor="marketingConsent" className="text-sm leading-relaxed cursor-pointer">
+                  I would like to receive marketing communications, industry insights, and updates from Origin Sourcing.
+                </Label>
                     </div>
 
                     {/* Data Processing Notice */}
