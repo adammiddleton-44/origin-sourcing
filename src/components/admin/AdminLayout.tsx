@@ -1,13 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
+import { useMFA } from '@/hooks/useMFA';
 import { RefreshCcw } from 'lucide-react';
 import { AdminSidebar } from './AdminSidebar';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 
+const AdminMFAVerify = lazy(() => import('@/pages/admin/AdminMFAVerify'));
+
 export const AdminLayout = () => {
   const { user, loading, isAdmin } = useAuth();
+  const { loading: mfaLoading, hasVerifiedFactor, needsMFAVerification, refetch } = useMFA();
   const navigate = useNavigate();
+  const [mfaVerified, setMfaVerified] = useState(false);
 
   useEffect(() => {
     if (!loading && !user) {
@@ -17,7 +22,12 @@ export const AdminLayout = () => {
     }
   }, [user, loading, isAdmin, navigate]);
 
-  if (loading) {
+  const handleMFAVerified = () => {
+    setMfaVerified(true);
+    refetch();
+  };
+
+  if (loading || mfaLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <RefreshCcw className="h-8 w-8 animate-spin text-primary" />
@@ -27,6 +37,19 @@ export const AdminLayout = () => {
 
   if (!user || !isAdmin) {
     return null;
+  }
+
+  // If user has MFA enabled but hasn't verified this session, show verification screen
+  if (hasVerifiedFactor && needsMFAVerification && !mfaVerified) {
+    return (
+      <Suspense fallback={
+        <div className="min-h-screen flex items-center justify-center bg-background">
+          <RefreshCcw className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      }>
+        <AdminMFAVerify onVerified={handleMFAVerified} />
+      </Suspense>
+    );
   }
 
   return (
