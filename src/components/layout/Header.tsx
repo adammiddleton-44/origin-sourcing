@@ -79,11 +79,11 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border/50">
       <nav className="container-narrow flex items-center justify-between py-4">
-        <Link to="/" className="group">
+        <Link to="/" className="group relative z-0">
           <img 
             src={logo} 
             alt="Origin Sourcing" 
-            className="h-14 w-auto scale-150 origin-left group-hover:scale-[1.55] transition-transform"
+            className="h-10 sm:h-12 md:h-14 w-auto md:scale-150 origin-left md:group-hover:scale-[1.55] transition-transform"
           />
         </Link>
 
@@ -138,9 +138,10 @@ export function Header() {
         {/* Mobile menu button */}
         <button 
           type="button" 
-          className="md:hidden p-3 -m-1 rounded-lg hover:bg-muted touch-manipulation"
+          className="md:hidden relative z-20 p-3 -m-1 rounded-lg hover:bg-muted touch-manipulation"
           onClick={(e) => {
             e.stopPropagation();
+            console.log("menu tap");
             setMobileMenuOpen(!mobileMenuOpen);
           }}
         >
