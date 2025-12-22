@@ -1,4 +1,4 @@
-import { FileText, Mail, Search, Home, LogOut, Package, Briefcase, Shield } from 'lucide-react';
+import { FileText, Mail, Search, Home, LogOut, Package, Briefcase, Shield, Leaf } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
@@ -15,7 +15,7 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar';
 import { Button } from '@/components/ui/button';
-import { Compass } from 'lucide-react';
+import { Logo } from '@/components/Logo';
 
 const menuItems = [
   { title: 'Dashboard', url: '/admin', icon: Home },
@@ -42,9 +42,12 @@ export function AdminSidebar() {
     <Sidebar collapsible="icon">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="flex items-center gap-2 px-2">
-            <Compass className="h-5 w-5 text-primary" />
-            {!collapsed && <span>Origin Sourcing</span>}
+          <SidebarGroupLabel className="flex items-center gap-2 px-2 py-3">
+            {collapsed ? (
+              <Leaf className="h-5 w-5 text-accent" />
+            ) : (
+              <Logo size="sm" asLink={false} />
+            )}
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
