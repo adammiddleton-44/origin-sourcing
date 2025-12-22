@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, Lock, ArrowLeft, Loader2 } from 'lucide-react';
-import logoTransparent from '@/assets/logo-transparent.png';
+import logo from '@/assets/origin-logo.png';
 import { Link } from 'react-router-dom';
 
 const emailSchema = z.string().email('Please enter a valid email address');
@@ -138,9 +138,9 @@ const Auth = () => {
           <CardHeader className="text-center pb-4">
             <div className="flex justify-center mb-4">
               <img 
-                src={logoTransparent} 
+                src={logo} 
                 alt="Origin Sourcing" 
-                className="h-[200px] w-auto"
+                className="h-20 w-auto"
               />
             </div>
             <CardTitle className="text-2xl">
