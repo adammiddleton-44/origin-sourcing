@@ -25,9 +25,9 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    id: "procurement",
+    id: "purchasing",
     icon: Package,
-    title: "Packaging Procurement",
+    title: "Packaging Purchasing",
     shortDescription: "Strategic sourcing and supplier management to reduce costs while maintaining quality and reliability across your packaging portfolio.",
     fullDescription: "Our packaging procurement service takes a strategic approach to sourcing and supplier management. We leverage our extensive industry network and market knowledge to identify the best suppliers, negotiate favorable terms, and establish robust supply agreements that deliver sustained value.",
     features: [

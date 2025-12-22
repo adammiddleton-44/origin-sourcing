@@ -23,8 +23,8 @@ const navigation = [{
 }];
 
 const services = [{
-  id: "procurement",
-  title: "Packaging Procurement",
+  id: "purchasing",
+  title: "Packaging Purchasing",
   icon: Package
 }, {
   id: "epr",
