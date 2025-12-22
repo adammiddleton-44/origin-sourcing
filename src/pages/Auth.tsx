@@ -140,7 +140,7 @@ const Auth = () => {
               <img 
                 src={logoTransparent} 
                 alt="Origin Sourcing" 
-                className="h-12 w-auto"
+                className="h-[200px] w-auto"
               />
             </div>
             <CardTitle className="text-2xl">
