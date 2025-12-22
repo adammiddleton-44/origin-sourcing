@@ -9,25 +9,28 @@ import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 const AdminMFAVerify = lazy(() => import('@/pages/admin/AdminMFAVerify'));
 
 export const AdminLayout = () => {
-  const { user, loading, isAdmin } = useAuth();
+  const { user, loading, isAdmin, isAdminLoading } = useAuth();
   const { loading: mfaLoading, hasVerifiedFactor, needsMFAVerification, refetch } = useMFA();
   const navigate = useNavigate();
   const [mfaVerified, setMfaVerified] = useState(false);
 
   useEffect(() => {
-    if (!loading && !user) {
-      navigate('/auth');
-    } else if (!loading && user && !isAdmin) {
-      navigate('/');
+    // Wait for both auth and admin check to complete before redirecting
+    if (!loading && !isAdminLoading) {
+      if (!user) {
+        navigate('/auth');
+      } else if (!isAdmin) {
+        navigate('/');
+      }
     }
-  }, [user, loading, isAdmin, navigate]);
+  }, [user, loading, isAdmin, isAdminLoading, navigate]);
 
   const handleMFAVerified = () => {
     setMfaVerified(true);
     refetch();
   };
 
-  if (loading || mfaLoading) {
+  if (loading || isAdminLoading || mfaLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <RefreshCcw className="h-8 w-8 animate-spin text-primary" />
