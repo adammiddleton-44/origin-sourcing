@@ -9,11 +9,15 @@ import { supabase } from "@/integrations/supabase/client";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import packagingProcurementImage from "@/assets/packaging-procurement.jpg";
-
-
-type ServiceFeature = { title: string; description: string };
-type ProcessStep = { step: number; title: string; description: string };
-
+type ServiceFeature = {
+  title: string;
+  description: string;
+};
+type ProcessStep = {
+  step: number;
+  title: string;
+  description: string;
+};
 type Service = {
   id: string;
   title: string;
@@ -29,62 +33,56 @@ type Service = {
   overview_text: string | null;
   overview_image_url: string | null;
 };
-
 const iconMap: Record<string, LucideIcon> = {
   Package,
   Leaf,
   GitBranch,
   TrendingDown,
   Search,
-  Shield,
+  Shield
 };
-
 const ServiceDetail = () => {
-  const { serviceId } = useParams<{ serviceId: string }>();
-
-  const { data: services, isLoading } = useQuery({
+  const {
+    serviceId
+  } = useParams<{
+    serviceId: string;
+  }>();
+  const {
+    data: services,
+    isLoading
+  } = useQuery({
     queryKey: ['services'],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('services')
-        .select('*')
-        .order('display_order', { ascending: true });
+      const {
+        data,
+        error
+      } = await supabase.from('services').select('*').order('display_order', {
+        ascending: true
+      });
       if (error) throw error;
       return data as unknown as Service[];
-    },
+    }
   });
-
   const service = services?.find(s => s.id === serviceId);
   const seo = usePageSEO(`/services/${serviceId}`, {
     fallbackTitle: service?.title,
     fallbackDescription: service?.short_description
   });
-
   if (isLoading) {
     return <LoadingSpinner />;
   }
-
   if (!service) {
     return <Navigate to="/services" replace />;
   }
-
   const Icon = iconMap[service.icon_name] || Package;
   const currentIndex = services?.findIndex(s => s.id === service.id) || 0;
   const nextService = services?.[(currentIndex + 1) % (services?.length || 1)];
   const prevService = services?.[(currentIndex - 1 + (services?.length || 1)) % (services?.length || 1)];
-
-  return (
-    <Layout>
-      <SEO
-        title={seo.title || service.title}
-        description={seo.description || service.short_description}
-        canonical={`/services/${service.id}`}
-        ogImage={seo.ogImage}
-        noindex={seo.noindex}
-      />
+  return <Layout>
+      <SEO title={seo.title || service.title} description={seo.description || service.short_description} canonical={`/services/${service.id}`} ogImage={seo.ogImage} noindex={seo.noindex} />
 
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden py-[30px]">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
@@ -120,46 +118,32 @@ const ServiceDetail = () => {
       </section>
 
       {/* Overview Section - 50/50 Layout */}
-      {(service.overview_heading || service.overview_text || service.overview_image_url) && (
-        <section className="section-padding bg-background">
+      {(service.overview_heading || service.overview_text || service.overview_image_url) && <section className="section-padding bg-background">
           <div className="container-narrow">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               {/* Left Column - Text Content */}
               <div>
-                {service.overview_heading && (
-                  <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
+                {service.overview_heading && <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
                     {service.overview_heading}
-                  </h2>
-                )}
-                {service.overview_text && (
-                  <p className="text-muted-foreground leading-relaxed">
+                  </h2>}
+                {service.overview_text && <p className="text-muted-foreground leading-relaxed">
                     {service.overview_text}
-                  </p>
-                )}
+                  </p>}
               </div>
 
               {/* Right Column - Image */}
               <div>
-                {service.overview_image_url ? (
-                  <img 
-                    src={service.overview_image_url} 
-                    alt={`${service.title} overview`}
-                    className="aspect-square rounded-2xl object-cover w-full shadow-elevated"
-                  />
-                ) : (
-                  <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
+                {service.overview_image_url ? <img src={service.overview_image_url} alt={`${service.title} overview`} className="aspect-square rounded-2xl object-cover w-full shadow-elevated" /> : <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
                     <div className="text-center text-muted-foreground">
                       <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-50" />
                       <p className="text-lg font-medium">Service Image</p>
                       <p className="text-sm">Add an image for {service.title}</p>
                     </div>
-                  </div>
-                )}
+                  </div>}
               </div>
             </div>
           </div>
-        </section>
-      )}
+        </section>}
 
       {/* Benefits Section */}
       <section className="section-padding bg-section-primary">
@@ -168,16 +152,12 @@ const ServiceDetail = () => {
             Key <span className="gradient-text">Benefits</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {service.benefits.map((benefit, index) => (
-              <div
-                key={benefit}
-                className="p-6 rounded-xl bg-card border border-border/50 shadow-soft text-center animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+            {service.benefits.map((benefit, index) => <div key={benefit} className="p-6 rounded-xl bg-card border border-border/50 shadow-soft text-center animate-fade-up" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                 <CheckCircle className="w-8 h-8 text-accent mx-auto mb-3" />
                 <p className="text-foreground font-medium">{benefit}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -189,20 +169,16 @@ const ServiceDetail = () => {
             What's <span className="gradient-text">Included</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {service.features.map((feature, index) => (
-              <div
-                key={feature.title}
-                className="group p-6 rounded-xl bg-card border border-border/50 shadow-soft hover:shadow-elevated transition-all animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+            {service.features.map((feature, index) => <div key={feature.title} className="group p-6 rounded-xl bg-card border border-border/50 shadow-soft hover:shadow-elevated transition-all animate-fade-up" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                 <h3 className="text-xl font-heading font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {feature.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -211,20 +187,12 @@ const ServiceDetail = () => {
       <section className="section-padding bg-section-accent">
         <div className="container-narrow">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {service.id === 'procurement' ? (
-              <img 
-                src={packagingProcurementImage} 
-                alt="Packaging procurement - sustainable kraft paper packaging solutions"
-                className="aspect-square rounded-2xl object-cover w-full shadow-elevated"
-              />
-            ) : (
-              <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
+            {service.id === 'procurement' ? <img src={packagingProcurementImage} alt="Packaging procurement - sustainable kraft paper packaging solutions" className="aspect-square rounded-2xl object-cover w-full shadow-elevated" /> : <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
                 <div className="text-center text-muted-foreground">
                   <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-50" />
                   <p className="text-sm">Additional Image</p>
                 </div>
-              </div>
-            )}
+              </div>}
             <div>
               <h2 className="text-3xl font-heading font-bold text-foreground mb-6">
                 Why Choose Us for {service.title}?
@@ -233,12 +201,10 @@ const ServiceDetail = () => {
                 With over 15 years of experience in the packaging industry, we bring deep expertise and a proven track record of delivering results. Our team combines strategic thinking with hands-on implementation to ensure real, measurable outcomes.
               </p>
               <ul className="space-y-3">
-                {service.benefits.map(benefit => (
-                  <li key={benefit} className="flex items-center gap-3">
+                {service.benefits.map(benefit => <li key={benefit} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
                     <span className="text-foreground">{benefit}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
           </div>
@@ -252,12 +218,9 @@ const ServiceDetail = () => {
             Our <span className="gradient-text">Process</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {service.process.map((step, index) => (
-              <div
-                key={step.step}
-                className="relative p-6 rounded-xl bg-card border border-border/50 shadow-soft animate-fade-up"
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
+            {service.process.map((step, index) => <div key={step.step} className="relative p-6 rounded-xl bg-card border border-border/50 shadow-soft animate-fade-up" style={{
+            animationDelay: `${index * 0.15}s`
+          }}>
                 <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-lg">
                   {step.step}
                 </div>
@@ -267,8 +230,7 @@ const ServiceDetail = () => {
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {step.description}
                 </p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -298,8 +260,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* Navigation to Other Services */}
-      {prevService && nextService && (
-        <section className="section-padding bg-background border-t border-border">
+      {prevService && nextService && <section className="section-padding bg-background border-t border-border">
           <div className="container-narrow">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
               <Link to={`/services/${prevService.id}`} className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
@@ -318,10 +279,7 @@ const ServiceDetail = () => {
               </Link>
             </div>
           </div>
-        </section>
-      )}
-    </Layout>
-  );
+        </section>}
+    </Layout>;
 };
-
 export default ServiceDetail;
