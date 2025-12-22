@@ -25,9 +25,6 @@ type Service = {
   process: ProcessStep[];
   benefits: string[];
   display_order: number;
-  overview_heading: string | null;
-  overview_text: string | null;
-  overview_image_url: string | null;
 };
 
 export default function AdminServices() {
@@ -63,9 +60,6 @@ export default function AdminServices() {
           process: data.process,
           benefits: data.benefits,
           display_order: data.display_order,
-          overview_heading: data.overview_heading,
-          overview_text: data.overview_text,
-          overview_image_url: data.overview_image_url,
         })
         .eq('id', data.id);
       if (error) throw error;
@@ -194,39 +188,6 @@ export default function AdminServices() {
                 rows={4}
                 required
               />
-            </div>
-
-            {/* Overview Section */}
-            <div className="p-4 border rounded-lg space-y-4 bg-muted/30">
-              <Label className="text-base font-semibold">Overview Section</Label>
-              <div className="space-y-2">
-                <Label htmlFor="overview_heading">Overview Heading</Label>
-                <Input
-                  id="overview_heading"
-                  value={formData.overview_heading || ''}
-                  onChange={(e) => setFormData({ ...formData, overview_heading: e.target.value })}
-                  placeholder="e.g., Strategic Packaging Solutions"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="overview_text">Overview Text</Label>
-                <Textarea
-                  id="overview_text"
-                  value={formData.overview_text || ''}
-                  onChange={(e) => setFormData({ ...formData, overview_text: e.target.value })}
-                  rows={4}
-                  placeholder="Describe the service overview..."
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="overview_image_url">Overview Image URL</Label>
-                <Input
-                  id="overview_image_url"
-                  value={formData.overview_image_url || ''}
-                  onChange={(e) => setFormData({ ...formData, overview_image_url: e.target.value })}
-                  placeholder="https://example.com/image.jpg"
-                />
-              </div>
             </div>
 
             {/* Features */}

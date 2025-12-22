@@ -111,7 +111,7 @@ const CaseStudyDetail = () => {
         </div>
 
         <div className="container-narrow relative">
-          <Link to="/case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 py-[30px]">
+          <Link to="/case-studies" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 py-[20px]">
             <ArrowLeft className="w-4 h-4" />
             Back to Case Studies
           </Link>

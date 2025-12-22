@@ -210,9 +210,6 @@ export type Database = {
           full_description: string
           icon_name: string
           id: string
-          overview_heading: string | null
-          overview_image_url: string | null
-          overview_text: string | null
           process: Json
           short_description: string
           title: string
@@ -227,9 +224,6 @@ export type Database = {
           full_description: string
           icon_name?: string
           id: string
-          overview_heading?: string | null
-          overview_image_url?: string | null
-          overview_text?: string | null
           process?: Json
           short_description: string
           title: string
@@ -244,9 +238,6 @@ export type Database = {
           full_description?: string
           icon_name?: string
           id?: string
-          overview_heading?: string | null
-          overview_image_url?: string | null
-          overview_text?: string | null
           process?: Json
           short_description?: string
           title?: string
