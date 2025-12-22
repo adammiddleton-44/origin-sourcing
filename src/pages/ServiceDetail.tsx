@@ -132,33 +132,25 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Overview Section - 50/50 Layout */}
-      <section className="section-padding bg-background py-[30px]">
-        <div className="container-narrow">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left Column - Text Content */}
-            <div>
-              {service.overview_heading && <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
+      {/* Overview Section - Text Only */}
+      {(service.overview_heading || service.overview_text) && (
+        <section className="section-padding bg-background py-[30px]">
+          <div className="container-narrow">
+            <div className="max-w-4xl mx-auto text-center space-y-6">
+              {service.overview_heading && (
+                <h2 className="text-3xl font-heading font-bold text-foreground">
                   {service.overview_heading}
-                </h2>}
-              {service.overview_text && <p className="text-muted-foreground leading-relaxed">
+                </h2>
+              )}
+              {service.overview_text && (
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   {service.overview_text}
-                </p>}
-            </div>
-
-            {/* Right Column - Image */}
-            <div>
-              {service.id === 'purchasing' ? <img src={packagingProcurementImage} alt={`${service.title} overview`} className="aspect-square rounded-2xl object-cover w-full shadow-elevated" /> : <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
-                  <div className="text-center text-muted-foreground">
-                    <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                    <p className="text-lg font-medium">Service Image</p>
-                    <p className="text-sm">Add an image for {service.title}</p>
-                  </div>
-                </div>}
+                </p>
+              )}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Benefits Section */}
       <section className="section-padding bg-section-primary py-[30px]">
