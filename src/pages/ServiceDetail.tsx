@@ -146,7 +146,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="section-padding bg-section-primary">
+      <section className="section-padding bg-section-primary py-[30px]">
         <div className="container-narrow">
           <h2 className="text-3xl font-heading font-bold text-foreground mb-8 text-center">
             Key <span className="gradient-text">Benefits</span>
@@ -163,7 +163,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* What's Included Section */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background py-[30px]">
         <div className="container-narrow">
           <h2 className="text-3xl font-heading font-bold text-foreground mb-12 text-center">
             What's <span className="gradient-text">Included</span>
@@ -184,7 +184,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* Image Placeholder Section 2 */}
-      <section className="section-padding bg-section-accent">
+      <section className="section-padding bg-section-accent py-[40px]">
         <div className="container-narrow">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {service.id === 'purchasing' ? <img src={packagingProcurementImage} alt="Packaging purchasing - sustainable kraft paper packaging solutions" className="aspect-square rounded-2xl object-cover w-full shadow-elevated" /> : <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
