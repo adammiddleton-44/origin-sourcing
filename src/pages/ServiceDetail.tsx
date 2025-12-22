@@ -133,7 +133,7 @@ const ServiceDetail = () => {
 
             {/* Right Column - Image */}
             <div>
-              {service.id === 'procurement' ? <img src={packagingProcurementImage} alt={`${service.title} overview`} className="aspect-square rounded-2xl object-cover w-full shadow-elevated" /> : <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
+              {service.id === 'purchasing' ? <img src={packagingProcurementImage} alt={`${service.title} overview`} className="aspect-square rounded-2xl object-cover w-full shadow-elevated" /> : <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
                   <div className="text-center text-muted-foreground">
                     <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-50" />
                     <p className="text-lg font-medium">Service Image</p>
@@ -187,7 +187,7 @@ const ServiceDetail = () => {
       <section className="section-padding bg-section-accent">
         <div className="container-narrow">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {service.id === 'procurement' ? <img src={packagingProcurementImage} alt="Packaging procurement - sustainable kraft paper packaging solutions" className="aspect-square rounded-2xl object-cover w-full shadow-elevated" /> : <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
+            {service.id === 'purchasing' ? <img src={packagingProcurementImage} alt="Packaging purchasing - sustainable kraft paper packaging solutions" className="aspect-square rounded-2xl object-cover w-full shadow-elevated" /> : <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
                 <div className="text-center text-muted-foreground">
                   <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-50" />
                   <p className="text-sm">Additional Image</p>
