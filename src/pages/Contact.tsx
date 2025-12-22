@@ -60,6 +60,9 @@ const Contact = () => {
     if (!formData.company.trim()) {
       newErrors.company = "Company is required";
     }
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    }
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
     } else if (formData.message.trim().length < 20) {
@@ -87,7 +90,7 @@ const Contact = () => {
     } = await supabase.from('contact_submissions').insert({
       name: formData.name.trim(),
       email: formData.email.trim(),
-      phone: formData.phone.trim() || null,
+      phone: formData.phone.trim(),
       company: formData.company.trim(),
       message: formData.message.trim()
     });
@@ -268,8 +271,11 @@ const Contact = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="phone">Phone (optional)</Label>
-                        <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="+44 20 1234 5678" />
+                        <Label htmlFor="phone">
+                          Phone <span className="text-destructive">*</span>
+                        </Label>
+                        <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="+44 20 1234 5678" className={errors.phone ? "border-destructive" : ""} />
+                        {errors.phone && <p className="text-destructive text-sm">{errors.phone}</p>}
                       </div>
 
                       <div className="space-y-2">
