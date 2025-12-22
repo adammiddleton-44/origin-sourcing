@@ -11,6 +11,7 @@ interface ContactEmailRequest {
   phone?: string;
   company: string;
   message: string;
+  marketingConsent?: boolean;
 }
 
 serve(async (req: Request): Promise<Response> => {
@@ -21,6 +22,7 @@ serve(async (req: Request): Promise<Response> => {
 
   try {
     const WEB3FORMS_ACCESS_KEY = Deno.env.get("WEB3FORMS_ACCESS_KEY");
+    const KLAVIYO_API_KEY = Deno.env.get("KLAVIYO_API_KEY");
     
     if (!WEB3FORMS_ACCESS_KEY) {
       console.error("WEB3FORMS_ACCESS_KEY is not configured");
@@ -30,7 +32,7 @@ serve(async (req: Request): Promise<Response> => {
       );
     }
 
-    const { name, email, phone, company, message }: ContactEmailRequest = await req.json();
+    const { name, email, phone, company, message, marketingConsent }: ContactEmailRequest = await req.json();
 
     // Validate required fields
     if (!name || !email || !company || !message) {
@@ -79,6 +81,74 @@ serve(async (req: Request): Promise<Response> => {
     }
 
     console.log("Email sent successfully");
+
+    // Add to Klaviyo list only if user consented to marketing
+    if (marketingConsent && KLAVIYO_API_KEY) {
+      console.log("User consented to marketing, adding to Klaviyo...");
+      
+      // Parse name into first and last name
+      const nameParts = name.trim().split(/\s+/);
+      const firstName = nameParts[0] || "";
+      const lastName = nameParts.slice(1).join(" ") || "";
+
+      try {
+        const klaviyoResponse = await fetch("https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs", {
+          method: "POST",
+          headers: {
+            "Authorization": `Klaviyo-API-Key ${KLAVIYO_API_KEY}`,
+            "Content-Type": "application/json",
+            "revision": "2024-02-15"
+          },
+          body: JSON.stringify({
+            data: {
+              type: "profile-subscription-bulk-create-job",
+              attributes: {
+                profiles: {
+                  data: [
+                    {
+                      type: "profile",
+                      attributes: {
+                        email: email,
+                        first_name: firstName,
+                        last_name: lastName,
+                        phone_number: phone || undefined,
+                        properties: {
+                          company: company,
+                          message: message,
+                          source: "Contact Form"
+                        }
+                      }
+                    }
+                  ]
+                },
+                historical_import: false
+              },
+              relationships: {
+                list: {
+                  data: {
+                    type: "list",
+                    id: "SUUJem"
+                  }
+                }
+              }
+            }
+          })
+        });
+
+        if (klaviyoResponse.ok) {
+          console.log("Successfully added contact to Klaviyo list");
+        } else {
+          const klaviyoError = await klaviyoResponse.text();
+          console.error("Klaviyo error:", klaviyoError);
+          // Don't fail the request if Klaviyo fails - email was already sent
+        }
+      } catch (klaviyoError) {
+        console.error("Error adding to Klaviyo:", klaviyoError);
+        // Don't fail the request if Klaviyo fails - email was already sent
+      }
+    } else if (marketingConsent && !KLAVIYO_API_KEY) {
+      console.warn("User consented to marketing but KLAVIYO_API_KEY is not configured");
+    }
 
     return new Response(
       JSON.stringify({ success: true }),

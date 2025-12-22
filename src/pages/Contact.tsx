@@ -40,7 +40,8 @@ const Contact = () => {
     phone: "",
     company: "",
     message: "",
-    consent: false
+    consent: false,
+    marketingConsent: false
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const seo = usePageSEO("/contact", {
@@ -113,7 +114,8 @@ const Contact = () => {
           email: formData.email.trim(),
           phone: formData.phone.trim() || undefined,
           company: formData.company.trim(),
-          message: formData.message.trim()
+          message: formData.message.trim(),
+          marketingConsent: formData.marketingConsent
         }
       });
     } catch (emailError) {
@@ -171,7 +173,8 @@ const Contact = () => {
                 phone: "",
                 company: "",
                 message: "",
-                consent: false
+                consent: false,
+                marketingConsent: false
               });
             }} variant="outline">
                 Send Another Message
@@ -322,6 +325,20 @@ const Contact = () => {
                         </Label>
                       </div>
                       {errors.consent && <p className="text-destructive text-sm">{errors.consent}</p>}
+                    </div>
+
+                    {/* Marketing Consent Checkbox */}
+                    <div className="flex items-start gap-3">
+                      <Checkbox
+                        id="marketingConsent"
+                        checked={formData.marketingConsent}
+                        onCheckedChange={(checked) => {
+                          setFormData(prev => ({ ...prev, marketingConsent: checked === true }));
+                        }}
+                      />
+                      <Label htmlFor="marketingConsent" className="text-sm leading-relaxed cursor-pointer text-muted-foreground">
+                        I would like to receive marketing communications, industry insights, and updates from Origin Packaging. (optional)
+                      </Label>
                     </div>
 
                     {/* Data Processing Notice */}
