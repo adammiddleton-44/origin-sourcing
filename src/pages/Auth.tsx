@@ -7,7 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { Compass, Mail, Lock, ArrowLeft, Loader2 } from 'lucide-react';
+import { Mail, Lock, ArrowLeft, Loader2 } from 'lucide-react';
+import logoTransparent from '@/assets/logo-transparent.png';
 import { Link } from 'react-router-dom';
 
 const emailSchema = z.string().email('Please enter a valid email address');
@@ -136,10 +137,11 @@ const Auth = () => {
         <Card className="border-border/50 shadow-lg">
           <CardHeader className="text-center pb-4">
             <div className="flex justify-center mb-4">
-              <div className="flex items-center gap-2">
-                <Compass className="h-8 w-8 text-primary" />
-                <span className="text-xl font-bold text-foreground">Origin Sourcing</span>
-              </div>
+              <img 
+                src={logoTransparent} 
+                alt="Origin Sourcing" 
+                className="h-12 w-auto"
+              />
             </div>
             <CardTitle className="text-2xl">
               {isLogin ? 'Welcome Back' : 'Create Account'}
