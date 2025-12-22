@@ -115,6 +115,45 @@ const ServiceDetail = () => {
         </div>
       </section>
 
+      {/* Overview Section - 50/50 Layout */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left Column - Text Content */}
+            <div>
+              <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
+                Overview <span className="gradient-text">Heading</span>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                This section is ready for your custom content. Add a compelling description about the service, key differentiators, or any introductory information you'd like visitors to see.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                You can provide the specific text and image you'd like to display here.
+              </p>
+            </div>
+
+            {/* Right Column - Image */}
+            <div>
+              {service.id === 'procurement' ? (
+                <img 
+                  src={packagingProcurementImage} 
+                  alt={`${service.title} overview`}
+                  className="aspect-square rounded-2xl object-cover w-full shadow-elevated"
+                />
+              ) : (
+                <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-50" />
+                    <p className="text-lg font-medium">Service Image</p>
+                    <p className="text-sm">Add an image for {service.title}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section className="section-padding bg-section-primary">
         <div className="container-narrow">
