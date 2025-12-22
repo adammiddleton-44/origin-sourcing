@@ -1,4 +1,4 @@
-import { FileText, Mail, Search, Home, LogOut, Package, Briefcase } from 'lucide-react';
+import { FileText, Mail, Search, Home, LogOut, Package, Briefcase, Shield } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
@@ -24,6 +24,7 @@ const menuItems = [
   { title: 'Blog Posts', url: '/admin/blog', icon: FileText },
   { title: 'Contact Submissions', url: '/admin/contacts', icon: Mail },
   { title: 'Page SEO', url: '/admin/seo', icon: Search },
+  { title: '2FA Security', url: '/admin/security', icon: Shield },
 ];
 
 export function AdminSidebar() {

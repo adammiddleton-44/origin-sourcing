@@ -32,6 +32,7 @@ const AdminContacts = lazy(() => import("./pages/admin/AdminContacts"));
 const AdminSEO = lazy(() => import("./pages/admin/AdminSEO"));
 const AdminServices = lazy(() => import("./pages/admin/AdminServices"));
 const AdminCaseStudies = lazy(() => import("./pages/admin/AdminCaseStudies"));
+const AdminMFASetup = lazy(() => import("./pages/admin/AdminMFASetup"));
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,7 @@ const App = () => (
               <Route path="blog" element={<AdminBlog />} />
               <Route path="contacts" element={<AdminContacts />} />
               <Route path="seo" element={<AdminSEO />} />
+              <Route path="security" element={<AdminMFASetup />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
