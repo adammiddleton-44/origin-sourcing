@@ -9,6 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import packagingProcurementImage from "@/assets/packaging-procurement.jpg";
+import packagingPurchasingHero from "@/assets/packaging-purchasing-hero.jpg";
 type ServiceFeature = {
   title: string;
   description: string;
@@ -97,22 +98,36 @@ const ServiceDetail = () => {
             </Link>
           </nav>
 
-          <div className="max-w-3xl">
-            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.accent_color} flex items-center justify-center mb-6`}>
-              <Icon className="w-8 h-8 text-primary-foreground" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.accent_color} flex items-center justify-center flex-shrink-0`}>
+                  <Icon className="w-7 h-7 text-primary-foreground" />
+                </div>
+                <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground">
+                  {service.title}
+                </h1>
+              </div>
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                {service.full_description}
+              </p>
+              <Button asChild variant="hero" size="lg">
+                <Link to="/contact">
+                  Get Started
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </Button>
             </div>
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-              {service.title}
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              {service.full_description}
-            </p>
-            <Button asChild variant="hero" size="lg">
-              <Link to="/contact">
-                Get Started
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </Button>
+            
+            {service.id === 'purchasing' && (
+              <div className="hidden lg:block">
+                <img 
+                  src={packagingPurchasingHero} 
+                  alt={`${service.title} - warehouse and logistics`}
+                  className="rounded-2xl object-cover w-full shadow-elevated aspect-[4/3]"
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>
