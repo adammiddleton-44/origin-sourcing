@@ -136,7 +136,14 @@ export function Header() {
         </div>
 
         {/* Mobile menu button */}
-        <button type="button" className="md:hidden p-2 rounded-lg hover:bg-muted" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+        <button 
+          type="button" 
+          className="md:hidden p-3 -m-1 rounded-lg hover:bg-muted touch-manipulation"
+          onClick={(e) => {
+            e.stopPropagation();
+            setMobileMenuOpen(!mobileMenuOpen);
+          }}
+        >
           {mobileMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
         </button>
       </nav>

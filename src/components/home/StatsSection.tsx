@@ -42,7 +42,7 @@ const stats = [
 
 export function StatsSection({ className }: { className?: string }) {
   const plugin = useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true })
   );
 
   return (
