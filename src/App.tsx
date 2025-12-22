@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { CookieConsent } from "@/components/CookieConsent";
 
@@ -47,6 +47,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/procurement" element={<Navigate to="/services/purchasing" replace />} />
             <Route path="/services/:serviceId" element={<ServiceDetail />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/case-studies/:caseId" element={<CaseStudyDetail />} />

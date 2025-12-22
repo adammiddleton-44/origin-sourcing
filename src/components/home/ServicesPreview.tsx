@@ -3,9 +3,9 @@ import { Package, Leaf, GitBranch, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 const services = [{
   icon: Package,
-  title: "Packaging Procurement",
+  title: "Packaging Purchasing",
   description: "Strategic sourcing and supplier management to reduce costs while maintaining quality and reliability across your packaging portfolio.",
-  href: "/services/procurement",
+  href: "/services/purchasing",
   accentColor: "from-primary to-primary/70"
 }, {
   icon: Leaf,

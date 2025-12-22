@@ -5,7 +5,7 @@ import logo from "@/assets/origin-logo.png";
 
 const footerLinks = {
   services: [
-    { name: "Packaging Procurement", href: "/services#procurement" },
+    { name: "Packaging Purchasing", href: "/services#purchasing" },
     { name: "EPR Compliance", href: "/services#epr" },
     { name: "Supply Chain Transformation", href: "/services#supply-chain" },
     { name: "Cost Optimization", href: "/services#cost" },
