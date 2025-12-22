@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import logoTransparent from "@/assets/logo-transparent.png";
+import logo from "@/assets/origin-logo.png";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg" | "xl";
@@ -18,7 +18,7 @@ const sizeClasses = {
 export function Logo({ size = "md", className, asLink = true }: LogoProps) {
   const content = (
     <img 
-      src={logoTransparent} 
+      src={logo} 
       alt="Origin Sourcing" 
       className={cn(sizeClasses[size], "w-auto", className)}
     />
