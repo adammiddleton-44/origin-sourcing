@@ -135,7 +135,7 @@ const Auth = () => {
         </Link>
 
         <Card className="border-border/50 shadow-lg">
-          <CardHeader className="text-center pb-4">
+          <CardHeader className="text-center pb-4 items-center">
             <div className="mb-4 text-center">
               <img 
                 src={logo} 
