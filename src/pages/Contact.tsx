@@ -102,25 +102,20 @@ const Contact = () => {
       return;
     }
 
-    // Send email notification via Web3Forms
+    // Send email notification via secure Edge Function
     try {
-      const web3FormData = new FormData();
-      web3FormData.append("access_key", "60821a39-171a-42e2-94d6-05cb37c44fb5");
-      web3FormData.append("subject", `New Contact Form Submission from ${formData.name.trim()}`);
-      web3FormData.append("from_name", "Origin Sourcing Website");
-      web3FormData.append("reply_to", formData.email.trim());
-      web3FormData.append("name", formData.name.trim());
-      web3FormData.append("email", formData.email.trim());
-      web3FormData.append("phone", formData.phone.trim() || "Not provided");
-      web3FormData.append("company", formData.company.trim());
-      web3FormData.append("message", formData.message.trim());
-      await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: web3FormData
+      await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || undefined,
+          company: formData.company.trim(),
+          message: formData.message.trim()
+        }
       });
     } catch (emailError) {
       // Email notification failed but submission was saved - don't show error to user
-      console.error('Web3Forms email error:', emailError);
+      console.error('Email notification error:', emailError);
     }
     setIsSubmitting(false);
     setIsSubmitted(true);
