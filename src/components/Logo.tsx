@@ -20,6 +20,8 @@ export function Logo({ size = "md", className, asLink = true }: LogoProps) {
     <img 
       src={logo} 
       alt="Origin Sourcing" 
+      width={350}
+      height={70}
       className={cn(sizeClasses[size], "w-auto", className)}
     />
   );

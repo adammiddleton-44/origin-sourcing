@@ -30,6 +30,8 @@ export function Footer() {
               <img 
                 src={logo} 
                 alt="Origin Sourcing" 
+                width={350}
+                height={70}
                 className="h-10 w-auto scale-150 origin-left brightness-0 invert"
               />
             </Link>
@@ -41,16 +43,17 @@ export function Footer() {
                 href="https://www.linkedin.com/company/origin-sourcing-ltd/about/?viewAsMember=true"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit Origin Sourcing on LinkedIn"
                 className="w-10 h-10 rounded-lg bg-card/10 flex items-center justify-center hover:bg-primary transition-colors"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-5 h-5" aria-hidden="true" />
               </a>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-heading font-bold text-lg mb-4">Services</h4>
+            <h3 className="font-heading font-bold text-lg mb-4">Services</h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
@@ -67,7 +70,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-heading font-bold text-lg mb-4">Company</h4>
+            <h3 className="font-heading font-bold text-lg mb-4">Company</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -84,7 +87,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-heading font-bold text-lg mb-4">Contact</h4>
+            <h3 className="font-heading font-bold text-lg mb-4">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-card/70 text-sm">
                 <Mail className="w-4 h-4 text-primary" />
