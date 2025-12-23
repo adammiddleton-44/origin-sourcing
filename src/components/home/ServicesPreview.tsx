@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Package, Leaf, GitBranch, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PrefetchLink } from "@/components/PrefetchLink";
+
 const services = [{
   icon: Package,
   title: "Packaging Purchasing",
@@ -20,20 +22,28 @@ const services = [{
   href: "/services/supply-chain",
   accentColor: "from-primary via-primary/80 to-accent"
 }];
+
 export function ServicesPreview({ className }: { className?: string }) {
-  return <section className={`section-padding bg-background ${className || ""}`}>
+  return (
+    <section className={`section-padding bg-background ${className || ""}`}>
       <div className="container-narrow">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
             How We Help
           </h2>
-          <p className="text-lg text-muted-foreground">Comprehensive packaging consultancy services designed to deliver measurable results for your business. </p>
+          <p className="text-lg text-muted-foreground">
+            Comprehensive packaging consultancy services designed to deliver measurable results for your business.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {services.map((service, index) => <Link key={service.title} to={service.href} className="group relative p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-elevated hover:border-primary/30 transition-all duration-300 animate-fade-up overflow-hidden" style={{
-          animationDelay: `${index * 0.1}s`
-        }}>
+          {services.map((service, index) => (
+            <PrefetchLink 
+              key={service.title} 
+              to={service.href} 
+              className="group relative p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-elevated hover:border-primary/30 transition-all duration-300 animate-fade-up overflow-hidden" 
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               {/* Left accent bar */}
               <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${service.accentColor} opacity-0 group-hover:opacity-100 transition-opacity`} />
               
@@ -50,7 +60,8 @@ export function ServicesPreview({ className }: { className?: string }) {
                 Learn more
                 <ArrowRight className="w-4 h-4" />
               </span>
-            </Link>)}
+            </PrefetchLink>
+          ))}
         </div>
 
         <div className="text-center">
@@ -62,5 +73,6 @@ export function ServicesPreview({ className }: { className?: string }) {
           </Button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }

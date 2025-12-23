@@ -7,7 +7,8 @@ import { ArrowRight, ArrowLeft, CheckCircle, ImageIcon } from "lucide-react";
 import { Package, Leaf, GitBranch, TrendingDown, Search, Shield, LucideIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { usePageSEO } from "@/hooks/usePageSEO";
-import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { ServiceDetailSkeleton } from "@/components/skeletons/ServiceDetailSkeleton";
+import { PrefetchLink } from "@/components/PrefetchLink";
 import packagingProcurementImage from "@/assets/packaging-procurement.jpg";
 import packagingPurchasingHero from "@/assets/packaging-purchasing-hero.jpg";
 type ServiceFeature = {
@@ -62,7 +63,9 @@ const ServiceDetail = () => {
       });
       if (error) throw error;
       return data as unknown as Service[];
-    }
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutes - show cached data immediately
+    gcTime: 10 * 60 * 1000, // 10 minutes - keep in cache
   });
   const service = services?.find(s => s.id === serviceId);
   const seo = usePageSEO(`/services/${serviceId}`, {
@@ -70,7 +73,7 @@ const ServiceDetail = () => {
     fallbackDescription: service?.short_description
   });
   if (isLoading) {
-    return <LoadingSpinner />;
+    return <ServiceDetailSkeleton />;
   }
   if (!service) {
     return <Navigate to="/services" replace />;
@@ -270,20 +273,20 @@ const ServiceDetail = () => {
       {prevService && nextService && <section className="section-padding bg-background border-t border-border">
           <div className="container-narrow">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-              <Link to={`/services/${prevService.id}`} className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+              <PrefetchLink to={`/services/${prevService.id}`} className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                 <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                 <div className="text-right sm:text-left">
                   <p className="text-xs uppercase tracking-wider">Previous Service</p>
                   <p className="font-medium text-foreground group-hover:text-primary transition-colors">{prevService.title}</p>
                 </div>
-              </Link>
-              <Link to={`/services/${nextService.id}`} className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+              </PrefetchLink>
+              <PrefetchLink to={`/services/${nextService.id}`} className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                 <div className="text-left sm:text-right">
                   <p className="text-xs uppercase tracking-wider">Next Service</p>
                   <p className="font-medium text-foreground group-hover:text-primary transition-colors">{nextService.title}</p>
                 </div>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </PrefetchLink>
             </div>
           </div>
         </section>}
