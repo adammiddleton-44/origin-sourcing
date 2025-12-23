@@ -1,154 +1,94 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  TrendingDown, 
-  Warehouse, 
-  Shield, 
-  BarChart3,
-  Factory,
-  Truck,
-  Users,
-  Search,
-  FileText,
-  Handshake,
-  Package,
-  Activity,
-  ArrowLeft,
-  ArrowRight,
-  CheckCircle
-} from "lucide-react";
+import { TrendingDown, Warehouse, Shield, BarChart3, Factory, Truck, Users, Search, FileText, Handshake, Package, Activity, ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
 import packagingHeroImage from "@/assets/packaging-purchasing-hero.jpg";
 import packagingProofImage from "@/assets/packaging-procurement.jpg";
-
 interface PackagingPurchasingPageProps {
-  prevService: { id: string; title: string } | null;
-  nextService: { id: string; title: string } | null;
+  prevService: {
+    id: string;
+    title: string;
+  } | null;
+  nextService: {
+    id: string;
+    title: string;
+  } | null;
 }
-
-const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasingPageProps) => {
-  const benefits = [
-    {
-      icon: TrendingDown,
-      title: "20-50% Cost Reduction",
-      description: "Eliminate intermediary margin while maintaining (or improving) quality and service levels"
-    },
-    {
-      icon: Warehouse,
-      title: "No Warehouse Required",
-      description: "3PL partnerships provide direct procurement benefits without capital investment in warehousing"
-    },
-    {
-      icon: Shield,
-      title: "Supplier Risk Mitigation",
-      description: "Diversified factory relationships prevent single-source dependency"
-    },
-    {
-      icon: BarChart3,
-      title: "Economies of Scale",
-      description: "Volume-based pricing that improves as your operation grows"
-    }
-  ];
-
-  const solutions = [
-    {
-      icon: Factory,
-      title: "Established Factory Network",
-      description: "I bring 15+ years of relationships with manufacturers across UK, EU, and Asia. Unlike brokers who source reactively, I have established partnerships with vetted factories—giving you immediate access to manufacturer pricing without the trial-and-error of building these relationships yourself."
-    },
-    {
-      icon: Truck,
-      title: "3PL Integration for Non-Warehoused Operations",
-      description: "Don't have a warehouse? No problem. I implement third-party logistics (3PL) providers who handle pick, pack, and distribution—giving you the cost benefits of direct procurement without warehousing overhead. Once established, leverage the same 3PL for ingredients, beverages, and marketing materials."
-    },
-    {
-      icon: Users,
-      title: "Hands-On Transition Management",
-      description: "Direct procurement isn't just about finding cheaper suppliers. It's about tender management, contract negotiation, quality assurance, and performance monitoring. I manage this transition end-to-end, typically placing initial orders myself before empowering your team with the tools to manage relationships ongoing."
-    }
-  ];
-
-  const whatsIncluded = [
-    {
-      icon: Search,
-      title: "Supplier Identification & Qualification",
-      items: [
-        "Factory network access across UK, EU, and Asia",
-        "Capability assessment (capacity, certifications, sustainability)",
-        "Site visits and production audits",
-        "Quality control protocols"
-      ]
-    },
-    {
-      icon: FileText,
-      title: "Competitive Tendering Management",
-      items: [
-        "RFQ development and distribution",
-        "Bid evaluation and comparison",
-        "Commercial negotiations",
-        "Contract structure and terms"
-      ]
-    },
-    {
-      icon: Handshake,
-      title: "Contract Negotiation & Setup",
-      items: [
-        "Volume-based pricing structures",
-        "Payment terms and credit arrangements",
-        "Quality specifications and tolerances",
-        "Delivery schedules and lead times",
-        "Minimum order quantities and flexibility"
-      ]
-    },
-    {
-      icon: Package,
-      title: "3PL Integration (If Needed)",
-      items: [
-        "3PL provider selection and evaluation",
-        "Pick, pack, ship process design",
-        "Inventory management protocols",
-        "Multi-product consolidation (packaging + food + beverage)"
-      ]
-    },
-    {
-      icon: Activity,
-      title: "Supplier Performance Monitoring",
-      items: [
-        "Ongoing quality tracking",
-        "Delivery performance metrics",
-        "Cost benchmarking and optimization",
-        "Relationship management support"
-      ]
-    }
-  ];
-
-  const processSteps = [
-    {
-      step: "01",
-      title: "Discovery",
-      description: "Comprehensive audit of your current packaging spend, supplier relationships, and operational requirements across all locations."
-    },
-    {
-      step: "02",
-      title: "Strategy",
-      description: "Develop a tailored procurement strategy identifying optimal manufacturer partners and 3PL solutions for your specific needs."
-    },
-    {
-      step: "03",
-      title: "Execution",
-      description: "Manage the complete tender process, negotiate contracts, and oversee the transition to direct manufacturer relationships."
-    },
-    {
-      step: "04",
-      title: "Optimization",
-      description: "Ongoing supplier performance monitoring, cost benchmarking, and continuous improvement to maximize long-term value."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen">
+const PackagingPurchasingPage = ({
+  prevService,
+  nextService
+}: PackagingPurchasingPageProps) => {
+  const benefits = [{
+    icon: TrendingDown,
+    title: "20-50% Cost Reduction",
+    description: "Eliminate intermediary margin while maintaining (or improving) quality and service levels"
+  }, {
+    icon: Warehouse,
+    title: "No Warehouse Required",
+    description: "3PL partnerships provide direct procurement benefits without capital investment in warehousing"
+  }, {
+    icon: Shield,
+    title: "Supplier Risk Mitigation",
+    description: "Diversified factory relationships prevent single-source dependency"
+  }, {
+    icon: BarChart3,
+    title: "Economies of Scale",
+    description: "Volume-based pricing that improves as your operation grows"
+  }];
+  const solutions = [{
+    icon: Factory,
+    title: "Established Factory Network",
+    description: "I bring 15+ years of relationships with manufacturers across UK, EU, and Asia. Unlike brokers who source reactively, I have established partnerships with vetted factories—giving you immediate access to manufacturer pricing without the trial-and-error of building these relationships yourself."
+  }, {
+    icon: Truck,
+    title: "3PL Integration for Non-Warehoused Operations",
+    description: "Don't have a warehouse? No problem. I implement third-party logistics (3PL) providers who handle pick, pack, and distribution—giving you the cost benefits of direct procurement without warehousing overhead. Once established, leverage the same 3PL for ingredients, beverages, and marketing materials."
+  }, {
+    icon: Users,
+    title: "Hands-On Transition Management",
+    description: "Direct procurement isn't just about finding cheaper suppliers. It's about tender management, contract negotiation, quality assurance, and performance monitoring. I manage this transition end-to-end, typically placing initial orders myself before empowering your team with the tools to manage relationships ongoing."
+  }];
+  const whatsIncluded = [{
+    icon: Search,
+    title: "Supplier Identification & Qualification",
+    items: ["Factory network access across UK, EU, and Asia", "Capability assessment (capacity, certifications, sustainability)", "Site visits and production audits", "Quality control protocols"]
+  }, {
+    icon: FileText,
+    title: "Competitive Tendering Management",
+    items: ["RFQ development and distribution", "Bid evaluation and comparison", "Commercial negotiations", "Contract structure and terms"]
+  }, {
+    icon: Handshake,
+    title: "Contract Negotiation & Setup",
+    items: ["Volume-based pricing structures", "Payment terms and credit arrangements", "Quality specifications and tolerances", "Delivery schedules and lead times", "Minimum order quantities and flexibility"]
+  }, {
+    icon: Package,
+    title: "3PL Integration (If Needed)",
+    items: ["3PL provider selection and evaluation", "Pick, pack, ship process design", "Inventory management protocols", "Multi-product consolidation (packaging + food + beverage)"]
+  }, {
+    icon: Activity,
+    title: "Supplier Performance Monitoring",
+    items: ["Ongoing quality tracking", "Delivery performance metrics", "Cost benchmarking and optimization", "Relationship management support"]
+  }];
+  const processSteps = [{
+    step: "01",
+    title: "Discovery",
+    description: "Comprehensive audit of your current packaging spend, supplier relationships, and operational requirements across all locations."
+  }, {
+    step: "02",
+    title: "Strategy",
+    description: "Develop a tailored procurement strategy identifying optimal manufacturer partners and 3PL solutions for your specific needs."
+  }, {
+    step: "03",
+    title: "Execution",
+    description: "Manage the complete tender process, negotiate contracts, and oversee the transition to direct manufacturer relationships."
+  }, {
+    step: "04",
+    title: "Optimization",
+    description: "Ongoing supplier performance monitoring, cost benchmarking, and continuous improvement to maximize long-term value."
+  }];
+  return <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-background to-muted py-16 md:py-24">
+      <section className="bg-gradient-to-br from-background to-muted py-16 md:py-[30px]">
         <div className="container mx-auto px-4">
           <nav className="mb-8">
             <Link to="/services" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
@@ -172,18 +112,14 @@ const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasi
               </Button>
             </div>
             <div className="relative">
-              <img
-                src={packagingHeroImage}
-                alt="Packaging procurement and supply chain management"
-                className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
-              />
+              <img src={packagingHeroImage} alt="Packaging procurement and supply chain management" className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]" />
             </div>
           </div>
         </div>
       </section>
 
       {/* The Problem Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 bg-background md:py-[30px]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
@@ -226,14 +162,13 @@ const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasi
       </section>
 
       {/* The Solution Section */}
-      <section className="py-16 md:py-24 bg-muted/50">
+      <section className="py-16 bg-muted/50 md:py-[30px]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
             Direct Manufacturer Procurement Without the Complexity
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {solutions.map((solution, index) => (
-              <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow">
+            {solutions.map((solution, index) => <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow">
                 <CardContent className="p-8">
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                     <solution.icon className="w-7 h-7 text-primary" />
@@ -241,21 +176,19 @@ const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasi
                   <h3 className="text-xl font-bold text-foreground mb-4">{solution.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{solution.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
 
       {/* Key Benefits Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 bg-background md:py-[40px]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
             Key <span className="gradient-text">Benefits</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow">
+            {benefits.map((benefit, index) => <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 text-center">
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className="w-8 h-8 text-primary" />
@@ -263,21 +196,19 @@ const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasi
                   <h3 className="text-lg font-bold text-foreground mb-3">{benefit.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
 
       {/* What's Included Section */}
-      <section className="py-16 md:py-24 bg-muted/50">
+      <section className="py-16 bg-muted/50 md:py-[30px]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
             What's <span className="gradient-text">Included</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {whatsIncluded.map((category, index) => (
-              <Card key={index} className="bg-card border-border">
+            {whatsIncluded.map((category, index) => <Card key={index} className="bg-card border-border">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -286,50 +217,41 @@ const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasi
                     <h3 className="text-lg font-bold text-foreground">{category.title}</h3>
                   </div>
                   <ul className="space-y-2">
-                    {category.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start gap-2 text-muted-foreground text-sm">
+                    {category.items.map((item, itemIndex) => <li key={itemIndex} className="flex items-start gap-2 text-muted-foreground text-sm">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                         <span>{item}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 bg-background md:py-[40px]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
             Our <span className="gradient-text">Process</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((step, index) => (
-              <div key={index} className="relative p-6 rounded-xl bg-card border border-border/50 shadow-soft">
+            {processSteps.map((step, index) => <div key={index} className="relative p-6 rounded-xl bg-card border border-border/50 shadow-soft">
                 <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-lg">
                   {parseInt(step.step)}
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3 mt-2">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
 
       {/* Proof Section */}
-      <section className="py-16 md:py-24 bg-muted/50">
+      <section className="py-16 bg-muted/50 md:py-[40px]">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <img
-                src={packagingProofImage}
-                alt="Sessions Arts Club packaging procurement success"
-                className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
-              />
+              <img src={packagingProofImage} alt="Sessions Arts Club packaging procurement success" className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]" />
             </div>
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
@@ -372,33 +294,17 @@ const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasi
       <section className="py-8 bg-background border-t border-border">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
-            {prevService ? (
-              <Link
-                to={`/services/${prevService.id}`}
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-              >
+            {prevService ? <Link to={`/services/${prevService.id}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <ArrowLeft className="w-4 h-4" />
                 <span className="text-sm">{prevService.title}</span>
-              </Link>
-            ) : (
-              <div />
-            )}
-            {nextService ? (
-              <Link
-                to={`/services/${nextService.id}`}
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-              >
+              </Link> : <div />}
+            {nextService ? <Link to={`/services/${nextService.id}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <span className="text-sm">{nextService.title}</span>
                 <ArrowRight className="w-4 h-4" />
-              </Link>
-            ) : (
-              <div />
-            )}
+              </Link> : <div />}
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default PackagingPurchasingPage;
