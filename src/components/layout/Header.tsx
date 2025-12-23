@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 import logo from "@/assets/origin-logo.png";
 
 const navigation = [
-  { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "Blog", href: "/blog" },
+  { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -113,7 +113,7 @@ export function Header() {
             )}
           </div>
 
-          {navigation.slice(2).map(item => (
+          {navigation.filter(item => item.name !== "Services").map(item => (
             <Link key={item.name} to={item.href} className={cn("px-4 py-2 rounded-lg text-sm font-medium transition-colors", location.pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
               {item.name}
             </Link>
@@ -169,7 +169,7 @@ export function Header() {
               )}
             </div>
 
-            {navigation.slice(2).map(item => (
+            {navigation.filter(item => item.name !== "Services").map(item => (
               <Link key={item.name} to={item.href} onClick={() => setMobileMenuOpen(false)} className={cn("block px-4 py-3 rounded-lg text-base font-medium transition-colors", location.pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
                 {item.name}
               </Link>
