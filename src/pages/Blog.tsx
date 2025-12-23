@@ -23,7 +23,8 @@ export default function Blog() {
       });
       if (error) throw error;
       return data;
-    }
+    },
+    staleTime: 5 * 60 * 1000,
   });
   const seo = usePageSEO("/blog", {
     fallbackTitle: "Packaging Industry Insights & News",

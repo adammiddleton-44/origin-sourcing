@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { caseStudies } from "@/data/caseStudies";
+import { PrefetchLink } from "@/components/PrefetchLink";
 const CaseStudies = () => {
   const seo = usePageSEO("/case-studies", {
     fallbackTitle: "Client Success Stories",
@@ -86,10 +87,10 @@ const CaseStudies = () => {
                     </blockquote>
 
                     {/* Read More Link */}
-                    <Link to={`/case-studies/${study.id}`} className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
+                    <PrefetchLink to={`/case-studies/${study.id}`} prefetchType="case-studies" className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
                       Read Full Case Study
                       <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    </PrefetchLink>
                   </div>
                 </div>
               </div>
