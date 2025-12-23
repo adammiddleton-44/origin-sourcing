@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, Package, Truck, ClipboardCheck, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo-transparent.png";
 
