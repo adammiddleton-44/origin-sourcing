@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, TrendingDown, Shield, Truck } from "lucide-react";
+import { ArrowRight, Handshake, BadgePercent, Truck, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 export function HeroSection() {
   return <section className="relative overflow-hidden bg-gradient-to-br from-section-primary via-background to-section-accent">
@@ -26,19 +26,19 @@ export function HeroSection() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-4 animate-fade-up" style={{
           animationDelay: "0.1s"
         }}>
-            Transform Your{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Packaging Supply Chain</span>
+            Unlock Direct Manufacturer Pricing for Your{" "}
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Multi-Site Operation</span>
           </h1>
 
           <h2 className="text-xl md:text-2xl lg:text-3xl font-heading font-semibold mb-6 animate-fade-up bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-gradient-shift bg-clip-text text-transparent" style={{
           animationDelay: "0.15s"
         }}>
-            Direct Sourcing Specialists
+            Packaging Procurement Specialist | Proven Cost Reductions of 20-50%
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-up" style={{
           animationDelay: "0.25s"
-        }}>We help UK businesses optimise packaging spend, ensure compliance, and build resilient supply chains. Achieve 20-35% cost savings with a direct procurement strategy whilst leveraging 3PL logstics</p>
+        }}>The merchant model dominates UK packaging for food-to-go: buying from Asia, warehousing stock, and distributing to your sites. This works well—until you scale. At 5-20+ locations, you're paying an intermediary tax that direct manufacturer relationships eliminate. I help multi-site restaurant and venue operators transition to direct procurement, reducing packaging costs by 20-50% while leveraging 3PL partnerships for seamless fulfillment.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{
           animationDelay: "0.3s"
@@ -59,16 +59,16 @@ export function HeroSection() {
           animationDelay: "0.4s"
         }}>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border/50">
-              <TrendingDown className="w-5 h-5 text-accent" />
-              <span className="text-sm font-medium">Proven cost reductions</span>
+              <Handshake className="w-5 h-5 text-accent" />
+              <span className="text-sm font-medium">Direct manufacturer relationships</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border/50">
-              <Shield className="w-5 h-5 text-accent" />
-              <span className="text-sm font-medium">EPR compliant solutions</span>
+              <BadgePercent className="w-5 h-5 text-accent" />
+              <span className="text-sm font-medium">Performance-based pricing available</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border/50">
               <Truck className="w-5 h-5 text-accent" />
-              <span className="text-sm font-medium">End-to-end support</span>
+              <span className="text-sm font-medium">3PL integration expertise</span>
             </div>
           </div>
         </div>
