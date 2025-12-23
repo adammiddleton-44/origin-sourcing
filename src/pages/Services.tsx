@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { services } from "@/data/services";
-import { PrefetchLink } from "@/components/PrefetchLink";
 
 const Services = () => {
   const seo = usePageSEO("/services", {
@@ -87,10 +86,10 @@ const Services = () => {
                       ))}
                     </ul>
                     <Button asChild variant="outline" size="sm" className="group/btn">
-                      <PrefetchLink to={`/services/${service.id}`}>
+                      <Link to={`/services/${service.id}`}>
                         Learn More
                         <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
-                      </PrefetchLink>
+                      </Link>
                     </Button>
                   </div>
                 </div>

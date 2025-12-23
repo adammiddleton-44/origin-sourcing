@@ -23,8 +23,7 @@ export default function BlogPost() {
       if (error) throw error;
       return data;
     },
-    enabled: !!slug,
-    staleTime: 5 * 60 * 1000,
+    enabled: !!slug
   });
 
   if (isLoading) {

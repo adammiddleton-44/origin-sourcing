@@ -1,5 +1,5 @@
 import { Calendar, Clock, ArrowRight } from "lucide-react";
-import { PrefetchLink } from "@/components/PrefetchLink";
+import { Link } from "react-router-dom";
 
 export interface BlogPost {
   id: string | number;
@@ -18,7 +18,7 @@ interface BlogCardProps {
 
 export function BlogCard({ post }: BlogCardProps) {
   return (
-    <PrefetchLink to={`/blog/${post.slug}`} prefetchType="blog">
+    <Link to={`/blog/${post.slug}`}>
       <article className="group relative bg-card rounded-2xl overflow-hidden card-shadow hover:card-shadow-hover transition-all duration-300 h-full">
         {/* Hover accent bar */}
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -68,6 +68,6 @@ export function BlogCard({ post }: BlogCardProps) {
           </span>
         </div>
       </article>
-    </PrefetchLink>
+    </Link>
   );
 }

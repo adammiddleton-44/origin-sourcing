@@ -34,16 +34,7 @@ const AdminServices = lazy(() => import("./pages/admin/AdminServices"));
 const AdminCaseStudies = lazy(() => import("./pages/admin/AdminCaseStudies"));
 const AdminMFASetup = lazy(() => import("./pages/admin/AdminMFASetup"));
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 5 * 60 * 1000, // Data stays fresh for 5 minutes
-      gcTime: 10 * 60 * 1000, // Keep unused data in cache for 10 minutes
-      refetchOnWindowFocus: false, // Don't refetch on tab focus
-      retry: 1, // Only retry failed requests once
-    },
-  },
-});
+const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
