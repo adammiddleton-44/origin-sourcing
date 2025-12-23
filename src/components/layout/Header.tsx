@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, ChevronDown, Package, Truck, GitBranch, TrendingDown, Search, Shield } from "lucide-react";
+import { Menu, X, ChevronDown, Package, Truck, ClipboardCheck, GitBranch, TrendingDown, Search, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/origin-logo.png";
@@ -30,6 +30,10 @@ const services = [{
   id: "3pl",
   title: "3PL Integration & Logistics Optimisation",
   icon: Truck
+}, {
+  id: "packaging-development",
+  title: "Packaging Development & Project Management",
+  icon: ClipboardCheck
 }, {
   id: "supply-chain",
   title: "Supply Chain Transformation",

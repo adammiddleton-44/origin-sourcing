@@ -1,4 +1,4 @@
-import { Package, Truck, GitBranch, TrendingDown, Search, Shield, LucideIcon } from "lucide-react";
+import { Package, Truck, ClipboardCheck, GitBranch, TrendingDown, Search, Shield, LucideIcon } from "lucide-react";
 
 export interface ServiceFeature {
   title: string;
@@ -99,6 +99,44 @@ export const services: Service[] = [
       "Transparent cost structure"
     ],
     accentColor: "from-accent to-accent/70",
+  },
+  {
+    id: "packaging-development",
+    icon: ClipboardCheck,
+    title: "Packaging Development & Project Management",
+    shortDescription: "End-to-end packaging development support for new products and rebrands, from factory selection and press pass sign-offs to brand alignment across substrates.",
+    fullDescription: "Launching a new product or rebranding existing packaging? The stakes are high—wrong materials, color mismatches, or production issues create costly delays, returns, and brand damage. I provide end-to-end packaging development support with 15+ years of production expertise.",
+    features: [
+      {
+        title: "Factory & Equipment Selection",
+        description: "Production capability assessment, machinery suitability evaluation, quality control process review, and factory site visits."
+      },
+      {
+        title: "Press Pass Sign-Offs & Production Oversight",
+        description: "On-site attendance during press approvals, color matching verification, material specification confirmation, and print quality assessment."
+      },
+      {
+        title: "Brand Alignment Across Substrates",
+        description: "Color consistency management, substrate coordination, finish specification, and multi-packaging type coordination."
+      },
+      {
+        title: "Packaging Design & Specification Audits",
+        description: "Material optimization analysis, dimensional efficiency review, print complexity assessment, and cost-benefit recommendations."
+      }
+    ],
+    process: [
+      { step: 1, title: "Discovery", description: "Understand packaging requirements, brand standards, product specifications, and timeline constraints." },
+      { step: 2, title: "Strategy", description: "Identify optimal factory partners, develop production specifications, and establish quality checkpoints." },
+      { step: 3, title: "Execution", description: "Manage factory coordination, attend press approvals, verify brand alignment, and oversee production." },
+      { step: 4, title: "Optimization", description: "Conduct packaging audits, identify cost-saving opportunities, and refine specifications for future runs." }
+    ],
+    benefits: [
+      "Risk mitigation through expert oversight",
+      "Internal resource relief",
+      "Brand consistency assurance",
+      "Cost optimization through audits"
+    ],
+    accentColor: "from-primary to-accent",
   },
   {
     id: "supply-chain",
