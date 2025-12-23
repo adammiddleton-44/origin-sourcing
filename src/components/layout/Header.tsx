@@ -73,7 +73,7 @@ export function Header() {
             alt="Origin Sourcing" 
             width={350}
             height={70}
-            className="h-10 sm:h-12 md:h-14 w-auto md:scale-150 origin-left md:group-hover:scale-[1.55] transition-transform"
+            className="h-12 sm:h-14 md:h-20 lg:h-24 w-auto transition-transform hover:scale-105"
           />
         </Link>
 
