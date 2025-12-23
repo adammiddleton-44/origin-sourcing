@@ -9,6 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import PackagingPurchasingPage from "@/components/services/PackagingPurchasingPage";
+
 type ServiceFeature = {
   title: string;
   description: string;
