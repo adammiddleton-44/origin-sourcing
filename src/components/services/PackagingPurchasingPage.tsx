@@ -122,7 +122,7 @@ const PackagingPurchasingPage = ({
       <section className="py-16 bg-background md:py-[30px]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
               Why Multi-Site Operators Overpay for Packaging
             </h2>
             <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
@@ -164,7 +164,7 @@ const PackagingPurchasingPage = ({
       {/* The Solution Section */}
       <section className="py-16 bg-muted/50 md:py-[30px]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-12">
             Direct Manufacturer Procurement Without the Complexity
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -184,7 +184,7 @@ const PackagingPurchasingPage = ({
       {/* Key Benefits Section */}
       <section className="py-16 bg-background md:py-[40px]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-12">
             Key <span className="gradient-text">Benefits</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -204,7 +204,7 @@ const PackagingPurchasingPage = ({
       {/* What's Included Section */}
       <section className="py-16 bg-muted/50 md:py-[30px]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-12">
             What's <span className="gradient-text">Included</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -231,7 +231,7 @@ const PackagingPurchasingPage = ({
       {/* Process Section */}
       <section className="py-16 bg-background md:py-[40px]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-12">
             Our <span className="gradient-text">Process</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -254,7 +254,7 @@ const PackagingPurchasingPage = ({
               <img src={packagingProofImage} alt="Sessions Arts Club packaging procurement success" className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]" />
             </div>
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
                 Real Results: £310k Annual Savings
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -278,7 +278,7 @@ const PackagingPurchasingPage = ({
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/15 rounded-full blur-3xl" />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-card mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-card mb-6">
             Ready to Eliminate Your Intermediary Tax?
           </h2>
           <p className="text-xl text-card/80 max-w-2xl mx-auto mb-8">
