@@ -1,4 +1,4 @@
-import { Package, Leaf, GitBranch, TrendingDown, Search, Shield, LucideIcon } from "lucide-react";
+import { Package, Truck, GitBranch, TrendingDown, Search, Shield, LucideIcon } from "lucide-react";
 
 export interface ServiceFeature {
   title: string;
@@ -63,40 +63,40 @@ export const services: Service[] = [
     accentColor: "from-primary to-primary/70",
   },
   {
-    id: "epr",
-    icon: Leaf,
-    title: "EPR Compliance",
-    shortDescription: "Navigate Extended Producer Responsibility regulations with confidence. We ensure your packaging meets all UK environmental obligations.",
-    fullDescription: "Extended Producer Responsibility regulations are becoming increasingly complex. Our EPR compliance service helps you navigate these requirements efficiently, ensuring full compliance while minimizing costs. We stay ahead of regulatory changes so you don't have to.",
+    id: "3pl",
+    icon: Truck,
+    title: "3PL Integration & Logistics Optimisation",
+    shortDescription: "Capture direct procurement savings without warehouse investment through strategic 3PL partnerships for multi-site operations.",
+    fullDescription: "Transitioning to direct manufacturer procurement doesn't require owning a warehouse. By partnering with the right third-party logistics (3PL) provider, you get the cost benefits of direct procurement—20-50% savings—without capital investment in warehousing infrastructure.",
     features: [
       {
-        title: "Regulatory Requirement Analysis",
-        description: "Thorough assessment of applicable EPR regulations and their implications for your business."
+        title: "Strategic 3PL Partner Selection",
+        description: "Identify partners whose capabilities, cost structure, and technology align with your specific operational requirements."
       },
       {
-        title: "Packaging Data Collection & Reporting",
-        description: "Accurate data gathering and submission to meet regulatory reporting requirements."
+        title: "Multi-Product Consolidation",
+        description: "Leverage 3PL infrastructure for packaging, food, beverages, and marketing materials—reducing delivery complexity."
       },
       {
-        title: "Compliance Strategy Development",
-        description: "Strategic planning to achieve and maintain compliance cost-effectively."
+        title: "Contract Negotiation & Setup",
+        description: "Negotiate storage rates, pick/pack fees, shipping terms, and service level agreements."
       },
       {
-        title: "Producer Responsibility Scheme Selection",
-        description: "Evaluation and selection of the most suitable compliance scheme for your needs."
+        title: "Performance Monitoring & Optimization",
+        description: "Ongoing cost tracking, delivery performance metrics, and continuous improvement initiatives."
       }
     ],
     process: [
-      { step: 1, title: "Assessment", description: "Evaluate your current compliance status and identify gaps." },
-      { step: 2, title: "Data Gathering", description: "Collect and organize packaging data for reporting." },
-      { step: 3, title: "Scheme Selection", description: "Identify and enroll in the appropriate compliance scheme." },
-      { step: 4, title: "Ongoing Compliance", description: "Manage reporting cycles and regulatory updates." }
+      { step: 1, title: "Discovery", description: "Analyze logistics setup, delivery requirements, and identify 3PL requirements based on volume." },
+      { step: 2, title: "Strategy", description: "Develop selection criteria, evaluate providers, and design optimal logistics infrastructure." },
+      { step: 3, title: "Execution", description: "Negotiate contracts, implement processes, and transition to direct procurement fulfillment." },
+      { step: 4, title: "Optimization", description: "Monitor performance, optimize costs, and expand to additional product categories." }
     ],
     benefits: [
-      "Full regulatory compliance",
-      "Avoid penalties and fines",
-      "Optimized compliance costs",
-      "Future-proofed strategy"
+      "No capital investment required",
+      "Flexible & scalable capacity",
+      "Multi-product consolidation",
+      "Transparent cost structure"
     ],
     accentColor: "from-accent to-accent/70",
   },

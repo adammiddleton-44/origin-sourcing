@@ -4,12 +4,12 @@ import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, CheckCircle, ImageIcon } from "lucide-react";
-import { Package, Leaf, GitBranch, TrendingDown, Search, Shield, LucideIcon } from "lucide-react";
+import { Package, Truck, GitBranch, TrendingDown, Search, Shield, LucideIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import PackagingPurchasingPage from "@/components/services/PackagingPurchasingPage";
-import EPRCompliancePage from "@/components/services/EPRCompliancePage";
+import ThreePLIntegrationPage from "@/components/services/ThreePLIntegrationPage";
 import SupplyChainPage from "@/components/services/SupplyChainPage";
 import CostOptimizationPage from "@/components/services/CostOptimizationPage";
 import PackagingAuditPage from "@/components/services/PackagingAuditPage";
@@ -41,7 +41,7 @@ type Service = {
 };
 const iconMap: Record<string, LucideIcon> = {
   Package,
-  Leaf,
+  Truck,
   GitBranch,
   TrendingDown,
   Search,
@@ -50,7 +50,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 const customPageMap: Record<string, React.ComponentType<{ prevService: { id: string; title: string } | null; nextService: { id: string; title: string } | null }>> = {
   'purchasing': PackagingPurchasingPage,
-  'epr': EPRCompliancePage,
+  '3pl': ThreePLIntegrationPage,
   'supply-chain': SupplyChainPage,
   'cost': CostOptimizationPage,
   'audit': PackagingAuditPage,
