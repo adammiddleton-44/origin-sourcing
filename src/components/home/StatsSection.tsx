@@ -10,7 +10,7 @@ import { useRef } from "react";
 const stats = [
   {
     icon: TrendingUp,
-    value: "20-35%",
+    value: "20-50%",
     label: "Average Cost Savings",
     description: "Delivered across all client engagements",
   },

@@ -55,7 +55,7 @@ export const services: Service[] = [
       { step: 4, title: "Optimization", description: "Continuous monitoring and improvement of supplier relationships." }
     ],
     benefits: [
-      "Average cost savings of 20-35%",
+      "Average cost savings of 20-50%",
       "Reduced supplier risk",
       "Improved quality consistency",
       "Streamlined procurement processes"

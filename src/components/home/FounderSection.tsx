@@ -33,7 +33,7 @@ export function FounderSection({
           <p>
             
 
-I left the merchant world to help multi-site operators transition to direct manufacturer relationships. The result? My first client saved £340K annually. If you've scaled beyond 5 locations, you deserve that same pricing power
+I left the merchant world to help multi-site operators transition to direct manufacturer relationships. The result? My first client saved £310K annually. If you've scaled beyond 5 locations, you deserve that same pricing power
           </p>
         </div>
 
