@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Truck, Warehouse, MapPin, DollarSign, Package, Settings, Handshake, Layers, Target, ArrowLeft, ArrowRight, CheckCircle, Building, TrendingUp, Scale, Search, ClipboardCheck, BarChart3 } from "lucide-react";
+import heroImage from "@/assets/3pl-warehouse-hero.jpg";
 
 interface ThreePLIntegrationPageProps {
   prevService: {
@@ -132,9 +133,11 @@ const ThreePLIntegrationPage = ({
               </Button>
             </div>
             <div className="relative">
-              <div className="rounded-2xl shadow-2xl w-full aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center">
-                <Truck className="w-24 h-24 text-accent/40" />
-              </div>
+              <img 
+                src={heroImage} 
+                alt="Modern 3PL warehouse with automation and logistics technology" 
+                className="rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover"
+              />
             </div>
           </div>
         </div>
