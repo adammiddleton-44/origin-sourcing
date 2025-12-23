@@ -122,7 +122,7 @@ const PackagingPurchasingPage = ({
       <section className="py-16 bg-background md:py-[30px]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
               Why Multi-Site Operators Overpay for Packaging
             </h2>
             <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
