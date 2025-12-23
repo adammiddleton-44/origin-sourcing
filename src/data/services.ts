@@ -255,38 +255,42 @@ export const services: Service[] = [
   {
     id: "sustainability",
     icon: Shield,
-    title: "Sustainability Strategy",
-    shortDescription: "Develop and implement sustainable packaging strategies that meet regulatory requirements and consumer expectations.",
-    fullDescription: "Sustainability is no longer optional in packaging. We help you develop and implement strategies that reduce environmental impact, meet regulatory requirements, satisfy customer demands, and often reduce costs too.",
+    title: "Regulatory Compliance & Sustainability",
+    shortDescription: "EPR compliance, plastic tax mitigation, and sustainable packaging strategy for UK food operators.",
+    fullDescription: "Extended Producer Responsibility (EPR) and plastic tax regulations have transformed UK packaging compliance—creating both financial obligations and strategic opportunities. I help multi-site food operators navigate these requirements while minimizing costs: EPR fee optimization, plastic tax mitigation, material alternative evaluation, and long-term sustainability strategy.",
     features: [
       {
-        title: "Sustainability Assessment",
-        description: "Evaluate your current packaging portfolio against sustainability criteria."
+        title: "EPR Compliance Management",
+        description: "Packaging data collection systems, material classification, fee calculation, and regulatory reporting processes."
       },
       {
-        title: "Material Alternatives Evaluation",
-        description: "Identify and test sustainable material alternatives for your applications."
+        title: "Plastic Tax Mitigation",
+        description: "Recycled content verification, material alternative evaluation, and cost-benefit analysis."
       },
       {
-        title: "Circularity Strategy",
-        description: "Develop strategies for recyclability, reuse, and closed-loop systems."
+        title: "Sustainable Material Evaluation",
+        description: "Alternative material identification, functional performance testing, and supplier qualification."
       },
       {
-        title: "Carbon Footprint Reduction",
-        description: "Measure and reduce the carbon impact of your packaging."
+        title: "Circular Economy Strategy",
+        description: "Packaging design for recyclability, reuse systems, and lifecycle impact analysis."
+      },
+      {
+        title: "Sustainability Reporting",
+        description: "Carbon footprint calculation, supply chain traceability, and third-party certification support."
       }
     ],
     process: [
-      { step: 1, title: "Baseline", description: "Assess current environmental impact and sustainability performance." },
-      { step: 2, title: "Goals", description: "Define clear sustainability targets aligned with your commitments." },
-      { step: 3, title: "Strategy", description: "Develop a practical roadmap to achieve your goals." },
-      { step: 4, title: "Execute", description: "Implement changes and track progress against targets." }
+      { step: 1, title: "Discovery", description: "Audit your current packaging portfolio, assess regulatory exposure, and identify compliance gaps." },
+      { step: 2, title: "Strategy", description: "Develop EPR reporting processes, evaluate material alternatives, and create sustainability roadmap." },
+      { step: 3, title: "Execution", description: "Implement data collection systems, establish supplier verification, and ensure regulatory compliance." },
+      { step: 4, title: "Optimization", description: "Monitor regulatory changes, refine strategies, and continuously improve compliance processes." }
     ],
     benefits: [
-      "Reduced environmental impact",
-      "Regulatory compliance",
-      "Enhanced brand reputation",
-      "Often reduces costs"
+      "Regulatory Compliance Confidence",
+      "EPR & Plastic Tax Cost Optimization",
+      "Material Transition Guidance",
+      "Competitive Sustainability Positioning"
     ],
     accentColor: "from-accent via-accent/80 to-primary",
   },

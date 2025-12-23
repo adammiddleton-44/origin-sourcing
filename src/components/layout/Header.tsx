@@ -48,7 +48,7 @@ const services = [{
   icon: Search
 }, {
   id: "sustainability",
-  title: "Sustainability Strategy",
+  title: "Regulatory Compliance & Sustainability",
   icon: Shield
 }];
 
