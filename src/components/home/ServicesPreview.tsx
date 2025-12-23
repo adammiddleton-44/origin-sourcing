@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Package, Truck, Shield, ArrowRight } from "lucide-react";
+import { Package, Truck, Shield, ClipboardCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [{
@@ -16,22 +16,29 @@ const services = [{
   accentColor: "from-accent to-accent/70"
 }, {
   icon: Shield,
-  title: "Regulatory Compliance & Sustainability",
+  title: "Sustainability & EPR Compliance",
   description: "EPR compliance, plastic tax mitigation, and sustainable packaging strategy for UK food operators.",
   href: "/services/sustainability",
   accentColor: "from-primary via-primary/80 to-accent"
+}, {
+  icon: ClipboardCheck,
+  title: "Packaging Development",
+  description: "End-to-end packaging development support for new products and rebrands, from factory selection and press pass sign-offs to brand alignment.",
+  href: "/services/packaging-development",
+  accentColor: "from-primary to-accent"
 }];
+
 export function ServicesPreview({ className }: { className?: string }) {
   return <section className={`section-padding bg-background ${className || ""}`}>
       <div className="container-narrow">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-            How We Help
+            Complete Packaging Procurement Transformation
           </h2>
-          <p className="text-lg text-muted-foreground">Comprehensive packaging consultancy services designed to deliver measurable results for your business. </p>
+          <p className="text-lg text-muted-foreground">From Direct Manufacturer sourcing to 3PL Integration—everything you need to eliminate merchant markup and capture 20-50% savings.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {services.map((service, index) => <Link key={service.title} to={service.href} className="group relative p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-elevated hover:border-primary/30 transition-all duration-300 animate-fade-up overflow-hidden" style={{
           animationDelay: `${index * 0.1}s`
         }}>

@@ -18,7 +18,7 @@ export function FounderSection({
               Meet Your Consultant
             </span>
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
-              Hi, I'm [Your Name]
+              Hi, I'm Adam Middleton
             </h2>
           </div>
         </div>
@@ -26,14 +26,10 @@ export function FounderSection({
         {/* Bio */}
         <div className="space-y-4 text-muted-foreground text-lg leading-relaxed mb-8">
           <p>
-            ​After years as COO at one of the UK's leading packaging merchants, I saw the same pattern repeat: successful restaurant groups scaling from 5 to 20+ locations, unknowingly paying an increasing 'scale tax' on every piece of packaging.
-
-
+            After years as COO at one of the UK's leading packaging merchants, I saw the same pattern repeat: successful restaurant groups scaling from 5 to 20+ locations, unknowingly paying an increasing 'scale tax' on every piece of packaging.
           </p>
           <p>
-            
-
-I left the merchant world to help multi-site operators transition to direct manufacturer relationships. The result? My first client saved £310K annually. If you've scaled beyond 5 locations, you deserve that same pricing power
+            I left the merchant world to help multi-site operators transition to direct relationships with manufacturers. The result? My first client saved £310K annually. If you've scaled beyond 5 locations, you deserve that same pricing power.
           </p>
         </div>
 
