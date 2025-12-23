@@ -83,6 +83,8 @@ export function Header() {
           <img 
             src={logo} 
             alt="Origin Sourcing" 
+            width={350}
+            height={70}
             className="h-10 sm:h-12 md:h-14 w-auto md:scale-150 origin-left md:group-hover:scale-[1.55] transition-transform"
           />
         </Link>
@@ -139,13 +141,15 @@ export function Header() {
         <button 
           type="button" 
           className="md:hidden relative z-20 p-3 -m-1 rounded-lg hover:bg-muted touch-manipulation"
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileMenuOpen}
           onClick={(e) => {
             e.stopPropagation();
             console.log("menu tap");
             setMobileMenuOpen(!mobileMenuOpen);
           }}
         >
-          {mobileMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
+          {mobileMenuOpen ? <X className="w-6 h-6 text-foreground" aria-hidden="true" /> : <Menu className="w-6 h-6 text-foreground" aria-hidden="true" />}
         </button>
       </nav>
 
