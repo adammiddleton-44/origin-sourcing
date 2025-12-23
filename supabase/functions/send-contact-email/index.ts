@@ -15,6 +15,9 @@ interface ContactEmailRequest {
 }
 
 serve(async (req: Request): Promise<Response> => {
+  console.log("=== send-contact-email function invoked ===");
+  console.log("Request method:", req.method);
+  
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -24,6 +27,9 @@ serve(async (req: Request): Promise<Response> => {
     const WEB3FORMS_ACCESS_KEY = Deno.env.get("WEB3FORMS_ACCESS_KEY");
     const KLAVIYO_API_KEY = Deno.env.get("KLAVIYO_API_KEY");
     
+    console.log("Environment check - WEB3FORMS_ACCESS_KEY configured:", !!WEB3FORMS_ACCESS_KEY);
+    console.log("Environment check - KLAVIYO_API_KEY configured:", !!KLAVIYO_API_KEY);
+    
     if (!WEB3FORMS_ACCESS_KEY) {
       console.error("WEB3FORMS_ACCESS_KEY is not configured");
       return new Response(
@@ -32,7 +38,17 @@ serve(async (req: Request): Promise<Response> => {
       );
     }
 
-    const { name, email, phone, company, message, marketingConsent }: ContactEmailRequest = await req.json();
+    const requestBody = await req.json();
+    console.log("Request body received:", JSON.stringify({
+      name: requestBody.name,
+      email: requestBody.email,
+      company: requestBody.company,
+      phone: requestBody.phone ? "[provided]" : "[not provided]",
+      message: requestBody.message ? "[provided]" : "[not provided]",
+      marketingConsent: requestBody.marketingConsent
+    }));
+    
+    const { name, email, phone, company, message, marketingConsent }: ContactEmailRequest = requestBody;
 
     // Validate required fields
     if (!name || !email || !company || !message) {
@@ -83,6 +99,11 @@ serve(async (req: Request): Promise<Response> => {
     console.log("Email sent successfully");
 
     // Add to Klaviyo list only if user consented to marketing
+    console.log("=== Klaviyo Integration Check ===");
+    console.log("marketingConsent value:", marketingConsent);
+    console.log("marketingConsent type:", typeof marketingConsent);
+    console.log("KLAVIYO_API_KEY present:", !!KLAVIYO_API_KEY);
+    
     if (marketingConsent && KLAVIYO_API_KEY) {
       console.log("User consented to marketing, adding to Klaviyo...");
       
@@ -90,6 +111,47 @@ serve(async (req: Request): Promise<Response> => {
       const nameParts = name.trim().split(/\s+/);
       const firstName = nameParts[0] || "";
       const lastName = nameParts.slice(1).join(" ") || "";
+      
+      // TODO: Update this list ID after verification
+      const KLAVIYO_LIST_ID = "SUUJem";
+      console.log("Using Klaviyo List ID:", KLAVIYO_LIST_ID);
+
+      const klaviyoPayload = {
+        data: {
+          type: "profile-subscription-bulk-create-job",
+          attributes: {
+            profiles: {
+              data: [
+                {
+                  type: "profile",
+                  attributes: {
+                    email: email,
+                    first_name: firstName,
+                    last_name: lastName,
+                    phone_number: phone || undefined,
+                    properties: {
+                      company: company,
+                      message: message,
+                      source: "Contact Form"
+                    }
+                  }
+                }
+              ]
+            },
+            historical_import: false
+          },
+          relationships: {
+            list: {
+              data: {
+                type: "list",
+                id: KLAVIYO_LIST_ID
+              }
+            }
+          }
+        }
+      };
+      
+      console.log("Klaviyo request payload:", JSON.stringify(klaviyoPayload, null, 2));
 
       try {
         const klaviyoResponse = await fetch("https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs", {
@@ -99,55 +161,29 @@ serve(async (req: Request): Promise<Response> => {
             "Content-Type": "application/json",
             "revision": "2024-02-15"
           },
-          body: JSON.stringify({
-            data: {
-              type: "profile-subscription-bulk-create-job",
-              attributes: {
-                profiles: {
-                  data: [
-                    {
-                      type: "profile",
-                      attributes: {
-                        email: email,
-                        first_name: firstName,
-                        last_name: lastName,
-                        phone_number: phone || undefined,
-                        properties: {
-                          company: company,
-                          message: message,
-                          source: "Contact Form"
-                        }
-                      }
-                    }
-                  ]
-                },
-                historical_import: false
-              },
-              relationships: {
-                list: {
-                  data: {
-                    type: "list",
-                    id: "SUUJem"
-                  }
-                }
-              }
-            }
-          })
+          body: JSON.stringify(klaviyoPayload)
         });
 
+        console.log("Klaviyo response status:", klaviyoResponse.status);
+        console.log("Klaviyo response status text:", klaviyoResponse.statusText);
+        
+        const klaviyoResponseText = await klaviyoResponse.text();
+        console.log("Klaviyo response body:", klaviyoResponseText);
+
         if (klaviyoResponse.ok) {
-          console.log("Successfully added contact to Klaviyo list");
+          console.log("SUCCESS: Contact added to Klaviyo list");
         } else {
-          const klaviyoError = await klaviyoResponse.text();
-          console.error("Klaviyo error:", klaviyoError);
+          console.error("FAILED: Klaviyo returned error status", klaviyoResponse.status);
           // Don't fail the request if Klaviyo fails - email was already sent
         }
       } catch (klaviyoError) {
-        console.error("Error adding to Klaviyo:", klaviyoError);
+        console.error("EXCEPTION: Error calling Klaviyo API:", klaviyoError);
         // Don't fail the request if Klaviyo fails - email was already sent
       }
     } else if (marketingConsent && !KLAVIYO_API_KEY) {
-      console.warn("User consented to marketing but KLAVIYO_API_KEY is not configured");
+      console.warn("WARNING: User consented to marketing but KLAVIYO_API_KEY is not configured");
+    } else if (!marketingConsent) {
+      console.log("SKIPPED: User did not consent to marketing, not adding to Klaviyo");
     }
 
     return new Response(
