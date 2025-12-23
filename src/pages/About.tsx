@@ -43,7 +43,7 @@ const ReadMoreSection = () => {
         </p>
         
         <p>
-          My first client saved <strong className="text-foreground">£340K annually</strong>. That's not just a number—it's funding for their next three locations, or breathing room during tough economic times, or finally the margins they deserved for building something successful.
+          My first client saved <strong className="text-foreground">£310K annually</strong>. That's not just a number—it's funding for their next three locations, or breathing room during tough economic times, or finally the margins they deserved for building something successful.
         </p>
         
         <p className="text-foreground font-medium">
