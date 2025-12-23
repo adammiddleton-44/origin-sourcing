@@ -79,7 +79,7 @@ export function Header() {
         </Link>
 
         {/* Desktop navigation + CTA - pushed to right */}
-        <div className="hidden md:flex items-center gap-1 ml-auto">
+        <div className="hidden lg:flex items-center gap-1 ml-auto">
           <Link to="/" className={cn("px-4 py-2 rounded-lg text-sm font-medium transition-colors", location.pathname === "/" ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
             Home
           </Link>
@@ -127,7 +127,7 @@ export function Header() {
         {/* Mobile menu button */}
         <button 
           type="button" 
-          className="md:hidden ml-auto relative z-20 p-3 -m-1 rounded-lg hover:bg-muted touch-manipulation"
+          className="lg:hidden ml-auto relative z-20 p-3 -m-1 rounded-lg hover:bg-muted touch-manipulation"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileMenuOpen}
           onClick={(e) => {
@@ -142,7 +142,7 @@ export function Header() {
 
       {/* Mobile navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-card border-b border-border animate-fade-in">
+        <div className="lg:hidden bg-card border-b border-border animate-fade-in">
           <div className="container-narrow py-4 space-y-2">
             <Link to="/" onClick={() => setMobileMenuOpen(false)} className={cn("block px-4 py-3 rounded-lg text-base font-medium transition-colors", location.pathname === "/" ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
               Home
