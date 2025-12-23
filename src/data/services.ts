@@ -65,7 +65,7 @@ export const services: Service[] = [
   {
     id: "3pl",
     icon: Truck,
-    title: "3PL Integration & Logistics Optimisation",
+    title: "3PL Integration & Logistics",
     shortDescription: "Capture direct procurement savings without warehouse investment through strategic 3PL partnerships for multi-site operations.",
     fullDescription: "Transitioning to direct manufacturer procurement doesn't require owning a warehouse. By partnering with the right third-party logistics (3PL) provider, you get the cost benefits of direct procurement—20-50% savings—without capital investment in warehousing infrastructure.",
     features: [
@@ -103,7 +103,7 @@ export const services: Service[] = [
   {
     id: "packaging-development",
     icon: ClipboardCheck,
-    title: "Packaging Development & Project Management",
+    title: "Packaging Development",
     shortDescription: "End-to-end packaging development support for new products and rebrands, from factory selection and press pass sign-offs to brand alignment across substrates.",
     fullDescription: "Launching a new product or rebranding existing packaging? The stakes are high—wrong materials, color mismatches, or production issues create costly delays, returns, and brand damage. I provide end-to-end packaging development support with 15+ years of production expertise.",
     features: [
