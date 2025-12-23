@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Package, Leaf, GitBranch, ArrowRight } from "lucide-react";
+import { Package, Truck, Shield, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
 const services = [{
   icon: Package,
   title: "Packaging Purchasing",
@@ -8,16 +9,16 @@ const services = [{
   href: "/services/purchasing",
   accentColor: "from-primary to-primary/70"
 }, {
-  icon: Leaf,
-  title: "EPR Compliance",
-  description: "Navigate Extended Producer Responsibility regulations with confidence. We ensure your packaging meets all UK environmental obligations.",
-  href: "/services/epr",
+  icon: Truck,
+  title: "3PL Integration & Logistics",
+  description: "Capture direct procurement savings without warehouse investment through strategic 3PL partnerships for multi-site operations.",
+  href: "/services/3pl",
   accentColor: "from-accent to-accent/70"
 }, {
-  icon: GitBranch,
-  title: "Supply Chain Transformation",
-  description: "End-to-end optimization of your packaging supply chain, from supplier diversification to logistics efficiency improvements.",
-  href: "/services/supply-chain",
+  icon: Shield,
+  title: "Regulatory Compliance & Sustainability",
+  description: "EPR compliance, plastic tax mitigation, and sustainable packaging strategy for UK food operators.",
+  href: "/services/sustainability",
   accentColor: "from-primary via-primary/80 to-accent"
 }];
 export function ServicesPreview({ className }: { className?: string }) {
