@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, Package, Truck, ClipboardCheck, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo-transparent.png";
+import logo from "@/assets/origin-logo.png";
 
 const navigation = [
   { name: "About", href: "/about" },
@@ -66,8 +66,9 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border/50">
-      <nav className="container-narrow flex items-center justify-between py-4">
-        <Link to="/" className="group relative z-0">
+      <nav className="container-narrow flex items-center py-4">
+        {/* Logo - left pinned */}
+        <Link to="/" className="group relative z-0 shrink-0">
           <img 
             src={logo} 
             alt="Origin Sourcing" 
@@ -77,8 +78,8 @@ export function Header() {
           />
         </Link>
 
-        {/* Desktop navigation */}
-        <div className="hidden md:flex items-center gap-1">
+        {/* Desktop navigation + CTA - pushed to right */}
+        <div className="hidden md:flex items-center gap-1 ml-auto">
           <Link to="/" className={cn("px-4 py-2 rounded-lg text-sm font-medium transition-colors", location.pathname === "/" ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
             Home
           </Link>
@@ -117,10 +118,8 @@ export function Header() {
               {item.name}
             </Link>
           ))}
-        </div>
 
-        <div className="hidden md:block">
-          <Button asChild variant="hero" size="default">
+          <Button asChild variant="hero" size="default" className="ml-2">
             <Link to="/contact">Let's Talk</Link>
           </Button>
         </div>
