@@ -1,10 +1,12 @@
 import { Link, LinkProps } from "react-router-dom";
 import { useServicePrefetch } from "@/hooks/useServicePrefetch";
+import { useBlogPrefetch } from "@/hooks/useBlogPrefetch";
+import { useCaseStudyPrefetch } from "@/hooks/useCaseStudyPrefetch";
 import { ReactNode, useCallback } from "react";
 
 interface PrefetchLinkProps extends LinkProps {
   children: ReactNode;
-  prefetchType?: 'services';
+  prefetchType?: 'services' | 'blog' | 'case-studies';
 }
 
 export const PrefetchLink = ({ 
@@ -15,12 +17,18 @@ export const PrefetchLink = ({
   ...props 
 }: PrefetchLinkProps) => {
   const { prefetchServices } = useServicePrefetch();
+  const { prefetchBlogPosts } = useBlogPrefetch();
+  const { prefetchCaseStudies } = useCaseStudyPrefetch();
 
   const handlePrefetch = useCallback(() => {
     if (prefetchType === 'services') {
       prefetchServices();
+    } else if (prefetchType === 'blog') {
+      prefetchBlogPosts();
+    } else if (prefetchType === 'case-studies') {
+      prefetchCaseStudies();
     }
-  }, [prefetchType, prefetchServices]);
+  }, [prefetchType, prefetchServices, prefetchBlogPosts, prefetchCaseStudies]);
 
   return (
     <Link 

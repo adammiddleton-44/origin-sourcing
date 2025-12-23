@@ -7,7 +7,7 @@ import { ArrowLeft, ArrowRight, Quote, CheckCircle } from "lucide-react";
 import { TrendingDown, Clock, Building2, Package, Leaf, Shield, LucideIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { usePageSEO } from "@/hooks/usePageSEO";
-import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { CaseStudyDetailSkeleton } from "@/components/skeletons/CaseStudyDetailSkeleton";
 type KeyMetric = {
   label: string;
   value: string;
@@ -79,7 +79,8 @@ const CaseStudyDetail = () => {
       });
       if (error) throw error;
       return data as unknown as CaseStudy[];
-    }
+    },
+    staleTime: 5 * 60 * 1000,
   });
   const caseStudy = caseStudies?.find(cs => cs.id === caseId);
   const seo = usePageSEO(`/case-studies/${caseId}`, {
@@ -87,7 +88,7 @@ const CaseStudyDetail = () => {
     fallbackDescription: caseStudy?.challenge || "Discover how Origin Sourcing helped transform packaging procurement."
   });
   if (isLoading) {
-    return <LoadingSpinner />;
+    return <CaseStudyDetailSkeleton />;
   }
   if (!caseStudy) {
     return <Navigate to="/case-studies" replace />;
