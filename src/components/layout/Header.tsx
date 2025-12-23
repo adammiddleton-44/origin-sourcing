@@ -9,7 +9,7 @@ const navigation = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Case Studies", href: "/case-studies" },
-  { name: "Insights", href: "/blog" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -79,7 +79,7 @@ export function Header() {
         </Link>
 
         {/* Desktop navigation + CTA - pushed to right */}
-        <div className="hidden lg:flex items-center gap-1 ml-auto">
+        <div className="hidden lg:flex items-center gap-1 ml-8">
           <Link to="/" className={cn("px-4 py-2 rounded-lg text-sm font-medium transition-colors", location.pathname === "/" ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
             Home
           </Link>
