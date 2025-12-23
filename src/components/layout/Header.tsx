@@ -113,7 +113,7 @@ export function Header() {
             )}
           </div>
 
-          {navigation.slice(1).map(item => (
+          {navigation.slice(2).map(item => (
             <Link key={item.name} to={item.href} className={cn("px-4 py-2 rounded-lg text-sm font-medium transition-colors", location.pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
               {item.name}
             </Link>
@@ -127,7 +127,7 @@ export function Header() {
         {/* Mobile menu button */}
         <button 
           type="button" 
-          className="md:hidden relative z-20 p-3 -m-1 rounded-lg hover:bg-muted touch-manipulation"
+          className="md:hidden ml-auto relative z-20 p-3 -m-1 rounded-lg hover:bg-muted touch-manipulation"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileMenuOpen}
           onClick={(e) => {
@@ -169,7 +169,7 @@ export function Header() {
               )}
             </div>
 
-            {navigation.slice(1).map(item => (
+            {navigation.slice(2).map(item => (
               <Link key={item.name} to={item.href} onClick={() => setMobileMenuOpen(false)} className={cn("block px-4 py-3 rounded-lg text-base font-medium transition-colors", location.pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted")}>
                 {item.name}
               </Link>
