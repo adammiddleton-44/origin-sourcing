@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { TrendingDown, Warehouse, Shield, BarChart3, Factory, Truck, Users, Search, FileText, Handshake, Package, Activity, ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
-import packagingHeroImage from "@/assets/packaging-purchasing-hero.jpg";
+import packagingHeroImage from "@/assets/packaging-hero.jpg";
 import packagingProofImage from "@/assets/packaging-procurement.jpg";
 interface PackagingPurchasingPageProps {
   prevService: {
