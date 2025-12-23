@@ -141,7 +141,7 @@ export const services: Service[] = [
   {
     id: "sustainability",
     icon: Shield,
-    title: "Regulatory Compliance & Sustainability",
+    title: "Sustainability & EPR Compliance",
     shortDescription: "EPR compliance, plastic tax mitigation, and sustainable packaging strategy for UK food operators.",
     fullDescription: "Extended Producer Responsibility (EPR) and plastic tax regulations have transformed UK packaging compliance—creating both financial obligations and strategic opportunities. I help multi-site food operators navigate these requirements while minimizing costs: EPR fee optimization, plastic tax mitigation, material alternative evaluation, and long-term sustainability strategy.",
     features: [

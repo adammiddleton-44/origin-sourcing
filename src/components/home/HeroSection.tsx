@@ -26,19 +26,19 @@ export function HeroSection() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-4 animate-fade-up" style={{
           animationDelay: "0.1s"
         }}>
-            Unlock Direct Manufacturer Pricing for Your{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Multi-Site Operation</span>
+            Eliminate the Intermediary Tax on Your{" "}
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Packaging Procurement</span>
           </h1>
 
           <h2 className="text-xl md:text-2xl lg:text-3xl font-heading font-semibold mb-6 animate-fade-up bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-gradient-shift bg-clip-text text-transparent" style={{
           animationDelay: "0.15s"
         }}>
-            Packaging Procurement Specialist 
+            Direct Procurement Strategy for Multi-Site Food Operators
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-up" style={{
           animationDelay: "0.25s"
-        }}>The merchant model dominates UK packaging for food-to-go: buying from Asia, warehousing stock, and distributing to your sites. This works well—until you scale. At 5-20+ locations, you're paying an intermediary tax that direct manufacturer relationships eliminate. I help multi-site restaurant and venue operators transition to direct procurement, reducing packaging costs by 20-50% while leveraging 3PL partnerships for seamless fulfillment.</p>
+        }}>The merchant model works brilliantly—until you scale. At 5-20+ locations, you're paying an "intermediary tax" that direct manufacturer relationships eliminate. I help multi-site restaurant and venue operators transition to direct procurement, reducing packaging costs by 20-50% while leveraging 3PL partnerships for seamless fulfilment.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{
           animationDelay: "0.3s"
