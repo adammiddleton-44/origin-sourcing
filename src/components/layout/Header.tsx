@@ -1,56 +1,41 @@
 import { useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, ChevronDown, Package, Truck, ClipboardCheck, GitBranch, TrendingDown, Search, Shield } from "lucide-react";
+import { Menu, X, ChevronDown, Package, Truck, ClipboardCheck, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/origin-logo.png";
+import logo from "@/assets/logo-transparent.png";
 
-const navigation = [{
-  name: "Home",
-  href: "/"
-}, {
-  name: "Case Studies",
-  href: "/case-studies"
-}, {
-  name: "Blog",
-  href: "/blog"
-}, {
-  name: "About",
-  href: "/about"
-}, {
-  name: "Contact",
-  href: "/contact"
-}];
+const navigation = [
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Case Studies", href: "/case-studies" },
+  { name: "Insights", href: "/blog" },
+  { name: "Contact", href: "/contact" },
+];
 
-const services = [{
-  id: "purchasing",
-  title: "Packaging Purchasing",
-  icon: Package
-}, {
-  id: "3pl",
-  title: "3PL Integration & Logistics Optimisation",
-  icon: Truck
-}, {
-  id: "packaging-development",
-  title: "Packaging Development & Project Management",
-  icon: ClipboardCheck
-}, {
-  id: "supply-chain",
-  title: "Supply Chain Transformation",
-  icon: GitBranch
-}, {
-  id: "cost",
-  title: "Cost Optimization",
-  icon: TrendingDown
-}, {
-  id: "audit",
-  title: "Packaging Audit",
-  icon: Search
-}, {
-  id: "sustainability",
-  title: "Regulatory Compliance & Sustainability",
-  icon: Shield
-}];
+const services = [
+  {
+    id: "purchasing",
+    title: "Packaging Purchasing",
+    icon: Package
+  },
+  {
+    id: "3pl",
+    title: "3PL Integration & Logistics Optimisation",
+    icon: Truck
+  },
+  {
+    id: "packaging-development",
+    title: "Packaging Development & Project Management",
+    icon: ClipboardCheck
+  },
+  {
+    id: "sustainability",
+    title: "Regulatory Compliance & Sustainability",
+    icon: Shield
+  }
+];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
