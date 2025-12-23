@@ -21,17 +21,17 @@ const services = [
   },
   {
     id: "3pl",
-    title: "3PL Integration & Logistics Optimisation",
+    title: "3PL Integration & Logistics",
     icon: Truck
   },
   {
     id: "packaging-development",
-    title: "Packaging Development & Project Management",
+    title: "Packaging Development",
     icon: ClipboardCheck
   },
   {
     id: "sustainability",
-    title: "Regulatory Compliance & Sustainability",
+    title: "Sustainability & EPR Compliance",
     icon: Shield
   }
 ];
@@ -94,7 +94,7 @@ export function Header() {
             {/* Dropdown Content */}
             {servicesDropdownOpen && (
               <div className="absolute top-full left-0 pt-2 z-50">
-                <div className="w-64 bg-card border border-border rounded-lg shadow-lg overflow-hidden animate-fade-in">
+                <div className="w-80 bg-card border border-border rounded-lg shadow-lg overflow-hidden animate-fade-in">
                   <div className="py-2">
                     {services.map(service => (
                       <button key={service.id} onClick={() => handleServiceClick(service.id)} className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer">
