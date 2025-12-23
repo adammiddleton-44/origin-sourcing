@@ -15,7 +15,8 @@ import {
   Package,
   Activity,
   ArrowLeft,
-  ArrowRight
+  ArrowRight,
+  CheckCircle
 } from "lucide-react";
 import packagingHeroImage from "@/assets/packaging-purchasing-hero.jpg";
 import packagingProofImage from "@/assets/packaging-procurement.jpg";
@@ -149,6 +150,12 @@ const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasi
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-background to-muted py-16 md:py-24">
         <div className="container mx-auto px-4">
+          <nav className="mb-8">
+            <Link to="/services" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Services
+            </Link>
+          </nav>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
@@ -194,19 +201,19 @@ const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasi
               </p>
               <ul className="space-y-3 list-none pl-0">
                 <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-primary mt-2.5 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <span>It's worked so far—why change?</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-primary mt-2.5 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <span>Direct procurement seems complex and risky</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-primary mt-2.5 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <span>They assume they need a warehouse to go direct</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-primary mt-2.5 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <span>Internal teams are focused on operations, not procurement transformation</span>
                 </li>
               </ul>
@@ -244,7 +251,7 @@ const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasi
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-            Key Benefits
+            Key <span className="gradient-text">Benefits</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (
@@ -266,7 +273,7 @@ const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasi
       <section className="py-16 md:py-24 bg-muted/50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-            What's Included
+            What's <span className="gradient-text">Included</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {whatsIncluded.map((category, index) => (
@@ -297,17 +304,16 @@ const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasi
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-            Our Process
+            Our <span className="gradient-text">Process</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
-              <div key={index} className="relative">
-                <div className="text-6xl font-bold text-primary/20 mb-4">{step.step}</div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{step.title}</h3>
+              <div key={index} className="relative p-6 rounded-xl bg-card border border-border/50 shadow-soft">
+                <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-lg">
+                  {parseInt(step.step)}
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-3 mt-2">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-                {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary/30 to-transparent -translate-x-1/2" />
-                )}
               </div>
             ))}
           </div>
@@ -344,15 +350,19 @@ const PackagingPurchasingPage = ({ prevService, nextService }: PackagingPurchasi
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+      <section className="section-padding bg-section-dark relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/25 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/15 rounded-full blur-3xl" />
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-card mb-6">
             Ready to Eliminate Your Intermediary Tax?
           </h2>
-          <p className="text-xl opacity-90 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-card/80 max-w-2xl mx-auto mb-8">
             Let's discuss how direct manufacturer procurement can transform your packaging costs.
           </p>
-          <Button asChild size="lg" variant="secondary">
+          <Button asChild size="lg">
             <Link to="/contact">Schedule Free Consultation</Link>
           </Button>
         </div>
