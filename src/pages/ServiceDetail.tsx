@@ -8,8 +8,7 @@ import { Package, Leaf, GitBranch, TrendingDown, Search, Shield, LucideIcon } fr
 import { supabase } from "@/integrations/supabase/client";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
-import packagingProcurementImage from "@/assets/packaging-procurement.jpg";
-import packagingPurchasingHero from "@/assets/packaging-purchasing-hero.jpg";
+import PackagingPurchasingPage from "@/components/services/PackagingPurchasingPage";
 type ServiceFeature = {
   title: string;
   description: string;
@@ -75,10 +74,31 @@ const ServiceDetail = () => {
   if (!service) {
     return <Navigate to="/services" replace />;
   }
+
   const Icon = iconMap[service.icon_name] || Package;
   const currentIndex = services?.findIndex(s => s.id === service.id) || 0;
   const nextService = services?.[(currentIndex + 1) % (services?.length || 1)];
   const prevService = services?.[(currentIndex - 1 + (services?.length || 1)) % (services?.length || 1)];
+
+  // Use custom page for purchasing service
+  if (serviceId === 'purchasing') {
+    return (
+      <Layout>
+        <SEO 
+          title={seo.title || service.title} 
+          description={seo.description || service.short_description} 
+          canonical={`/services/${service.id}`} 
+          ogImage={seo.ogImage} 
+          noindex={seo.noindex} 
+        />
+        <PackagingPurchasingPage 
+          prevService={prevService ? { id: prevService.id, title: prevService.title } : null}
+          nextService={nextService ? { id: nextService.id, title: nextService.title } : null}
+        />
+      </Layout>
+    );
+  }
+
   return <Layout>
       <SEO title={seo.title || service.title} description={seo.description || service.short_description} canonical={`/services/${service.id}`} ogImage={seo.ogImage} noindex={seo.noindex} />
 
@@ -118,16 +138,6 @@ const ServiceDetail = () => {
                 </Link>
               </Button>
             </div>
-            
-            {service.id === 'purchasing' && (
-              <div className="block">
-                <img 
-                  src={packagingPurchasingHero} 
-                  alt={`${service.title} - warehouse and logistics`}
-                  className="rounded-2xl object-cover w-full shadow-elevated aspect-[4/3]"
-                />
-              </div>
-            )}
           </div>
         </div>
       </section>
@@ -194,12 +204,12 @@ const ServiceDetail = () => {
       <section className="section-padding bg-section-accent py-[40px]">
         <div className="container-narrow">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {service.id === 'purchasing' ? <img src={packagingProcurementImage} alt="Packaging purchasing - sustainable kraft paper packaging solutions" className="aspect-square rounded-2xl object-cover w-full shadow-elevated" /> : <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                  <p className="text-sm">Additional Image</p>
-                </div>
-              </div>}
+            <div className="aspect-square rounded-2xl bg-muted border-2 border-dashed border-border flex items-center justify-center">
+              <div className="text-center text-muted-foreground">
+                <ImageIcon className="w-12 h-12 mx-auto mb-3 opacity-50" />
+                <p className="text-sm">Additional Image</p>
+              </div>
+            </div>
             <div>
               <h2 className="text-3xl font-heading font-bold text-foreground mb-6">
                 Why Choose Us for {service.title}?
