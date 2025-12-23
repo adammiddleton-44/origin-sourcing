@@ -9,6 +9,11 @@ import { supabase } from "@/integrations/supabase/client";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import PackagingPurchasingPage from "@/components/services/PackagingPurchasingPage";
+import EPRCompliancePage from "@/components/services/EPRCompliancePage";
+import SupplyChainPage from "@/components/services/SupplyChainPage";
+import CostOptimizationPage from "@/components/services/CostOptimizationPage";
+import PackagingAuditPage from "@/components/services/PackagingAuditPage";
+import SustainabilityPage from "@/components/services/SustainabilityPage";
 
 type ServiceFeature = {
   title: string;
@@ -42,6 +47,16 @@ const iconMap: Record<string, LucideIcon> = {
   Search,
   Shield
 };
+
+const customPageMap: Record<string, React.ComponentType<{ prevService: { id: string; title: string } | null; nextService: { id: string; title: string } | null }>> = {
+  'purchasing': PackagingPurchasingPage,
+  'epr': EPRCompliancePage,
+  'supply-chain': SupplyChainPage,
+  'cost': CostOptimizationPage,
+  'audit': PackagingAuditPage,
+  'sustainability': SustainabilityPage,
+};
+
 const ServiceDetail = () => {
   const {
     serviceId
@@ -81,8 +96,9 @@ const ServiceDetail = () => {
   const nextService = services?.[(currentIndex + 1) % (services?.length || 1)];
   const prevService = services?.[(currentIndex - 1 + (services?.length || 1)) % (services?.length || 1)];
 
-  // Use custom page for purchasing service
-  if (serviceId === 'purchasing') {
+  // Use custom page if available
+  const CustomPage = serviceId ? customPageMap[serviceId] : null;
+  if (CustomPage) {
     return (
       <Layout>
         <SEO 
@@ -92,7 +108,7 @@ const ServiceDetail = () => {
           ogImage={seo.ogImage} 
           noindex={seo.noindex} 
         />
-        <PackagingPurchasingPage 
+        <CustomPage 
           prevService={prevService ? { id: prevService.id, title: prevService.title } : null}
           nextService={nextService ? { id: nextService.id, title: nextService.title } : null}
         />
