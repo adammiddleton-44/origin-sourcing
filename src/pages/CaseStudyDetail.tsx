@@ -204,7 +204,7 @@ const CaseStudyDetail = () => {
       </section>
 
       {/* Results Section */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background py-[30px]">
         <div className="container-narrow">
           <h2 className="text-3xl font-heading font-bold text-foreground text-center mb-12">
             Key <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Results</span>
