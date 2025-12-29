@@ -262,7 +262,7 @@ const CaseStudyDetail = () => {
       </section>
 
       {/* Testimonial Section */}
-      {caseStudy.client_quote && <section className="section-padding bg-section-dark relative overflow-hidden">
+      {caseStudy.client_quote && <section className="section-padding bg-section-dark relative overflow-hidden py-[30px]">
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/20 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent/15 rounded-full blur-3xl" />
