@@ -67,7 +67,7 @@ const PackagingPurchasingPage = ({
   }, {
     icon: Activity,
     title: "Supplier Performance Monitoring",
-    items: ["Ongoing quality tracking", "Delivery performance metrics", "Cost benchmarking and optimization", "Relationship management support"]
+    items: ["Ongoing quality tracking", "Delivery performance metrics", "Cost benchmarking and optimisation", "Relationship management support"]
   }];
   const processSteps = [{
     step: "01",
@@ -83,8 +83,8 @@ const PackagingPurchasingPage = ({
     description: "Manage the complete tender process, negotiate contracts, and oversee the transition to direct manufacturer relationships."
   }, {
     step: "04",
-    title: "Optimization",
-    description: "Ongoing supplier performance monitoring, cost benchmarking, and continuous improvement to maximize long-term value."
+    title: "Optimisation",
+    description: "Ongoing supplier performance monitoring, cost benchmarking, and continuous improvement to maximise long-term value."
   }];
   return <div className="min-h-screen">
       {/* Hero Section */}
@@ -105,7 +105,7 @@ const PackagingPurchasingPage = ({
                 Direct Manufacturer Relationships for Multi-Site Food Operators
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                The merchant model works brilliantly—until you scale. At 5-20+ locations, you're subsidizing an intermediary margin that direct procurement eliminates. I help multi-site restaurant and venue operators transition to manufacturer pricing, capturing 20-50% cost savings while leveraging 3PL partnerships for seamless fulfillment.
+                The merchant model works brilliantly—until you scale. At 5-20+ locations, you're subsidising an intermediary margin that direct procurement eliminates. I help multi-site restaurant and venue operators transition to manufacturer pricing, capturing 20-50% cost savings while leveraging 3PL partnerships for seamless fulfilment.
               </p>
               <Button asChild size="lg" className="mt-4">
                 <Link to="/contact">Schedule Free Consultation</Link>
@@ -127,10 +127,10 @@ const PackagingPurchasingPage = ({
             </h2>
             <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
               <p>
-                The UK packaging industry for food-to-go is dominated by the merchant/importer model: buying from Asia, warehousing stock, and distributing to your locations. This model has served businesses well, providing convenience and handling logistics complexity.
+              The UK packaging industry for food-to-go is dominated by the merchant/importer model: buying from Asia, warehousing stock, and distributing to your locations. This model has served businesses well, providing convenience and handling logistics complexity.
               </p>
               <p>
-                But there's a saturation point. Once you operate 5-20+ locations, you're paying an "intermediary tax"—a 20-50% markup that direct manufacturer relationships eliminate. The merchant model that enabled your growth now constrains your margins.
+              But there's a saturation point. Once you operate 5-20+ locations, you're paying an "intermediary tax"—a 20-50% markup that direct manufacturer relationships eliminate. The merchant model that enabled your growth now constrains your margins.
               </p>
               <p>
                 Most multi-site operators don't realize they've reached this inflection point. They continue buying through merchants because:
@@ -154,7 +154,7 @@ const PackagingPurchasingPage = ({
                 </li>
               </ul>
               <p className="font-medium text-foreground">
-                Meanwhile, every order reinforces the intermediary margin you're subsidizing.
+                Meanwhile, every order reinforces the intermediary margin you're subsidising.
               </p>
             </div>
           </div>

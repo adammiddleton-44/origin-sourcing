@@ -41,7 +41,7 @@ const ThreePLIntegrationPage = ({
   const solutions = [{
     icon: Search,
     title: "Strategic 3PL Partner Selection",
-    description: "I don't just find \"a 3PL provider\"—I identify partners whose capabilities, cost structure, and technology align with your specific operational requirements. This includes capability assessment (pick, pack, ship capabilities; temperature control if needed; multi-product handling), geographic optimization (warehouse locations that minimize delivery times), technology integration (WMS that connects with your ordering processes), and cost modeling (transparent pricing for storage, pick/pack rates, and shipping). The right 3PL becomes an extension of your operation, not a black box."
+    description: "I don't just find \"a 3PL provider\"—I identify partners whose capabilities, cost structure, and technology align with your specific operational requirements. This includes capability assessment (pick, pack, ship capabilities; temperature control if needed; multi-product handling), geographic optimisation (warehouse locations that minimise delivery times), technology integration (WMS that connects with your ordering processes), and cost modelling (transparent pricing for storage, pick/pack rates, and shipping). The right 3PL becomes an extension of your operation, not a black box."
   }, {
     icon: Layers,
     title: "Beyond Packaging—Multi-Product Consolidation",
@@ -49,7 +49,7 @@ const ThreePLIntegrationPage = ({
   }, {
     icon: Handshake,
     title: "Hands-On Implementation & Ongoing Optimization",
-    description: "I don't just make introductions—I manage the entire implementation: negotiate 3PL contracts (storage rates, pick/pack fees, shipping terms), design pick/pack processes specific to your SKU portfolio, establish inventory management protocols, set up ordering systems and forecasting, and monitor performance and optimize costs continuously. The result: You capture direct procurement savings while maintaining (or improving) the service levels you had with merchants."
+    description: "I don't just make introductions—I manage the entire implementation: negotiate 3PL contracts (storage rates, pick/pack fees, shipping terms), design pick/pack processes specific to your SKU portfolio, establish inventory management protocols, set up ordering systems and forecasting, and monitor performance and optimise costs continuously. The result: You capture direct procurement savings while maintaining (or improving) the service levels you had with merchants."
   }];
 
   const whatsIncluded = [{
@@ -59,7 +59,7 @@ const ThreePLIntegrationPage = ({
   }, {
     icon: ClipboardCheck,
     title: "Contract Negotiation & Setup",
-    items: ["Storage rate negotiation (shelf, pallet, temperature-controlled)", "Pick/pack fee structures", "Shipping rate optimization", "Service level agreements (SLAs)", "Flexible scaling terms"]
+    items: ["Storage rate negotiation (shelf, pallet, temperature-controlled)", "Pick/pack fee structures", "Shipping rate optimisation", "Service level agreements (SLAs)", "Flexible scaling terms"]
   }, {
     icon: Settings,
     title: "Process Design & Implementation",
@@ -70,8 +70,8 @@ const ThreePLIntegrationPage = ({
     items: ["Expansion planning beyond packaging", "Consolidation opportunities (food, beverage, marketing)", "Vendor coordination and onboarding", "Order consolidation for site deliveries"]
   }, {
     icon: BarChart3,
-    title: "Performance Monitoring & Optimization",
-    items: ["Ongoing cost tracking and benchmarking", "Delivery performance metrics", "Storage efficiency optimization", "3PL relationship management", "Continuous improvement initiatives"]
+    title: "Performance Monitoring & Optimisation",
+    items: ["Ongoing cost tracking and benchmarking", "Delivery performance metrics", "Storage efficiency optimisation", "3PL relationship management", "Continuous improvement initiatives"]
   }];
 
   const processSteps = [{
@@ -88,8 +88,8 @@ const ThreePLIntegrationPage = ({
     description: "Negotiate 3PL contracts, implement pick/pack processes, establish inventory management, and transition from merchant to direct procurement fulfillment."
   }, {
     step: "04",
-    title: "Optimization",
-    description: "Monitor performance, optimize storage and delivery costs, expand to additional product categories, and continuously improve logistics efficiency."
+    title: "Optimisation",
+    description: "Monitor performance, optimise storage and delivery costs, expand to additional product categories, and continuously improve logistics efficiency."
   }];
 
   const faqs = [{
@@ -310,7 +310,7 @@ const ThreePLIntegrationPage = ({
               <ul className="space-y-3">
                 <li className="flex items-start gap-3 text-muted-foreground">
                   <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>Packaging fulfillment across 15+ locations</span>
+                  <span>Packaging fulfilment across 15+ locations</span>
                 </li>
                 <li className="flex items-start gap-3 text-muted-foreground">
                   <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />

@@ -78,7 +78,7 @@ const About = () => {
               About <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Origin Sourcing</span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              Expert packaging procurement consultancy helping UK businesses optimize costs and transform their supply chains.
+              Expert packaging procurement consultancy helping UK businesses optimise costs and transform their supply chains.
             </p>
           </div>
         </div>

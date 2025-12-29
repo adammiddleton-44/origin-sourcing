@@ -36,7 +36,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-card/70 text-sm leading-relaxed mb-6">
-              Expert packaging procurement consultancy helping UK businesses optimize costs and transform their supply chains.
+              Expert packaging procurement consultancy helping UK businesses optimise costs and transform their supply chains.
             </p>
             <div className="flex gap-3">
               <a

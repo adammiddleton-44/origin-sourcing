@@ -88,11 +88,11 @@ const PackagingDevelopmentPage = ({
     },
     {
       icon: TrendingDown,
-      title: "Packaging Audits & Cost Optimization",
+      title: "Packaging Audits & Cost Optimisation",
       description: "New projects are opportunities to identify savings:",
       points: [
-        "Material optimization: Are you over-specifying substrates? Can you achieve the same performance with lighter-weight or more cost-effective materials?",
-        "Size optimization: Are your packaging dimensions creating waste in production or shipping? Small dimensional changes can yield significant savings.",
+        "Material optimisation: Are you over-specifying substrates? Can you achieve the same performance with lighter-weight or more cost-effective materials?",
+        "Size optimisation: Are your packaging dimensions creating waste in production or shipping? Small dimensional changes can yield significant savings.",
         "Print method efficiency: Is your design unnecessarily complex (excessive spot colors, difficult registration) driving up costs?",
         "Volume leverage: Can consolidating packaging types or standardizing across products reduce SKU complexity and improve pricing?"
       ],
@@ -118,7 +118,7 @@ const PackagingDevelopmentPage = ({
     },
     {
       icon: TrendingDown,
-      title: "Cost Optimization Through Audits",
+      title: "Cost Optimisation Through Audits",
       description: "Identify material, size, and specification opportunities that reduce packaging costs without compromising quality"
     }
   ];
@@ -199,7 +199,7 @@ const PackagingDevelopmentPage = ({
     },
     {
       step: "04",
-      title: "Optimization",
+      title: "Optimisation",
       description: "Conduct packaging audits, identify cost-saving opportunities, document lessons learned, and refine specifications for future production runs."
     }
   ];
