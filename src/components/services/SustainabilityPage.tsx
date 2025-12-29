@@ -42,8 +42,8 @@ const SustainabilityPage = ({
     },
     {
       icon: TrendingDown,
-      title: "EPR & Plastic Tax Cost Optimization",
-      description: "Minimize regulatory fees through proper classification, material selection, and strategic packaging redesign"
+      title: "EPR & Plastic Tax Cost Optimisation",
+      description: "Minimise regulatory fees through proper classification, material selection, and strategic packaging redesign"
     },
     {
       icon: Recycle,
@@ -66,7 +66,7 @@ const SustainabilityPage = ({
         "Accurate data collection: Establish systems to track packaging tonnage by material type and recyclability classification",
         "Packaging classification: Properly categorize packaging to ensure you're paying appropriate EPR fees (not overpaying on conservative assumptions)",
         "Producer Responsibility Scheme selection: Identify the right compliance scheme based on your packaging portfolio and operational structure",
-        "Fee modeling: Analyze how material substitutions or redesigns could reduce ongoing EPR obligations",
+        "Fee modelling: Analyse how material substitutions or redesigns could reduce ongoing EPR obligations",
         "Reporting processes: Implement quarterly/annual reporting workflows to meet regulatory deadlines"
       ],
       outcome: "The goal: Full compliance with optimized fees—not guesswork or overpayment."
@@ -179,7 +179,7 @@ const SustainabilityPage = ({
     },
     {
       step: "04",
-      title: "Optimization",
+      title: "Optimisation",
       description: "Monitor regulatory changes, refine material strategies, track cost savings, and continuously improve sustainability performance and compliance processes."
     }
   ];
@@ -202,8 +202,8 @@ const SustainabilityPage = ({
       description: "EPR fees, plastic tax rates, and material classifications are evolving. What's compliant today may not be tomorrow."
     },
     {
-      title: "Cost optimization missed",
-      description: "You're paying EPR fees on packaging that could be redesigned or substituted with lower-fee materials, but nobody's analyzing the trade-offs."
+      title: "Cost optimisation missed",
+      description: "You're paying EPR fees on packaging that could be redesigned or substituted with lower-fee materials, but nobody's analysing the trade-offs."
     }
   ];
 

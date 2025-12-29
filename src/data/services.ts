@@ -52,7 +52,7 @@ export const services: Service[] = [
       { step: 1, title: "Discovery", description: "We analyze your current procurement landscape, spend patterns, and pain points." },
       { step: 2, title: "Strategy", description: "Develop a tailored procurement strategy aligned with your business objectives." },
       { step: 3, title: "Execution", description: "Manage the sourcing process, from RFQ to contract finalization." },
-      { step: 4, title: "Optimization", description: "Continuous monitoring and improvement of supplier relationships." }
+      { step: 4, title: "Optimisation", description: "Continuous monitoring and improvement of supplier relationships." }
     ],
     benefits: [
       "Average cost savings of 20-50%",
@@ -87,10 +87,10 @@ export const services: Service[] = [
       }
     ],
     process: [
-      { step: 1, title: "Discovery", description: "Analyze logistics setup, delivery requirements, and identify 3PL requirements based on volume." },
+      { step: 1, title: "Discovery", description: "Analyse logistics setup, delivery requirements, and identify 3PL requirements based on volume." },
       { step: 2, title: "Strategy", description: "Develop selection criteria, evaluate providers, and design optimal logistics infrastructure." },
-      { step: 3, title: "Execution", description: "Negotiate contracts, implement processes, and transition to direct procurement fulfillment." },
-      { step: 4, title: "Optimization", description: "Monitor performance, optimize costs, and expand to additional product categories." }
+      { step: 3, title: "Execution", description: "Negotiate contracts, implement processes, and transition to direct procurement fulfilment." },
+      { step: 4, title: "Optimisation", description: "Monitor performance, optimise costs, and expand to additional product categories." }
     ],
     benefits: [
       "No capital investment required",
@@ -128,13 +128,13 @@ export const services: Service[] = [
       { step: 1, title: "Discovery", description: "Understand packaging requirements, brand standards, product specifications, and timeline constraints." },
       { step: 2, title: "Strategy", description: "Identify optimal factory partners, develop production specifications, and establish quality checkpoints." },
       { step: 3, title: "Execution", description: "Manage factory coordination, attend press approvals, verify brand alignment, and oversee production." },
-      { step: 4, title: "Optimization", description: "Conduct packaging audits, identify cost-saving opportunities, and refine specifications for future runs." }
+      { step: 4, title: "Optimisation", description: "Conduct packaging audits, identify cost-saving opportunities, and refine specifications for future runs." }
     ],
     benefits: [
       "Risk mitigation through expert oversight",
       "Internal resource relief",
       "Brand consistency assurance",
-      "Cost optimization through audits"
+      "Cost optimisation through audits"
     ],
     accentColor: "from-primary to-accent",
   },
@@ -170,11 +170,11 @@ export const services: Service[] = [
       { step: 1, title: "Discovery", description: "Audit your current packaging portfolio, assess regulatory exposure, and identify compliance gaps." },
       { step: 2, title: "Strategy", description: "Develop EPR reporting processes, evaluate material alternatives, and create sustainability roadmap." },
       { step: 3, title: "Execution", description: "Implement data collection systems, establish supplier verification, and ensure regulatory compliance." },
-      { step: 4, title: "Optimization", description: "Monitor regulatory changes, refine strategies, and continuously improve compliance processes." }
+      { step: 4, title: "Optimisation", description: "Monitor regulatory changes, refine strategies, and continuously improve compliance processes." }
     ],
     benefits: [
       "Regulatory Compliance Confidence",
-      "EPR & Plastic Tax Cost Optimization",
+      "EPR & Plastic Tax Cost Optimisation",
       "Material Transition Guidance",
       "Competitive Sustainability Positioning"
     ],
