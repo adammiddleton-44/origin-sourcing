@@ -50,6 +50,7 @@ type CaseStudy = {
   related_services: string[];
   display_order: number;
   published: boolean;
+  updated_at: string;
 };
 const iconMap: Record<string, LucideIcon> = {
   TrendingDown,
@@ -144,7 +145,11 @@ const CaseStudyDetail = () => {
             </div>
 
             <div className="relative">
-              <img src={caseStudy.image || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=60'} alt={caseStudy.client} className="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-elevated" />
+              <img 
+                src={caseStudy.image ? `${caseStudy.image}?v=${encodeURIComponent(caseStudy.updated_at)}` : 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=60'} 
+                alt={caseStudy.client} 
+                className="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-elevated" 
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent rounded-2xl" />
             </div>
           </div>

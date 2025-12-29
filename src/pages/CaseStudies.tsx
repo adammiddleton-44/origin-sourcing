@@ -87,7 +87,11 @@ const CaseStudies = () => {
                   <div className="grid grid-cols-1 lg:grid-cols-2">
                     {/* Image */}
                     <div className="h-64 lg:h-auto relative overflow-hidden">
-                      <img src={study.image || '/placeholder.svg'} alt={study.client} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img 
+                        src={study.image ? `${study.image}?v=${encodeURIComponent(study.updated_at)}` : '/placeholder.svg'} 
+                        alt={study.client} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
                     </div>
 
