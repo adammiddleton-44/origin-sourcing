@@ -24,39 +24,38 @@ const iconMap: Record<string, LucideIcon> = {
   BarChart3,
   Shield,
   Zap,
-  ArrowRight,
+  ArrowRight
 };
-
 interface KeyMetric {
   icon: string;
   value: string;
   label: string;
 }
-
 const CaseStudies = () => {
   const seo = usePageSEO("/case-studies", {
     fallbackTitle: "Client Success Stories",
     fallbackDescription: "Discover how Origin Sourcing has helped clients achieve significant cost savings and operational improvements."
   });
-
-  const { data: caseStudies, isLoading } = useQuery({
+  const {
+    data: caseStudies,
+    isLoading
+  } = useQuery({
     queryKey: ['case-studies-list'],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('case_studies')
-        .select('*')
-        .eq('published', true)
-        .order('display_order', { ascending: true });
-      
+      const {
+        data,
+        error
+      } = await supabase.from('case_studies').select('*').eq('published', true).order('display_order', {
+        ascending: true
+      });
       if (error) throw error;
       return data;
     }
   });
-
   return <Layout>
       <SEO title={seo.title} description={seo.description} canonical="/case-studies" ogImage={seo.ogImage} noindex={seo.noindex} />
       {/* Hero */}
-      <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden py-[30px]">
+      <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden py-[60px]">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -78,18 +77,13 @@ const CaseStudies = () => {
       {/* Case Studies */}
       <section className="section-padding bg-background py-[20px]">
         <div className="container-narrow space-y-16">
-          {isLoading ? (
-            <div className="flex justify-center py-12">
+          {isLoading ? <div className="flex justify-center py-12">
               <LoadingSpinner />
-            </div>
-          ) : caseStudies && caseStudies.length > 0 ? (
-            caseStudies.map((study, index) => {
-              const metrics = (study.key_metrics as unknown as KeyMetric[]) || [];
-              
-              return (
-                <article key={study.id} className="group bg-card rounded-2xl border border-border/50 shadow-soft overflow-hidden animate-fade-up hover:shadow-elevated transition-all duration-300" style={{
-                  animationDelay: `${index * 0.1}s`
-                }}>
+            </div> : caseStudies && caseStudies.length > 0 ? caseStudies.map((study, index) => {
+          const metrics = study.key_metrics as unknown as KeyMetric[] || [];
+          return <article key={study.id} className="group bg-card rounded-2xl border border-border/50 shadow-soft overflow-hidden animate-fade-up hover:shadow-elevated transition-all duration-300" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                   <div className="grid grid-cols-1 lg:grid-cols-2">
                     {/* Image */}
                     <div className="h-64 lg:h-auto relative overflow-hidden">
@@ -122,29 +116,23 @@ const CaseStudies = () => {
                         </div>
 
                         {/* Results */}
-                        {metrics.length > 0 && (
-                          <div className="grid grid-cols-3 gap-4 mb-6">
-                            {metrics.slice(0, 3).map((metric) => {
-                              const IconComponent = iconMap[metric.icon] || Package;
-                              return (
-                                <div key={metric.label} className="text-center p-3 rounded-lg bg-section-primary">
+                        {metrics.length > 0 && <div className="grid grid-cols-3 gap-4 mb-6">
+                            {metrics.slice(0, 3).map(metric => {
+                      const IconComponent = iconMap[metric.icon] || Package;
+                      return <div key={metric.label} className="text-center p-3 rounded-lg bg-section-primary">
                                   <IconComponent className="w-5 h-5 text-accent mx-auto mb-1" />
                                   <div className="text-xl font-heading font-bold text-foreground">
                                     {metric.value}
                                   </div>
                                   <div className="text-xs text-muted-foreground">{metric.label}</div>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        )}
+                                </div>;
+                    })}
+                          </div>}
 
                         {/* Testimonial */}
-                        {study.testimonial && (
-                          <blockquote className="border-l-4 border-gradient-to-b border-primary pl-4 italic text-muted-foreground text-sm bg-section-primary/50 p-3 rounded-r-lg mb-6">
+                        {study.testimonial && <blockquote className="border-l-4 border-gradient-to-b border-primary pl-4 italic text-muted-foreground text-sm bg-section-primary/50 p-3 rounded-r-lg mb-6">
                             "{study.testimonial}"
-                          </blockquote>
-                        )}
+                          </blockquote>}
 
                         {/* Read More Link */}
                         <Link to={`/case-studies/${study.id}`} className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
@@ -154,14 +142,10 @@ const CaseStudies = () => {
                       </div>
                     </div>
                   </div>
-                </article>
-              );
-            })
-          ) : (
-            <div className="text-center py-12 text-muted-foreground">
+                </article>;
+        }) : <div className="text-center py-12 text-muted-foreground">
               No case studies available at this time.
-            </div>
-          )}
+            </div>}
         </div>
       </section>
 
