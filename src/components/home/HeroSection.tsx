@@ -26,19 +26,19 @@ export function HeroSection() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-4 animate-fade-up" style={{
           animationDelay: "0.1s"
         }}>
-            Eliminate the Intermediary Tax on Your{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Packaging Procurement</span>
+            Take ownership of your{" "}
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Packaging Supply Chain</span>
           </h1>
 
           <h2 className="text-xl md:text-2xl lg:text-3xl font-heading font-semibold mb-6 animate-fade-up bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-gradient-shift bg-clip-text text-transparent" style={{
           animationDelay: "0.15s"
         }}>
-            Direct Procurement Strategy for Multi-Site Food Operators
+            Direct Procurement Strategy for the Food Service Industry
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-up" style={{
           animationDelay: "0.25s"
-        }}>The merchant model works brilliantly—until you scale. At 5-20+ locations, you're paying an "intermediary tax" that direct manufacturer relationships eliminate. I help multi-site restaurant and venue operators transition to direct procurement, reducing packaging costs by 20-50% while leveraging 3PL partnerships for seamless fulfilment.</p>
+        }}>The merchant or importer model works brilliantly—until you scale. At 5+ locations, you've earned the volume to access manufacturer pricing directly—but most operators never realise this opportunity exists. I help multi-site restaurant and venue operators transition to direct procurement, reducing packaging costs by 20-50% while leveraging 3PL partnerships for seamless fulfilment.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{
           animationDelay: "0.3s"
