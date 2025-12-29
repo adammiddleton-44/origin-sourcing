@@ -16,8 +16,8 @@ export function HeroSection() {
       backgroundSize: '40px 40px'
     }} />
 
-      <div className="container-narrow relative py-[10px]">
-        <div className="text-center max-w-4xl mx-auto py-[40px] md:py-[20px]">
+      <div className="container-narrow relative py-[30px]">
+        <div className="text-center max-w-4xl mx-auto md:py-[20px] py-[20px]">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8 animate-fade-up border border-primary/20">
             <Shield className="w-4 h-4" />
             Trusted by leading UK brands
