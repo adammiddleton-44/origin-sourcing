@@ -26,8 +26,8 @@ export function HeroSection() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-4 animate-fade-up" style={{
           animationDelay: "0.1s"
         }}>
-            Eliminate Intermediary Margin from Your{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Packaging Supply Chain</span>
+            Eliminate intermediary margin on{" "}
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">packaging</span>
           </h1>
 
           <h2 className="text-xl md:text-2xl lg:text-3xl font-heading font-semibold mb-6 animate-fade-up bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-gradient-shift bg-clip-text text-transparent" style={{
