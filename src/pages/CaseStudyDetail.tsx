@@ -287,7 +287,7 @@ const CaseStudyDetail = () => {
         </section>}
 
       {/* Navigation */}
-      <section className="section-padding bg-background border-t border-border/50">
+      <section className="section-padding bg-background border-t border-border/50 py-[30px]">
         <div className="container-narrow">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             {prevCase ? <Link to={`/case-studies/${prevCase.id}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group">
@@ -310,7 +310,7 @@ const CaseStudyDetail = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-section-primary">
+      <section className="section-padding bg-section-primary py-[30px]">
         <div className="container-narrow text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
             Ready to Achieve Similar <span className="text-primary">Results</span>?
