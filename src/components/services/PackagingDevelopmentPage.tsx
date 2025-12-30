@@ -3,9 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { 
-  ClipboardCheck, 
   Factory, 
-  Target, 
   Palette, 
   Search, 
   Users, 
@@ -16,12 +14,10 @@ import {
   Shield,
   UserCheck,
   Eye,
-  TrendingDown,
-  Settings,
-  FileCheck,
-  Layers
+  TrendingDown
 } from "lucide-react";
 import heroImage from "@/assets/packaging-development-hero.jpg";
+import CaseStudyTile from "./CaseStudyTile";
 
 interface PackagingDevelopmentPageProps {
   prevService: {
@@ -426,80 +422,8 @@ const PackagingDevelopmentPage = ({
         </div>
       </section>
 
-      {/* Proof Section */}
-      <section className="py-16 bg-muted/50 md:py-[40px]">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="rounded-2xl shadow-2xl w-full aspect-[4/3] bg-gradient-to-br from-accent/20 to-primary/10 flex items-center justify-center">
-                <ClipboardCheck className="w-24 h-24 text-accent/40" />
-              </div>
-            </div>
-            <div className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                Real Results: Hawkins Diner Netflix Project
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                When Sessions launched Hawkins Diner—a Netflix collaboration for Stranger Things—the packaging had to be flawless. This was a high-profile project where brand accuracy, color matching, and production quality were non-negotiable.
-              </p>
-              
-              <div className="space-y-4">
-                <h4 className="font-semibold text-foreground">The challenge:</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span>Brand-critical accuracy: Netflix IP requirements with zero tolerance for deviations</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span>Multi-substrate coordination: Packaging across cups, boxes, bags—each requiring different print methods</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span>Tight timeline: Launch deadline aligned with show release</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span>First-time production: New packaging types with no existing specifications</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="font-semibold text-foreground">My role:</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Factory selection: Identified production partners with capability for each packaging type</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Press pass attendance: On-site for all critical production approvals</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Color management: Ensured brand consistency across different substrates and print methods</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Quality oversight: Verified every detail met Netflix and Sessions' standards</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
-                <p className="font-semibold text-foreground">
-                  Result: Flawless execution—packaging launched on time with zero quality issues, Netflix approval maintained, and Sessions avoided the costly production failures that derail high-stakes projects.
-                </p>
-              </div>
-
-              <Button asChild size="lg">
-                <Link to="/contact">Discuss Your Packaging Project</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Proof Section - Hawkins Diner Case Study */}
+      <CaseStudyTile caseStudyId="Hawkins-Diner" />
 
       {/* FAQ Section */}
       <section className="py-16 bg-background md:py-[40px]">

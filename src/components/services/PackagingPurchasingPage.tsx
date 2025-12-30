@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { TrendingDown, Warehouse, Shield, BarChart3, Factory, Truck, Users, Search, FileText, Handshake, Package, Activity, ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
 import packagingHeroImage from "@/assets/packaging-hero.jpg";
-import packagingProofImage from "@/assets/packaging-procurement.jpg";
+import CaseStudyTile from "./CaseStudyTile";
+
 interface PackagingPurchasingPageProps {
   prevService: {
     id: string;
@@ -246,30 +247,8 @@ const PackagingPurchasingPage = ({
         </div>
       </section>
 
-      {/* Proof Section */}
-      <section className="py-16 bg-muted/50 md:py-[40px]">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <img src={packagingProofImage} alt="Sessions Arts Club packaging procurement success" className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]" />
-            </div>
-            <div className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                Real Results: £310k Annual Savings
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Sessions Arts Club operated 15+ locations buying packaging through multiple merchants. After transitioning to direct manufacturer procurement and implementing a 3PL partner, they achieved £310k in verified annual savings—a 30% reduction in packaging costs.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                The same 3PL now handles their ambient food and beverage distribution (Mikos brand), demonstrating how this infrastructure investment compounds value beyond packaging.
-              </p>
-              <Button asChild variant="outline" size="lg">
-                <Link to="/case-studies/sessions-arts-club">Read Full Case Study</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Proof Section - Sessions Case Study */}
+      <CaseStudyTile caseStudyId="sessions-growth-flatform-for-founds-led-brands" />
 
       {/* Final CTA Section */}
       <section className="section-padding bg-section-dark relative overflow-hidden">
