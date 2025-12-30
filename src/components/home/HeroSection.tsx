@@ -38,7 +38,7 @@ export function HeroSection() {
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-up" style={{
           animationDelay: "0.25s"
-        }}>The merchant or importer model works brilliantly—until you scale. At 5+ locations, you've earned the volume to access manufacturer pricing directly—but most operators never realise this opportunity exists. I help multi-site restaurant and venue operators transition to direct procurement, reducing packaging costs by 20-50% while leveraging 3PL partnerships for seamless fulfilment.</p>
+        }}>The merchant model works brilliantly—until you scale. At 5+ locations, you've earned the volume to access manufacturer pricing directly—but most operators never realise this opportunity exists. I help multi-site restaurant and venue operators transition to direct procurement, reducing packaging costs by 20-50% while leveraging 3PL partnerships for seamless fulfilment.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{
           animationDelay: "0.3s"
