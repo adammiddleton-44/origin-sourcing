@@ -33,6 +33,11 @@ export function CaseStudiesSection({ className }: { className?: string }) {
     return [];
   };
 
+  const truncateText = (text: string, maxLength: number = 120) => {
+    if (text.length <= maxLength) return text;
+    return text.slice(0, maxLength).trim() + "...";
+  };
+
   return (
     <section className={`section-padding bg-muted/30 ${className || ""}`}>
       <div className="container-wide">
@@ -100,7 +105,7 @@ export function CaseStudiesSection({ className }: { className?: string }) {
                       {caseStudy.client}
                     </h3>
                     <p className="text-muted-foreground text-sm line-clamp-2 mb-4 flex-grow">
-                      {caseStudy.challenge}
+                      {truncateText(caseStudy.challenge, 120)}
                     </p>
 
                     {/* Metric and Link - pinned to bottom */}
