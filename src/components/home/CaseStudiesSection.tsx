@@ -72,7 +72,7 @@ export function CaseStudiesSection({ className }: { className?: string }) {
                 <Link
                   key={caseStudy.id}
                   to={`/case-studies/${caseStudy.id}`}
-                  className="group bg-card rounded-2xl overflow-hidden border border-border shadow-soft hover:shadow-elevated transition-all duration-300"
+                  className="group flex flex-col bg-card rounded-2xl overflow-hidden border border-border shadow-soft hover:shadow-elevated transition-all duration-300"
                 >
                   {/* Image */}
                   <div className="aspect-video overflow-hidden bg-muted">
@@ -92,33 +92,35 @@ export function CaseStudiesSection({ className }: { className?: string }) {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
+                  <div className="p-6 flex-1 flex flex-col">
                     <span className="text-xs font-semibold uppercase tracking-wider text-primary">
                       {caseStudy.industry}
                     </span>
                     <h3 className="text-xl font-bold text-foreground mt-1 mb-2">
                       {caseStudy.client}
                     </h3>
-                    <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
+                    <p className="text-muted-foreground text-sm line-clamp-2 mb-4 flex-grow">
                       {caseStudy.challenge}
                     </p>
 
-                    {/* Primary Metric */}
-                    {primaryMetric && (
-                      <div className="flex items-baseline gap-2 mb-4">
-                        <span className="text-2xl font-bold text-primary">
-                          {primaryMetric.value}
-                        </span>
-                        <span className="text-sm text-muted-foreground">
-                          {primaryMetric.label}
-                        </span>
-                      </div>
-                    )}
+                    {/* Metric and Link - pinned to bottom */}
+                    <div className="mt-auto">
+                      {primaryMetric && (
+                        <div className="flex items-baseline gap-2 mb-4">
+                          <span className="text-2xl font-bold text-primary">
+                            {primaryMetric.value}
+                          </span>
+                          <span className="text-sm text-muted-foreground">
+                            {primaryMetric.label}
+                          </span>
+                        </div>
+                      )}
 
-                    <span className="text-primary font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Read Case Study
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
+                      <span className="text-primary font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Read Case Study
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
                   </div>
                 </Link>
               );
