@@ -1,5 +1,8 @@
 project_id = "ndfehpeygflwgbnegqwi"
 
+[functions.generate-favicon]
+verify_jwt = false
+
 [functions.generate-sitemap]
 verify_jwt = false
 
