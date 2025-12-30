@@ -26,16 +26,19 @@ const iconMap: Record<string, LucideIcon> = {
   Zap,
   ArrowRight
 };
+
 interface KeyMetric {
   icon: string;
   value: string;
   label: string;
 }
+
 const CaseStudies = () => {
   const seo = usePageSEO("/case-studies", {
     fallbackTitle: "Client Success Stories",
     fallbackDescription: "Discover how Origin Sourcing has helped clients achieve significant cost savings and operational improvements."
   });
+
   const {
     data: caseStudies,
     isLoading
@@ -52,8 +55,11 @@ const CaseStudies = () => {
       return data;
     }
   });
-  return <Layout>
+
+  return (
+    <Layout>
       <SEO title={seo.title} description={seo.description} canonical="/case-studies" ogImage={seo.ogImage} noindex={seo.noindex} />
+      
       {/* Hero */}
       <section className="section-padding bg-gradient-to-br from-section-primary via-background to-section-accent relative overflow-hidden py-[60px]">
         {/* Background decoration */}
@@ -77,79 +83,96 @@ const CaseStudies = () => {
       {/* Case Studies */}
       <section className="section-padding bg-background py-[20px]">
         <div className="container-narrow space-y-16">
-          {isLoading ? <div className="flex justify-center py-12">
+          {isLoading ? (
+            <div className="flex justify-center py-12">
               <LoadingSpinner />
-            </div> : caseStudies && caseStudies.length > 0 ? caseStudies.map((study, index) => {
-          const metrics = study.key_metrics as unknown as KeyMetric[] || [];
-          return <article key={study.id} className="group bg-card rounded-2xl border border-border/50 shadow-soft overflow-hidden animate-fade-up hover:shadow-elevated transition-all duration-300" style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
-                  <div className="grid grid-cols-1 lg:grid-cols-2">
-                    {/* Image */}
-                    <div className="h-64 lg:h-auto relative overflow-hidden">
-                      <img 
-                        src={study.image ? `${study.image}?v=${encodeURIComponent(study.updated_at)}` : '/placeholder.svg'} 
-                        alt={study.client} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
-                    </div>
+            </div>
+          ) : caseStudies && caseStudies.length > 0 ? (
+            caseStudies.map((study, index) => {
+              const metrics = study.key_metrics as unknown as KeyMetric[] || [];
+              return (
+                <Link to={`/case-studies/${study.id}`} key={study.id} className="block">
+                  <article 
+                    className="group bg-card rounded-2xl border border-border/50 shadow-soft overflow-hidden animate-fade-up hover:shadow-elevated transition-all duration-300" 
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="grid grid-cols-1 lg:grid-cols-2">
+                      {/* Image */}
+                      <div className="h-64 lg:h-auto relative overflow-hidden">
+                        <img 
+                          src={study.image ? `${study.image}?v=${encodeURIComponent(study.updated_at)}` : '/placeholder.svg'} 
+                          alt={study.client} 
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
+                      </div>
 
-                    {/* Content */}
-                    <div className="p-8 lg:p-10 relative">
-                      {/* Accent gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-accent/[0.02] opacity-0 group-hover:opacity-100 transition-opacity" />
-                      
-                      <div className="relative">
-                        <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4 border border-primary/20">
-                          {study.industry}
-                        </div>
-                        <h2 className="text-2xl font-heading font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
-                          {study.client}
-                        </h2>
-
-                        <div className="space-y-4 mb-6">
-                          <div>
-                            <h3 className="font-semibold text-foreground mb-1">Challenge</h3>
-                            <p className="text-muted-foreground text-sm">{study.challenge}</p>
+                      {/* Content */}
+                      <div className="p-8 lg:p-10 relative">
+                        {/* Accent gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-accent/[0.02] opacity-0 group-hover:opacity-100 transition-opacity" />
+                        
+                        <div className="relative">
+                          <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4 border border-primary/20">
+                            {study.industry}
                           </div>
-                          <div>
-                            <h3 className="font-semibold text-foreground mb-1">Solution</h3>
-                            <p className="text-muted-foreground text-sm">{study.solution}</p>
-                          </div>
-                        </div>
+                          <h2 className="text-2xl font-heading font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                            {study.client}
+                          </h2>
 
-                        {/* Results */}
-                        {metrics.length > 0 && <div className="grid grid-cols-3 gap-4 mb-6">
-                            {metrics.slice(0, 3).map(metric => {
-                      const IconComponent = iconMap[metric.icon] || Package;
-                      return <div key={metric.label} className="text-center p-3 rounded-lg bg-section-primary">
-                                  <IconComponent className="w-5 h-5 text-accent mx-auto mb-1" />
-                                  <div className="text-xl font-heading font-bold text-foreground">
-                                    {metric.value}
+                          <div className="space-y-4 mb-6">
+                            <div>
+                              <h3 className="font-semibold text-foreground mb-1">Challenge</h3>
+                              <p className="text-muted-foreground text-sm">{study.challenge}</p>
+                            </div>
+                            <div>
+                              <h3 className="font-semibold text-foreground mb-1">Solution</h3>
+                              <p className="text-muted-foreground text-sm">{study.solution}</p>
+                            </div>
+                          </div>
+
+                          {/* Results */}
+                          {metrics.length > 0 && (
+                            <div className="grid grid-cols-3 gap-4 mb-6">
+                              {metrics.slice(0, 3).map(metric => {
+                                const IconComponent = iconMap[metric.icon] || Package;
+                                return (
+                                  <div key={metric.label} className="text-center p-3 rounded-lg bg-section-primary">
+                                    <IconComponent className="w-5 h-5 text-accent mx-auto mb-1" />
+                                    <div className="text-xl font-heading font-bold text-foreground">
+                                      {metric.value}
+                                    </div>
+                                    <div className="text-xs text-muted-foreground">{metric.label}</div>
                                   </div>
-                                  <div className="text-xs text-muted-foreground">{metric.label}</div>
-                                </div>;
-                    })}
-                          </div>}
+                                );
+                              })}
+                            </div>
+                          )}
 
-                        {/* Testimonial */}
-                        {study.testimonial && <blockquote className="border-l-4 border-gradient-to-b border-primary pl-4 italic text-muted-foreground text-sm bg-section-primary/50 p-3 rounded-r-lg mb-6">
-                            "{study.testimonial}"
-                          </blockquote>}
+                          {/* Testimonial */}
+                          {study.testimonial && (
+                            <blockquote className="border-l-4 border-gradient-to-b border-primary pl-4 italic text-muted-foreground text-sm bg-section-primary/50 p-3 rounded-r-lg mb-6">
+                              "{study.testimonial}"
+                            </blockquote>
+                          )}
 
-                        {/* Read More Link */}
-                        <Link to={`/case-studies/${study.id}`} className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
-                          Read Full Case Study
-                          <ArrowRight className="w-4 h-4" />
-                        </Link>
+                          {/* Read More Link */}
+                          <span className="inline-flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
+                            Read Full Case Study
+                            <ArrowRight className="w-4 h-4" />
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </article>;
-        }) : <div className="text-center py-12 text-muted-foreground">
+                  </article>
+                </Link>
+              );
+            })
+          ) : (
+            <div className="text-center py-12 text-muted-foreground">
               No case studies available at this time.
-            </div>}
+            </div>
+          )}
         </div>
       </section>
 
@@ -177,6 +200,8 @@ const CaseStudies = () => {
           </Button>
         </div>
       </section>
-    </Layout>;
+    </Layout>
+  );
 };
+
 export default CaseStudies;
