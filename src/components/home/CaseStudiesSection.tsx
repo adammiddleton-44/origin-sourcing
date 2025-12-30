@@ -105,7 +105,7 @@ export function CaseStudiesSection({ className }: { className?: string }) {
                       {caseStudy.client}
                     </h3>
                     <p className="text-muted-foreground text-sm line-clamp-2 mb-4 flex-grow">
-                      {truncateText(caseStudy.challenge, 120)}
+                      {truncateText(caseStudy.challenge, 85)}
                     </p>
 
                     {/* Metric and Link - pinned to bottom */}
