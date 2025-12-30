@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Truck, Warehouse, MapPin, DollarSign, Package, Settings, Handshake, Layers, Target, ArrowLeft, ArrowRight, CheckCircle, Building, TrendingUp, Scale, Search, ClipboardCheck, BarChart3 } from "lucide-react";
 import heroImage from "@/assets/3pl-warehouse-hero.jpg";
+import CaseStudyTile from "./CaseStudyTile";
 
 interface ThreePLIntegrationPageProps {
   prevService: {
@@ -291,49 +292,8 @@ const ThreePLIntegrationPage = ({
         </div>
       </section>
 
-      {/* Proof Section */}
-      <section className="py-16 bg-muted/50 md:py-[40px]">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="rounded-2xl shadow-2xl w-full aspect-[4/3] bg-gradient-to-br from-accent/20 to-primary/10 flex items-center justify-center">
-                <Warehouse className="w-24 h-24 text-accent/40" />
-              </div>
-            </div>
-            <div className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                Real Results: £180k in 3PL & Logistics Savings
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Sessions Arts Club transitioned from merchant-managed distribution to a dedicated 3PL partner as part of their direct procurement strategy. The 3PL now handles:
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3 text-muted-foreground">
-                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>Packaging fulfilment across 15+ locations</span>
-                </li>
-                <li className="flex items-start gap-3 text-muted-foreground">
-                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>Ambient food and beverage distribution for their Mikos brand</span>
-                </li>
-                <li className="flex items-start gap-3 text-muted-foreground">
-                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>Consolidated site deliveries reducing receiving complexity</span>
-                </li>
-              </ul>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">Result:</strong> £180k in annual logistics savings (part of the overall £310k total savings), improved delivery reliability, and the infrastructure to expand into additional product categories.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                The same 3PL investment that enabled packaging cost reduction now delivers value across multiple supply chain categories.
-              </p>
-              <Button asChild variant="outline" size="lg">
-                <Link to="/case-studies/sessions-arts-club">Read Full Case Study</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Proof Section - Mikos Case Study */}
+      <CaseStudyTile caseStudyId="mikes-building-scalable-infrastructure-for-rapid-multi-site-expansion" />
 
       {/* FAQ Section */}
       <section className="py-16 bg-background md:py-[40px]">
