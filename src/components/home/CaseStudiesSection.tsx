@@ -33,9 +33,19 @@ export function CaseStudiesSection({ className }: { className?: string }) {
     return [];
   };
 
-  const truncateText = (text: string, maxLength: number = 120) => {
-    if (text.length <= maxLength) return text;
-    return text.slice(0, maxLength).trim() + "...";
+  const getHomepageChallengeExcerpt = (id: string, text: string): string => {
+    // Sessions case study - truncate at specific phrase
+    if (id.includes('sessions')) {
+      const cutoffPhrase = "faced escalating";
+      const idx = text.toLowerCase().indexOf(cutoffPhrase);
+      if (idx !== -1) {
+        return text.slice(0, idx + cutoffPhrase.length) + "...";
+      }
+    }
+    // Default: word-based truncation (first 12 words)
+    const words = text.split(/\s+/);
+    if (words.length <= 12) return text;
+    return words.slice(0, 12).join(" ") + "...";
   };
 
   return (
@@ -105,7 +115,7 @@ export function CaseStudiesSection({ className }: { className?: string }) {
                       {caseStudy.client}
                     </h3>
                     <p className="text-muted-foreground text-sm line-clamp-2 mb-4 flex-grow">
-                      {truncateText(caseStudy.challenge, 85)}
+                      {getHomepageChallengeExcerpt(caseStudy.id, caseStudy.challenge)}
                     </p>
 
                     {/* Metric and Link - pinned to bottom */}
