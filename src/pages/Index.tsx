@@ -3,7 +3,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { StatsSection } from "@/components/home/StatsSection";
 import { ServicesPreview } from "@/components/home/ServicesPreview";
 import { FounderSection } from "@/components/home/FounderSection";
-import { TestimonialsSection } from "@/components/home/TestimonialsSection";
+import { CaseStudiesSection } from "@/components/home/CaseStudiesSection";
 import { ClientLogos } from "@/components/home/ClientLogos";
 import { CTASection } from "@/components/home/CTASection";
 import { SEO } from "@/components/SEO";
@@ -19,7 +19,7 @@ const Index = () => {
       <StatsSection className="py-[30px]" />
       <ServicesPreview className="py-[30px]" />
       <FounderSection className="py-[30px]" />
-      <TestimonialsSection className="py-[30px]" />
+      <CaseStudiesSection className="py-[30px]" />
       <ClientLogos />
       <CTASection />
     </Layout>;
