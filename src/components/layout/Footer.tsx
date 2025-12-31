@@ -5,10 +5,10 @@ import logo from "@/assets/origin-logo.png";
 
 const footerLinks = {
   services: [
-    { name: "Packaging Purchasing", href: "/services#purchasing" },
-    { name: "EPR Compliance", href: "/services#epr" },
-    { name: "Supply Chain Transformation", href: "/services#supply-chain" },
-    { name: "Cost Optimization", href: "/services#cost" },
+    { name: "Packaging Purchasing", href: "/services/purchasing" },
+    { name: "3PL Integration & Logistics", href: "/services/3pl" },
+    { name: "Sustainability & EPR Compliance", href: "/services/sustainability" },
+    { name: "Packaging Development", href: "/services/packaging-development" },
   ],
   company: [
     { name: "About Us", href: "/about" },
