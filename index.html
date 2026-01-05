@@ -50,6 +50,22 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-v4.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-v4.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-v4.png">
+
+  <!-- Apollo Website Tracker -->
+  <script>
+    function initApollo(){
+      var n=Math.random().toString(36).substring(7),
+          o=document.createElement("script");
+      o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n;
+      o.async=!0;
+      o.defer=!0;
+      o.onload=function(){
+        window.trackingFunctions.onLoad({appId:"694588d712ea2a001d86e027"})
+      };
+      document.head.appendChild(o)
+    }
+    initApollo();
+  </script>
 </head>
 
   <body>
