@@ -60,7 +60,7 @@ export function FounderSection({
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="https://app.apollo.io/#/meet/adam_middleton_851" target="_blank" rel="noopener noreferrer">
+            <a href="https://app.apollo.io/#/meet/adam_middleton_851/30-min" target="_blank" rel="noopener noreferrer">
               <Calendar className="w-4 h-4 mr-2" />
               Book a Call
             </a>

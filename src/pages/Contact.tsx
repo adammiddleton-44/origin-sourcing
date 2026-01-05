@@ -239,7 +239,7 @@ const Contact = () => {
                     Book a free 30-minute call to discuss your packaging needs.
                   </p>
                   <Button asChild variant="default" size="default" className="w-full">
-                    <a href="https://app.apollo.io/#/meet/adam_middleton_851" target="_blank" rel="noopener noreferrer">
+                    <a href="https://app.apollo.io/#/meet/adam_middleton_851/30-min" target="_blank" rel="noopener noreferrer">
                       <Calendar className="w-4 h-4 mr-2" />
                       Book a Call
                     </a>
