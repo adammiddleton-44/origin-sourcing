@@ -1,4 +1,4 @@
-import { Linkedin, ArrowRight } from "lucide-react";
+import { Linkedin, ArrowRight, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import adamPhoto from "@/assets/adam-middleton.jpg";
@@ -58,6 +58,12 @@ export function FounderSection({
               Let's Talk
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <a href="https://app.apollo.io/#/meet/adam_middleton_851" target="_blank" rel="noopener noreferrer">
+              <Calendar className="w-4 h-4 mr-2" />
+              Book a Call
+            </a>
           </Button>
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
             <Linkedin className="w-5 h-5" />

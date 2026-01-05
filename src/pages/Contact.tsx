@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -233,11 +233,17 @@ const Contact = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-accent/[0.03]" />
                 <div className="relative">
                   <h3 className="font-heading font-bold text-foreground mb-2">
-                    Free Consultation
+                    Prefer to Schedule Directly?
                   </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Book a free 30-minute consultation to discuss your packaging challenges and discover how we can help.
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Book a free 30-minute call to discuss your packaging needs.
                   </p>
+                  <Button asChild variant="default" size="default" className="w-full">
+                    <a href="https://app.apollo.io/#/meet/adam_middleton_851" target="_blank" rel="noopener noreferrer">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      Book a Call
+                    </a>
+                  </Button>
                 </div>
               </div>
             </div>
