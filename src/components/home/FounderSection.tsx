@@ -1,6 +1,8 @@
 import { Linkedin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import adamPhoto from "@/assets/adam-middleton.jpg";
+
 export function FounderSection({
   className
 }: {
@@ -10,8 +12,12 @@ export function FounderSection({
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with LinkedIn-style photo */}
         <div className="flex items-center gap-4 mb-6">
-          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-border overflow-hidden flex-shrink-0 flex items-center justify-center">
-            <span className="text-2xl">👤</span>
+          <div className="w-24 h-24 md:w-28 md:h-28 rounded-full border-3 border-primary/30 overflow-hidden flex-shrink-0 shadow-lg">
+            <img 
+              src={adamPhoto} 
+              alt="Adam Middleton - Packaging Procurement Consultant" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <div>
             <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider">
