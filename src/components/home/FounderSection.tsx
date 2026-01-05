@@ -1,4 +1,4 @@
-import { Linkedin, ArrowRight, Calendar } from "lucide-react";
+import { Linkedin, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import adamPhoto from "@/assets/adam-middleton.jpg";
@@ -54,12 +54,6 @@ export function FounderSection({
         {/* CTA */}
         <div className="flex flex-wrap gap-4 items-center">
           <Button asChild variant="default" size="lg">
-            <Link to="/contact">
-              Let's Talk
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
-          </Button>
-          <Button asChild variant="outline" size="lg">
             <a href="https://app.apollo.io/#/meet/adam_middleton_851/30-min" target="_blank" rel="noopener noreferrer">
               <Calendar className="w-4 h-4 mr-2" />
               Book a Call
