@@ -78,7 +78,7 @@ const ThreePLIntegrationPage = ({
   const processSteps = [{
     step: "01",
     title: "Discovery",
-    description: "Analyze your current logistics setup, delivery requirements across sites, and identify 3PL requirements based on volume and product types."
+    description: "Analyse your current logistics setup, delivery requirements across sites, and identify 3PL requirements based on volume and product types."
   }, {
     step: "02",
     title: "Strategy",
@@ -98,13 +98,13 @@ const ThreePLIntegrationPage = ({
     answer: "Yes—but far less than the merchant markup. A 3PL charges for actual services rendered (storage space, pick/pack labor, shipping) with transparent pricing. Merchants bundle these costs with procurement markup, typically 20-50%. By separating procurement from logistics, you pay competitive rates for each."
   }, {
     question: "How long does 3PL implementation take?",
-    answer: "Typically 4-8 weeks from provider selection to first shipments. Timeline depends on complexity (number of SKUs, temperature requirements, integration needs). We manage the entire process to minimize disruption."
+    answer: "Typically 4-8 weeks from provider selection to first shipments. Timeline depends on complexity (number of SKUs, temperature requirements, integration needs). We manage the entire process to minimise disruption."
   }, {
     question: "What if we want to bring warehousing in-house later?",
     answer: "That's fine—3PL partnerships are flexible. Many operators start with 3PL, then transition to self-managed warehousing as scale justifies the investment. We can help you evaluate that decision when the time comes."
   }, {
     question: "Can we use our existing 3PL or do we need a new one?",
-    answer: "If you already have a 3PL relationship, we'll evaluate whether it's optimized for direct procurement. Sometimes existing 3PLs work well, sometimes a new partner makes sense. We'll recommend what's best for your operation."
+    answer: "If you already have a 3PL relationship, we'll evaluate whether it's optimised for direct procurement. Sometimes existing 3PLs work well, sometimes a new partner makes sense. We'll recommend what's best for your operation."
   }];
 
   return (

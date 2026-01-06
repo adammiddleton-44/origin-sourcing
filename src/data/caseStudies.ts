@@ -59,7 +59,7 @@ export const caseStudies: CaseStudy[] = [
     results: [
       { label: "Cost Savings", value: "£310K", icon: TrendingDown },
       { label: "Timeline", value: "6 months", icon: Clock },
-      { label: "Suppliers Optimized", value: "12", icon: Building2 },
+      { label: "Suppliers Optimised", value: "12", icon: Building2 },
     ],
     testimonial: "Origin Sourcing transformed our packaging procurement. The savings exceeded our expectations and the new supplier relationships are much stronger.",
     fullChallenge: [
@@ -134,7 +134,7 @@ export const caseStudies: CaseStudy[] = [
     results: [
       { label: "Cost Savings", value: "£185K", icon: TrendingDown },
       { label: "Timeline", value: "9 months", icon: Clock },
-      { label: "SKUs Optimized", value: "200+", icon: Building2 },
+      { label: "SKUs Optimised", value: "200+", icon: Building2 },
     ],
     testimonial: "Their expertise in EPR compliance was invaluable. We're now fully compliant and have actually reduced costs in the process.",
     fullChallenge: [

@@ -134,7 +134,7 @@ const PackagingPurchasingPage = ({
               But there's a saturation point. Once you operate 5-20+ locations, you're paying an "intermediary tax"—a 20-50% markup that direct manufacturer relationships eliminate. The merchant model that enabled your growth now constrains your margins.
               </p>
               <p>
-                Most multi-site operators don't realize they've reached this inflection point. They continue buying through merchants because:
+                Most multi-site operators don't realise they've reached this inflection point. They continue buying through merchants because:
               </p>
               <ul className="space-y-3 list-none pl-0">
                 <li className="flex items-start gap-3">

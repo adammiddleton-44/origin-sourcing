@@ -49,7 +49,7 @@ export const services: Service[] = [
       }
     ],
     process: [
-      { step: 1, title: "Discovery", description: "We analyze your current purchasing landscape, spend patterns, and pain points." },
+      { step: 1, title: "Discovery", description: "We analyse your current purchasing landscape, spend patterns, and pain points." },
       { step: 2, title: "Strategy", description: "Develop a tailored purchasing strategy aligned with your business objectives." },
       { step: 3, title: "Execution", description: "Manage the sourcing process, from RFQ to contract finalization." },
       { step: 4, title: "Optimisation", description: "Continuous monitoring and improvement of supplier relationships." }
