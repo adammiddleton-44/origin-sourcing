@@ -61,7 +61,7 @@ const PackagingDevelopmentPage = ({
     {
       icon: Factory,
       title: "Factory & Machinery Selection",
-      description: "Not all factories can produce all packaging types. I identify the right production partner based on:",
+      description: "Not all factories can produce all packaging types. We identify the right production partner based on:",
       points: [
         "Capability matching: Does their equipment suit your substrate, print method, and finishing requirements?",
         "Production volume: Are you ordering quantities that fit their minimum runs and efficiency sweet spots?",
@@ -73,14 +73,14 @@ const PackagingDevelopmentPage = ({
     {
       icon: Eye,
       title: "Press Pass Sign-Offs & Brand Alignment",
-      description: "This is where most projects derail. I provide on-site factory presence for critical approvals:",
+      description: "This is where most projects derail. We provide on-site factory presence for critical approvals:",
       points: [
         "Press pass attendance: Physical presence during production setup to approve color, registration, and print quality before full runs",
         "Substrate evaluation: Verification that materials meet specifications (weight, coating, barrier properties)",
         "Brand consistency: Ensuring colors and finishes match across different packaging types (coated vs. uncoated, CMYK vs. Pantone, matte vs. gloss)",
         "Structural integrity: Confirming that packaging performs functionally (sealing, stacking, handling)"
       ],
-      result: "You're not relying on factory photos or samples shipped after production—I'm there in person ensuring your brand standards are met."
+      result: "You're not relying on factory photos or samples shipped after production—we're there in person ensuring your brand standards are met."
     },
     {
       icon: TrendingDown,
@@ -203,11 +203,11 @@ const PackagingDevelopmentPage = ({
   const faqs = [
     {
       question: "Do you handle packaging design, or just production management?",
-      answer: "I focus on production execution and factory coordination, not graphic design. If you need design work, I can recommend partners. My expertise is ensuring your design translates accurately from concept to physical production—managing the technical specifications, factory selection, and quality oversight that most designers don't handle."
+      answer: "We focus on production execution and factory coordination, not graphic design. If you need design work, we can recommend partners. Our expertise is ensuring your design translates accurately from concept to physical production—managing the technical specifications, factory selection, and quality oversight that most designers don't handle."
     },
     {
       question: "What types of packaging do you work with?",
-      answer: "Food service and retail packaging across multiple substrates: paper, cardboard, flexible films, rigid plastics. Common examples: cups, boxes, bags, trays, containers, labels. If it's printed and food-contact, I likely have experience with it."
+      answer: "Food service and retail packaging across multiple substrates: paper, cardboard, flexible films, rigid plastics. Common examples: cups, boxes, bags, trays, containers, labels. If it's printed and food-contact, we likely have experience with it."
     },
     {
       question: "How much does packaging development support cost?",
@@ -215,11 +215,11 @@ const PackagingDevelopmentPage = ({
     },
     {
       question: "Can you work with our existing design agency or in-house team?",
-      answer: "Absolutely—I complement creative teams. Your designers focus on brand and aesthetics, I handle production specifications, factory coordination, and quality assurance. This partnership ensures designs are both beautiful and manufacturable."
+      answer: "Absolutely—we complement creative teams. Your designers focus on brand and aesthetics, we handle production specifications, factory coordination, and quality assurance. This partnership ensures designs are both beautiful and manufacturable."
     },
     {
       question: "What if we're rebranding multiple packaging types?",
-      answer: "This is ideal for my involvement. Rebrands require coordinating new specifications across multiple SKUs while maintaining brand consistency. I manage the factory transitions, ensure color matching across substrates, and handle the production complexity so your internal teams aren't overwhelmed."
+      answer: "This is ideal for our involvement. Rebrands require coordinating new specifications across multiple SKUs while maintaining brand consistency. We manage the factory transitions, ensure colour matching across substrates, and handle the production complexity so your internal teams aren't overwhelmed."
     }
   ];
 
@@ -243,7 +243,7 @@ const PackagingDevelopmentPage = ({
                 Packaging Development & Project Management for New Products and Rebrands
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Launching a new product or rebranding existing packaging? The stakes are high—wrong materials, color mismatches, or production issues create costly delays, returns, and brand damage. I provide end-to-end packaging development support: from factory selection and press pass sign-offs to brand alignment across substrates. My 15+ years of production expertise ensures quality outcomes while identifying cost-saving opportunities through packaging audits.
+                Launching a new product or rebranding existing packaging? The stakes are high—wrong materials, colour mismatches, or production issues create costly delays, returns, and brand damage. We provide end-to-end packaging development support: from factory selection and press pass sign-offs to brand alignment across substrates. Our 15+ years of production expertise ensures quality outcomes while identifying cost-saving opportunities through packaging audits.
               </p>
               <Button asChild size="lg" className="mt-4">
                 <Link to="/contact">Schedule Free Consultation</Link>

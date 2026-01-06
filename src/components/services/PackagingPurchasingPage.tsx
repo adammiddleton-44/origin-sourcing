@@ -39,15 +39,15 @@ const PackagingPurchasingPage = ({
   const solutions = [{
     icon: Factory,
     title: "Established Factory Network",
-    description: "I bring 15+ years of relationships with manufacturers across UK, EU, and Asia. Unlike brokers who source reactively, I have established partnerships with vetted factories—giving you immediate access to manufacturer pricing without the trial-and-error of building these relationships yourself."
+    description: "We bring 15+ years of relationships with manufacturers across UK, EU, and Asia. Unlike brokers who source reactively, we have established partnerships with vetted factories—giving you immediate access to manufacturer pricing without the trial-and-error of building these relationships yourself."
   }, {
     icon: Truck,
     title: "3PL Integration for Non-Warehoused Operations",
-    description: "Don't have a warehouse? No problem. I implement third-party logistics (3PL) providers who handle pick, pack, and distribution—giving you the cost benefits of direct purchasing without warehousing overhead. Once established, leverage the same 3PL for ingredients, beverages, and marketing materials."
+    description: "Don't have a warehouse? No problem. We implement third-party logistics (3PL) providers who handle pick, pack, and distribution—giving you the cost benefits of direct purchasing without warehousing overhead. Once established, leverage the same 3PL for ingredients, beverages, and marketing materials."
   }, {
     icon: Users,
     title: "Hands-On Transition Management",
-    description: "Direct purchasing isn't just about finding cheaper suppliers. It's about tender management, contract negotiation, quality assurance, and performance monitoring. I manage this transition end-to-end, typically placing initial orders myself before empowering your team with the tools to manage relationships ongoing."
+    description: "Direct purchasing isn't just about finding cheaper suppliers. It's about tender management, contract negotiation, quality assurance, and performance monitoring. We manage this transition end-to-end, typically placing initial orders ourselves before empowering your team with the tools to manage relationships ongoing."
   }];
   const whatsIncluded = [{
     icon: Search,
@@ -106,7 +106,7 @@ const PackagingPurchasingPage = ({
                 Direct Manufacturer Relationships for Multi-Site Food Operators
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                The merchant model works brilliantly—until you scale. At 5-20+ locations, you're subsidising an intermediary margin that direct procurement eliminates. I help multi-site restaurant and venue operators transition to manufacturer pricing, capturing 20-50% cost savings while leveraging 3PL partnerships for seamless fulfilment.
+                The merchant model works brilliantly—until you scale. At 5-20+ locations, you're subsidising an intermediary margin that direct procurement eliminates. We help multi-site restaurant and venue operators transition to manufacturer pricing, capturing 20-50% cost savings while leveraging 3PL partnerships for seamless fulfilment.
               </p>
               <Button asChild size="lg" className="mt-4">
                 <Link to="/contact">Schedule Free Consultation</Link>
