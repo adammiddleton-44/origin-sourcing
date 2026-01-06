@@ -4,7 +4,6 @@ import { StatsSection } from "@/components/home/StatsSection";
 import { ServicesPreview } from "@/components/home/ServicesPreview";
 import { FounderSection } from "@/components/home/FounderSection";
 import { CaseStudiesSection } from "@/components/home/CaseStudiesSection";
-import { ClientLogos } from "@/components/home/ClientLogos";
 import { CTASection } from "@/components/home/CTASection";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
@@ -20,7 +19,6 @@ const Index = () => {
       <ServicesPreview className="py-[30px]" />
       <FounderSection className="py-[30px]" />
       <CaseStudiesSection className="py-[30px]" />
-      <ClientLogos />
       <CTASection />
     </Layout>;
 };
