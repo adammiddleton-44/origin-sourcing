@@ -42,7 +42,7 @@ const ThreePLIntegrationPage = ({
   const solutions = [{
     icon: Search,
     title: "Strategic 3PL Partner Selection",
-    description: "I don't just find \"a 3PL provider\"—I identify partners whose capabilities, cost structure, and technology align with your specific operational requirements. This includes capability assessment (pick, pack, ship capabilities; temperature control if needed; multi-product handling), geographic optimisation (warehouse locations that minimise delivery times), technology integration (WMS that connects with your ordering processes), and cost modelling (transparent pricing for storage, pick/pack rates, and shipping). The right 3PL becomes an extension of your operation, not a black box."
+    description: "We don't just find \"a 3PL provider\"—we identify partners whose capabilities, cost structure, and technology align with your specific operational requirements. This includes capability assessment (pick, pack, ship capabilities; temperature control if needed; multi-product handling), geographic optimisation (warehouse locations that minimise delivery times), technology integration (WMS that connects with your ordering processes), and cost modelling (transparent pricing for storage, pick/pack rates, and shipping). The right 3PL becomes an extension of your operation, not a black box."
   }, {
     icon: Layers,
     title: "Beyond Packaging—Multi-Product Consolidation",
@@ -50,7 +50,7 @@ const ThreePLIntegrationPage = ({
   }, {
     icon: Handshake,
     title: "Hands-On Implementation & Ongoing Optimization",
-    description: "I don't just make introductions—I manage the entire implementation: negotiate 3PL contracts (storage rates, pick/pack fees, shipping terms), design pick/pack processes specific to your SKU portfolio, establish inventory management protocols, set up ordering systems and forecasting, and monitor performance and optimise costs continuously. The result: You capture direct procurement savings while maintaining (or improving) the service levels you had with merchants."
+    description: "We don't just make introductions—we manage the entire implementation: negotiate 3PL contracts (storage rates, pick/pack fees, shipping terms), design pick/pack processes specific to your SKU portfolio, establish inventory management protocols, set up ordering systems and forecasting, and monitor performance and optimise costs continuously. The result: You capture direct procurement savings while maintaining (or improving) the service levels you had with merchants."
   }];
 
   const whatsIncluded = [{
@@ -127,7 +127,7 @@ const ThreePLIntegrationPage = ({
                 3PL Integration & Logistics Optimisation for Multi-Site Operations
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Transitioning to direct manufacturer procurement doesn't require owning a warehouse. By partnering with the right third-party logistics (3PL) provider, you get the cost benefits of direct procurement—20-50% savings—without capital investment in warehousing infrastructure. I implement 3PL solutions that handle pick, pack, and distribution, then help you leverage the same infrastructure for ingredients, beverages, and marketing materials.
+                Transitioning to direct manufacturer procurement doesn't require owning a warehouse. By partnering with the right third-party logistics (3PL) provider, you get the cost benefits of direct procurement—20-50% savings—without capital investment in warehousing infrastructure. We implement 3PL solutions that handle pick, pack, and distribution, then help you leverage the same infrastructure for ingredients, beverages, and marketing materials.
               </p>
               <Button asChild size="lg" className="mt-4">
                 <Link to="/contact">Schedule Free Consultation</Link>

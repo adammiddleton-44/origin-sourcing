@@ -61,7 +61,7 @@ const SustainabilityPage = ({
     {
       icon: FileCheck,
       title: "EPR Compliance & Fee Optimisation",
-      description: "I don't just help you report—I help you optimise:",
+      description: "We don't just help you report—we help you optimise:",
       items: [
         "Accurate data collection: Establish systems to track packaging tonnage by material type and recyclability classification",
         "Packaging classification: Properly categorize packaging to ensure you're paying appropriate EPR fees (not overpaying on conservative assumptions)",
@@ -227,7 +227,7 @@ const SustainabilityPage = ({
                 Regulatory Compliance & Sustainable Packaging Strategy for UK Food Operators
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Extended Producer Responsibility (EPR) and plastic tax regulations have transformed UK packaging compliance—creating both financial obligations and strategic opportunities. I help multi-site food operators navigate these requirements while minimizing costs: EPR fee optimization, plastic tax mitigation, material alternative evaluation, and long-term sustainability strategy. Stay compliant, reduce environmental impact, and avoid the penalties that come with getting it wrong.
+                Extended Producer Responsibility (EPR) and plastic tax regulations have transformed UK packaging compliance—creating both financial obligations and strategic opportunities. We help multi-site food operators navigate these requirements while minimising costs: EPR fee optimisation, plastic tax mitigation, material alternative evaluation, and long-term sustainability strategy. Stay compliant, reduce environmental impact, and avoid the penalties that come with getting it wrong.
               </p>
               <Button asChild size="lg" className="mt-4">
                 <Link to="/contact">Schedule Compliance Assessment</Link>

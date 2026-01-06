@@ -105,7 +105,7 @@ export const services: Service[] = [
     icon: ClipboardCheck,
     title: "Packaging Development",
     shortDescription: "End-to-end packaging development support for new products and rebrands, from factory selection and press pass sign-offs to brand alignment across substrates.",
-    fullDescription: "Launching a new product or rebranding existing packaging? The stakes are high—wrong materials, color mismatches, or production issues create costly delays, returns, and brand damage. I provide end-to-end packaging development support with 15+ years of production expertise.",
+    fullDescription: "Launching a new product or rebranding existing packaging? The stakes are high—wrong materials, colour mismatches, or production issues create costly delays, returns, and brand damage. We provide end-to-end packaging development support with 15+ years of production expertise.",
     features: [
       {
         title: "Factory & Equipment Selection",
@@ -143,7 +143,7 @@ export const services: Service[] = [
     icon: Shield,
     title: "Sustainability & EPR Compliance",
     shortDescription: "EPR compliance, plastic tax mitigation, and sustainable packaging strategy for UK food operators.",
-    fullDescription: "Extended Producer Responsibility (EPR) and plastic tax regulations have transformed UK packaging compliance—creating both financial obligations and strategic opportunities. I help multi-site food operators navigate these requirements while minimizing costs: EPR fee optimization, plastic tax mitigation, material alternative evaluation, and long-term sustainability strategy.",
+    fullDescription: "Extended Producer Responsibility (EPR) and plastic tax regulations have transformed UK packaging compliance—creating both financial obligations and strategic opportunities. We help multi-site food operators navigate these requirements while minimising costs: EPR fee optimisation, plastic tax mitigation, material alternative evaluation, and long-term sustainability strategy.",
     features: [
       {
         title: "EPR Compliance Management",
