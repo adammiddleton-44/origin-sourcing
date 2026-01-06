@@ -46,7 +46,7 @@ const Contact = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const seo = usePageSEO("/contact", {
     fallbackTitle: "Get in Touch",
-    fallbackDescription: "Contact Origin Sourcing for expert packaging procurement consultancy. Get a free consultation today."
+    fallbackDescription: "Contact Origin Sourcing for expert packaging purchasing consultancy. Get a free consultation today."
   });
   const validateForm = () => {
     const newErrors: Record<string, string> = {};

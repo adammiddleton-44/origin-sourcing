@@ -190,7 +190,7 @@ const CaseStudies = () => {
             Ready to Write Your <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Success Story</span>?
           </h2>
           <p className="text-card/70 mb-8 max-w-2xl mx-auto">
-            Join these businesses and discover how much you could save with expert packaging procurement consultancy.
+            Join these businesses and discover how much you could save with expert packaging purchasing consultancy.
           </p>
           <Button asChild variant="hero" size="xl">
             <Link to="/contact">

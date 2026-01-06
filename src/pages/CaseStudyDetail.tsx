@@ -85,7 +85,7 @@ const CaseStudyDetail = () => {
   const caseStudy = caseStudies?.find(cs => cs.id === caseId);
   const seo = usePageSEO(`/case-studies/${caseId}`, {
     fallbackTitle: caseStudy ? `${caseStudy.client} Case Study` : "Case Study",
-    fallbackDescription: caseStudy?.challenge || "Discover how Origin Sourcing helped transform packaging procurement."
+    fallbackDescription: caseStudy?.challenge || "Discover how Origin Sourcing helped transform packaging purchasing."
   });
   if (isLoading) {
     return <LoadingSpinner />;
@@ -321,7 +321,7 @@ const CaseStudyDetail = () => {
             Ready to Achieve Similar <span className="text-primary">Results</span>?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let's discuss how we can help transform your packaging procurement and deliver measurable savings for your business.
+            Let's discuss how we can help transform your packaging purchasing and deliver measurable savings for your business.
           </p>
           <Button asChild variant="hero" size="xl">
             <Link to="/contact">

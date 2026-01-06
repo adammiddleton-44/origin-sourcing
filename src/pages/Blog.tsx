@@ -27,7 +27,7 @@ export default function Blog() {
   });
   const seo = usePageSEO("/blog", {
     fallbackTitle: "Packaging Industry Insights & News",
-    fallbackDescription: "Expert insights on packaging procurement, sustainability, EPR compliance, and supply chain optimization from Origin Sourcing."
+    fallbackDescription: "Expert insights on packaging purchasing, sustainability, EPR compliance, and supply chain optimization from Origin Sourcing."
   });
   return <Layout>
       <SEO title={seo.title} description={seo.description} canonical="/blog" ogImage={seo.ogImage} noindex={seo.noindex} />
@@ -46,11 +46,11 @@ export default function Blog() {
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Packaging{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Procurement Blog
+                Purchasing Blog
               </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Expert insights on packaging procurement, EPR compliance, sustainability, 
+              Expert insights on packaging purchasing, EPR compliance, sustainability, 
               and supply chain optimisation from industry veterans.
             </p>
           </div>
