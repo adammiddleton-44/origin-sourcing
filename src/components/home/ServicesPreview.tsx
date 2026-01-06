@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Package, Truck, Shield, ClipboardCheck, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const services = [{
   icon: Package,
@@ -38,7 +37,7 @@ export function ServicesPreview({ className }: { className?: string }) {
           <p className="text-lg text-muted-foreground">From Direct Manufacturer sourcing to 3PL Integration—everything you need to eliminate merchant markup and capture 20-50% savings.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => <Link key={service.title} to={service.href} className="group relative p-8 rounded-2xl bg-card border border-border/50 shadow-soft hover:shadow-elevated hover:border-primary/30 transition-all duration-300 animate-fade-up overflow-hidden" style={{
           animationDelay: `${index * 0.1}s`
         }}>
@@ -59,15 +58,6 @@ export function ServicesPreview({ className }: { className?: string }) {
                 <ArrowRight className="w-4 h-4" />
               </span>
             </Link>)}
-        </div>
-
-        <div className="text-center">
-          <Button asChild variant="outline" size="lg">
-            <Link to="/services">
-              View All Services
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </Button>
         </div>
       </div>
     </section>;
