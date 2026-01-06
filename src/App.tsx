@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { CookieConsent } from "@/components/CookieConsent";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 // Eager load homepage for fastest initial render
 import Index from "./pages/Index";
@@ -42,6 +43,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <CookieConsent />
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
