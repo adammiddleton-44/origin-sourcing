@@ -60,8 +60,8 @@ const SustainabilityPage = ({
   const solutions = [
     {
       icon: FileCheck,
-      title: "EPR Compliance & Fee Optimization",
-      description: "I don't just help you report—I help you optimize:",
+      title: "EPR Compliance & Fee Optimisation",
+      description: "I don't just help you report—I help you optimise:",
       items: [
         "Accurate data collection: Establish systems to track packaging tonnage by material type and recyclability classification",
         "Packaging classification: Properly categorize packaging to ensure you're paying appropriate EPR fees (not overpaying on conservative assumptions)",
@@ -69,7 +69,7 @@ const SustainabilityPage = ({
         "Fee modelling: Analyse how material substitutions or redesigns could reduce ongoing EPR obligations",
         "Reporting processes: Implement quarterly/annual reporting workflows to meet regulatory deadlines"
       ],
-      outcome: "The goal: Full compliance with optimized fees—not guesswork or overpayment."
+      outcome: "The goal: Full compliance with optimised fees—not guesswork or overpayment."
     },
     {
       icon: Scale,
@@ -175,7 +175,7 @@ const SustainabilityPage = ({
     {
       step: "03",
       title: "Execution",
-      description: "Implement data collection systems, establish supplier verification processes, transition to optimized materials, and ensure regulatory reporting compliance."
+      description: "Implement data collection systems, establish supplier verification processes, transition to optimised materials, and ensure regulatory reporting compliance."
     },
     {
       step: "04",

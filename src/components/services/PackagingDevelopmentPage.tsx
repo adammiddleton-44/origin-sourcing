@@ -90,7 +90,7 @@ const PackagingDevelopmentPage = ({
         "Material optimisation: Are you over-specifying substrates? Can you achieve the same performance with lighter-weight or more cost-effective materials?",
         "Size optimisation: Are your packaging dimensions creating waste in production or shipping? Small dimensional changes can yield significant savings.",
         "Print method efficiency: Is your design unnecessarily complex (excessive spot colors, difficult registration) driving up costs?",
-        "Volume leverage: Can consolidating packaging types or standardizing across products reduce SKU complexity and improve pricing?"
+        "Volume leverage: Can consolidating packaging types or standardising across products reduce SKU complexity and improve pricing?"
       ],
       result: "Quality execution AND cost efficiency."
     }
