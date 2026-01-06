@@ -8,8 +8,8 @@ import { services } from "@/data/services";
 
 const Services = () => {
   const seo = usePageSEO("/services", {
-    fallbackTitle: "Packaging Procurement Services",
-    fallbackDescription: "Comprehensive packaging procurement services including EPR compliance, supply chain transformation, cost optimisation, and sustainability strategy."
+    fallbackTitle: "Packaging Purchasing Services",
+    fallbackDescription: "Comprehensive packaging purchasing services including EPR compliance, supply chain transformation, cost optimisation, and sustainability strategy."
   });
 
   return (

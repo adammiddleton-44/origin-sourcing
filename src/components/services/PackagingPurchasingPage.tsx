@@ -26,7 +26,7 @@ const PackagingPurchasingPage = ({
   }, {
     icon: Warehouse,
     title: "No Warehouse Required",
-    description: "3PL partnerships provide direct procurement benefits without capital investment in warehousing"
+    description: "3PL partnerships provide direct purchasing benefits without capital investment in warehousing"
   }, {
     icon: Shield,
     title: "Supplier Risk Mitigation",
@@ -43,11 +43,11 @@ const PackagingPurchasingPage = ({
   }, {
     icon: Truck,
     title: "3PL Integration for Non-Warehoused Operations",
-    description: "Don't have a warehouse? No problem. I implement third-party logistics (3PL) providers who handle pick, pack, and distribution—giving you the cost benefits of direct procurement without warehousing overhead. Once established, leverage the same 3PL for ingredients, beverages, and marketing materials."
+    description: "Don't have a warehouse? No problem. I implement third-party logistics (3PL) providers who handle pick, pack, and distribution—giving you the cost benefits of direct purchasing without warehousing overhead. Once established, leverage the same 3PL for ingredients, beverages, and marketing materials."
   }, {
     icon: Users,
     title: "Hands-On Transition Management",
-    description: "Direct procurement isn't just about finding cheaper suppliers. It's about tender management, contract negotiation, quality assurance, and performance monitoring. I manage this transition end-to-end, typically placing initial orders myself before empowering your team with the tools to manage relationships ongoing."
+    description: "Direct purchasing isn't just about finding cheaper suppliers. It's about tender management, contract negotiation, quality assurance, and performance monitoring. I manage this transition end-to-end, typically placing initial orders myself before empowering your team with the tools to manage relationships ongoing."
   }];
   const whatsIncluded = [{
     icon: Search,
@@ -77,7 +77,7 @@ const PackagingPurchasingPage = ({
   }, {
     step: "02",
     title: "Strategy",
-    description: "Develop a tailored procurement strategy identifying optimal manufacturer partners and 3PL solutions for your specific needs."
+    description: "Develop a tailored purchasing strategy identifying optimal manufacturer partners and 3PL solutions for your specific needs."
   }, {
     step: "03",
     title: "Execution",
@@ -100,7 +100,7 @@ const PackagingPurchasingPage = ({
           <div className="grid md:grid-cols-2 gap-12 items-center py-0">
             <div className="space-y-6">
               <h1 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
-                Eliminate the Intermediary Tax on Your Packaging Procurement
+                Eliminate the Intermediary Tax on Your Packaging Purchasing
               </h1>
               <p className="text-xl text-primary font-medium">
                 Direct Manufacturer Relationships for Multi-Site Food Operators
@@ -261,7 +261,7 @@ const PackagingPurchasingPage = ({
             Ready to Eliminate Your Intermediary Tax?
           </h2>
           <p className="text-xl text-card/80 max-w-2xl mx-auto mb-8">
-            Let's discuss how direct manufacturer procurement can transform your packaging costs.
+            Let's discuss how direct manufacturer purchasing can transform your packaging costs.
           </p>
           <Button asChild size="lg">
             <Link to="/contact">Schedule Free Consultation</Link>

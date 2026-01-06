@@ -19,7 +19,7 @@ const values = [{
 }, {
   icon: Award,
   title: "Industry Expertise",
-  description: "15+ years of packaging procurement experience across multiple industries gives us unmatched insight.",
+  description: "15+ years of packaging purchasing experience across multiple industries gives us unmatched insight.",
   accentColor: "from-primary via-primary/80 to-accent"
 }];
 const ReadMoreSection = () => {
@@ -60,7 +60,7 @@ const ReadMoreSection = () => {
 const About = () => {
   const seo = usePageSEO("/about", {
     fallbackTitle: "About Us - Our Mission & Values",
-    fallbackDescription: "Learn about Origin Sourcing's mission to transform packaging procurement. 15+ years of expertise delivering sustainable, cost-effective solutions."
+    fallbackDescription: "Learn about Origin Sourcing's mission to transform packaging purchasing. 15+ years of expertise delivering sustainable, cost-effective solutions."
   });
   return <Layout>
       <SEO title={seo.title} description={seo.description} canonical="/about" ogImage={seo.ogImage} noindex={seo.noindex} />
@@ -78,7 +78,7 @@ const About = () => {
               About <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Origin Sourcing</span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              Expert packaging procurement consultancy helping UK businesses optimise costs and transform their supply chains.
+              Expert packaging purchasing consultancy helping UK businesses optimise costs and transform their supply chains.
             </p>
           </div>
         </div>

@@ -29,7 +29,7 @@ export const services: Service[] = [
     icon: Package,
     title: "Packaging Purchasing",
     shortDescription: "Strategic sourcing and supplier management to reduce costs while maintaining quality and reliability across your packaging portfolio.",
-    fullDescription: "Our packaging procurement service takes a strategic approach to sourcing and supplier management. We leverage our extensive industry network and market knowledge to identify the best suppliers, negotiate favorable terms, and establish robust supply agreements that deliver sustained value.",
+    fullDescription: "Our packaging purchasing service takes a strategic approach to sourcing and supplier management. We leverage our extensive industry network and market knowledge to identify the best suppliers, negotiate favorable terms, and establish robust supply agreements that deliver sustained value.",
     features: [
       {
         title: "Supplier Identification & Qualification",
@@ -49,8 +49,8 @@ export const services: Service[] = [
       }
     ],
     process: [
-      { step: 1, title: "Discovery", description: "We analyze your current procurement landscape, spend patterns, and pain points." },
-      { step: 2, title: "Strategy", description: "Develop a tailored procurement strategy aligned with your business objectives." },
+      { step: 1, title: "Discovery", description: "We analyze your current purchasing landscape, spend patterns, and pain points." },
+      { step: 2, title: "Strategy", description: "Develop a tailored purchasing strategy aligned with your business objectives." },
       { step: 3, title: "Execution", description: "Manage the sourcing process, from RFQ to contract finalization." },
       { step: 4, title: "Optimisation", description: "Continuous monitoring and improvement of supplier relationships." }
     ],
@@ -58,7 +58,7 @@ export const services: Service[] = [
       "Average cost savings of 20-50%",
       "Reduced supplier risk",
       "Improved quality consistency",
-      "Streamlined procurement processes"
+      "Streamlined purchasing processes"
     ],
     accentColor: "from-primary to-primary/70",
   },

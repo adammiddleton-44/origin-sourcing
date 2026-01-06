@@ -42,10 +42,10 @@ const Terms = () => {
 
             <h2 className="text-2xl font-heading font-bold text-foreground mt-8 mb-4">2. Description of Services</h2>
             <p className="text-muted-foreground mb-4">
-              Origin Sourcing provides packaging procurement consultancy services, including but not limited to:
+              Origin Sourcing provides packaging purchasing consultancy services, including but not limited to:
             </p>
             <ul className="list-disc list-inside text-muted-foreground space-y-2 mb-4">
-              <li>Packaging procurement and supplier management</li>
+              <li>Packaging purchasing and supplier management</li>
               <li>EPR (Extended Producer Responsibility) compliance consulting</li>
               <li>Supply chain optimisation</li>
               <li>Cost reduction strategies</li>
