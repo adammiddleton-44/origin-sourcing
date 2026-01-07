@@ -2,7 +2,6 @@ import { Linkedin, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import adamPhoto from "@/assets/adam-middleton.jpg";
-
 export function FounderSection({
   className
 }: {
@@ -13,11 +12,7 @@ export function FounderSection({
         {/* Header with LinkedIn-style photo */}
         <div className="flex items-center gap-4 mb-6">
           <div className="w-28 h-36 md:w-32 md:h-40 rounded-xl border-2 border-primary/20 overflow-hidden flex-shrink-0 shadow-lg">
-            <img 
-              src={adamPhoto} 
-              alt="Adam Middleton - Packaging Procurement Consultant" 
-              className="w-full h-full object-cover object-top"
-            />
+            <img src={adamPhoto} alt="Adam Middleton - Packaging Procurement Consultant" className="w-full h-full object-cover object-top" />
           </div>
           <div>
             <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider">
@@ -31,9 +26,7 @@ export function FounderSection({
 
         {/* Bio */}
         <div className="space-y-4 text-muted-foreground text-lg leading-relaxed mb-8">
-          <p>
-            After years as COO at one of the UK's leading packaging merchants, I saw the same pattern repeat: successful restaurant groups scaling from 5 to 20+ locations, unknowingly paying an increasing 'scale tax' on every piece of packaging.
-          </p>
+          <p>The merchant or importer model works brilliantly until you scale. At 5+ locations, you've earned the volume to access manufacturer pricing directly but most operators never realise this opportunity exists without large capital investment.</p>
           <p>
             I left the merchant world to help multi-site operators transition to direct relationships with manufacturers. The result? My first client saved £310K annually. If you've scaled beyond 5 locations, you deserve that same pricing power.
           </p>
