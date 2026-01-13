@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { EngagementTimeline } from "@/components/EngagementTimeline";
 const values = [{
   icon: Target,
   title: "Results-Driven",
@@ -172,6 +173,9 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Engagement Timeline */}
+      <EngagementTimeline />
 
       {/* CTA */}
       <section className="section-padding bg-section-dark relative overflow-hidden">
