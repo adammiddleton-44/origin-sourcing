@@ -8,7 +8,7 @@ import logo from "@/assets/origin-logo.png";
 const navigation = [
   { name: "Services", href: "/services" },
   { name: "Case Studies", href: "/case-studies" },
-  { name: "Blog", href: "/blog" },
+  // { name: "Blog", href: "/blog" },  // Hidden until content ready
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
