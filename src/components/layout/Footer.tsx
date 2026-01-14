@@ -91,11 +91,15 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-card/70 text-sm">
                 <Mail className="w-4 h-4 text-primary" />
-                info@originsourcing.co.uk
+                <a href="mailto:info@originsourcing.co.uk" className="hover:text-primary transition-colors">
+                  info@originsourcing.co.uk
+                </a>
               </li>
               <li className="flex items-center gap-3 text-card/70 text-sm">
                 <Phone className="w-4 h-4 text-primary" />
-                +44 (0) 7739 473671
+                <a href="tel:+447739473671" className="hover:text-primary transition-colors">
+                  +44 (0) 7739 473671
+                </a>
               </li>
               <li className="flex items-start gap-3 text-card/70 text-sm">
                 <MapPin className="w-4 h-4 text-primary mt-0.5" />
