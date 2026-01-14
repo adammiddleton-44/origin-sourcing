@@ -35,7 +35,7 @@ export function Footer() {
                 className="h-10 w-auto scale-150 origin-left brightness-0 invert"
               />
             </Link>
-            <p className="font-bold text-card mb-2">Origin Sourcing Limited</p>
+            <p className="font-bold text-card mb-2 text-sm">Origin Sourcing Limited</p>
             <p className="text-card/70 text-sm leading-relaxed mb-6">
               Expert packaging procurement consultancy helping UK businesses optimise costs and transform their supply chains.
             </p>
