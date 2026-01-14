@@ -36,6 +36,7 @@ export function Footer() {
               />
             </Link>
             <p className="font-bold text-card mb-2 text-sm">Origin Sourcing Limited</p>
+            <p className="text-card/70 text-xs mb-2">Company Registration: 16948772</p>
             <p className="text-card/70 text-sm leading-relaxed mb-6">
               Expert packaging procurement consultancy helping UK businesses optimise costs and transform their supply chains.
             </p>
