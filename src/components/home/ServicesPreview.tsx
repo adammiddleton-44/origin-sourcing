@@ -34,7 +34,7 @@ export function ServicesPreview({ className }: { className?: string }) {
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
             Complete Packaging Purchasing Transformation
           </h2>
-          <p className="text-lg text-muted-foreground">From Direct Manufacturer sourcing to 3PL Integration—everything you need to eliminate merchant markup and capture 20-50% savings.</p>
+          <p className="text-lg text-muted-foreground">From Direct Manufacturer sourcing to 3PL Integration—everything you need to eliminate merchant markup and capture 20-30% savings.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

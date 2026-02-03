@@ -35,7 +35,7 @@ export function FounderSection({
         {/* Credentials */}
         <div className="grid grid-cols-2 gap-4 mb-8">
           <div className="bg-card p-4 rounded-xl border border-border">
-            <div className="text-2xl font-bold text-primary">15+</div>
+            <div className="text-2xl font-bold text-primary">10</div>
             <div className="text-sm text-muted-foreground">Years Experience</div>
           </div>
           <div className="bg-card p-4 rounded-xl border border-border">

@@ -55,7 +55,7 @@ export const services: Service[] = [
       { step: 4, title: "Optimisation", description: "Continuous monitoring and improvement of supplier relationships." }
     ],
     benefits: [
-      "Average cost savings of 20-50%",
+      "Average cost savings of 20-30%",
       "Reduced supplier risk",
       "Improved quality consistency",
       "Streamlined purchasing processes"
@@ -67,7 +67,7 @@ export const services: Service[] = [
     icon: Truck,
     title: "3PL Integration & Logistics",
     shortDescription: "Capture direct procurement savings without warehouse investment through strategic 3PL partnerships for multi-site operations.",
-    fullDescription: "Transitioning to direct manufacturer procurement doesn't require owning a warehouse. By partnering with the right third-party logistics (3PL) provider, you get the cost benefits of direct procurement—20-50% savings—without capital investment in warehousing infrastructure.",
+    fullDescription: "Transitioning to direct manufacturer procurement doesn't require owning a warehouse. By partnering with the right third-party logistics (3PL) provider, you get the cost benefits of direct procurement—20-30% savings—without capital investment in warehousing infrastructure.",
     features: [
       {
         title: "Strategic 3PL Partner Selection",
@@ -105,7 +105,7 @@ export const services: Service[] = [
     icon: ClipboardCheck,
     title: "Packaging Development",
     shortDescription: "End-to-end packaging development support for new products and rebrands, from factory selection and press pass sign-offs to brand alignment across substrates.",
-    fullDescription: "Launching a new product or rebranding existing packaging? The stakes are high—wrong materials, colour mismatches, or production issues create costly delays, returns, and brand damage. We provide end-to-end packaging development support with 15+ years of production expertise.",
+    fullDescription: "Launching a new product or rebranding existing packaging? The stakes are high—wrong materials, colour mismatches, or production issues create costly delays, returns, and brand damage. We provide end-to-end packaging development support with 10 years of production expertise.",
     features: [
       {
         title: "Factory & Equipment Selection",
