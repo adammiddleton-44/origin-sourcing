@@ -226,7 +226,7 @@ const ServiceDetail = () => {
                 Why Choose Us for {service.title}?
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                With over 15 years of experience in the packaging industry, we bring deep expertise and a proven track record of delivering results. Our team combines strategic thinking with hands-on implementation to ensure real, measurable outcomes.
+                With 10 years of experience in the packaging industry, we bring deep expertise and a proven track record of delivering results. Our team combines strategic thinking with hands-on implementation to ensure real, measurable outcomes.
               </p>
               <ul className="space-y-3">
                 {service.benefits.map(benefit => <li key={benefit} className="flex items-center gap-3">

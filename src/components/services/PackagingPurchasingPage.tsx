@@ -21,7 +21,7 @@ const PackagingPurchasingPage = ({
 }: PackagingPurchasingPageProps) => {
   const benefits = [{
     icon: TrendingDown,
-    title: "20-50% Cost Reduction",
+    title: "20-30% Cost Reduction",
     description: "Eliminate intermediary margin while maintaining (or improving) quality and service levels"
   }, {
     icon: Warehouse,
@@ -39,7 +39,7 @@ const PackagingPurchasingPage = ({
   const solutions = [{
     icon: Factory,
     title: "Established Factory Network",
-    description: "We bring 15+ years of relationships with manufacturers across UK, EU, and Asia. Unlike brokers who source reactively, we have established partnerships with vetted factories—giving you immediate access to manufacturer pricing without the trial-and-error of building these relationships yourself."
+    description: "We bring 10 years of relationships with manufacturers across UK, EU, and Asia. Unlike brokers who source reactively, we have established partnerships with vetted factories—giving you immediate access to manufacturer pricing without the trial-and-error of building these relationships yourself."
   }, {
     icon: Truck,
     title: "3PL Integration for Non-Warehoused Operations",
@@ -106,7 +106,7 @@ const PackagingPurchasingPage = ({
                 Direct Manufacturer Relationships for Multi-Site Food Operators
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                The merchant model works brilliantly—until you scale. At 5-20+ locations, you're subsidising an intermediary margin that direct procurement eliminates. We help multi-site restaurant and venue operators transition to manufacturer pricing, capturing 20-50% cost savings while leveraging 3PL partnerships for seamless fulfilment.
+                The merchant model works brilliantly—until you scale. At 5-20+ locations, you're subsidising an intermediary margin that direct procurement eliminates. We help multi-site restaurant and venue operators transition to manufacturer pricing, capturing 20-30% cost savings while leveraging 3PL partnerships for seamless fulfilment.
               </p>
               <Button asChild size="lg" className="mt-4">
                 <Link to="/contact">Schedule Free Consultation</Link>
@@ -131,7 +131,7 @@ const PackagingPurchasingPage = ({
               The UK packaging industry for food-to-go is dominated by the merchant/importer model: buying from Asia, warehousing stock, and distributing to your locations. This model has served businesses well, providing convenience and handling logistics complexity.
               </p>
               <p>
-              But there's a saturation point. Once you operate 5-20+ locations, you're paying an "intermediary tax"—a 20-50% markup that direct manufacturer relationships eliminate. The merchant model that enabled your growth now constrains your margins.
+              But there's a saturation point. Once you operate 5-20+ locations, you're paying an "intermediary tax"—a 20-30% markup that direct manufacturer relationships eliminate. The merchant model that enabled your growth now constrains your margins.
               </p>
               <p>
                 Most multi-site operators don't realise they've reached this inflection point. They continue buying through merchants because:

@@ -243,7 +243,7 @@ const PackagingDevelopmentPage = ({
                 Packaging Development & Project Management for New Products and Rebrands
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Launching a new product or rebranding existing packaging? The stakes are high—wrong materials, colour mismatches, or production issues create costly delays, returns, and brand damage. We provide end-to-end packaging development support: from factory selection and press pass sign-offs to brand alignment across substrates. Our 15+ years of production expertise ensures quality outcomes while identifying cost-saving opportunities through packaging audits.
+                Launching a new product or rebranding existing packaging? The stakes are high—wrong materials, colour mismatches, or production issues create costly delays, returns, and brand damage. We provide end-to-end packaging development support: from factory selection and press pass sign-offs to brand alignment across substrates. Our 10 years of production expertise ensures quality outcomes while identifying cost-saving opportunities through packaging audits.
               </p>
               <Button asChild size="lg" className="mt-4">
                 <Link to="/contact">Schedule Free Consultation</Link>

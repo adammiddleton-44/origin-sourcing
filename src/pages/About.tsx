@@ -20,7 +20,7 @@ const values = [{
 }, {
   icon: Award,
   title: "Industry Expertise",
-  description: "15+ years of packaging purchasing experience across multiple industries gives us unmatched insight.",
+  description: "10 years of packaging purchasing experience across multiple industries gives us unmatched insight.",
   accentColor: "from-primary via-primary/80 to-accent"
 }];
 const ReadMoreSection = () => {
@@ -61,7 +61,7 @@ const ReadMoreSection = () => {
 const About = () => {
   const seo = usePageSEO("/about", {
     fallbackTitle: "About Us - Our Mission & Values",
-    fallbackDescription: "Learn about Origin Sourcing's mission to transform packaging purchasing. 15+ years of expertise delivering sustainable, cost-effective solutions."
+    fallbackDescription: "Learn about Origin Sourcing's mission to transform packaging purchasing. 10 years of expertise delivering sustainable, cost-effective solutions."
   });
   return <Layout>
       <SEO title={seo.title} description={seo.description} canonical="/about" ogImage={seo.ogImage} noindex={seo.noindex} />
@@ -115,7 +115,7 @@ const About = () => {
                 
                 <div className="relative grid grid-cols-2 gap-6">
                   <div className="text-center p-4 rounded-xl bg-section-primary">
-                    <div className="text-4xl font-heading font-bold text-primary mb-2">15+</div>
+                    <div className="text-4xl font-heading font-bold text-primary mb-2">10</div>
                     <div className="text-sm text-muted-foreground">Years Experience</div>
                   </div>
                   <div className="text-center p-4 rounded-xl bg-section-primary">

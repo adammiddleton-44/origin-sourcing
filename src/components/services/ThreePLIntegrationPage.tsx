@@ -95,7 +95,7 @@ const ThreePLIntegrationPage = ({
 
   const faqs = [{
     question: "Don't 3PL providers just add another layer of cost?",
-    answer: "Yes—but far less than the merchant markup. A 3PL charges for actual services rendered (storage space, pick/pack labor, shipping) with transparent pricing. Merchants bundle these costs with procurement markup, typically 20-50%. By separating procurement from logistics, you pay competitive rates for each."
+    answer: "Yes—but far less than the merchant markup. A 3PL charges for actual services rendered (storage space, pick/pack labor, shipping) with transparent pricing. Merchants bundle these costs with procurement markup, typically 20-30%. By separating procurement from logistics, you pay competitive rates for each."
   }, {
     question: "How long does 3PL implementation take?",
     answer: "Typically 4-8 weeks from provider selection to first shipments. Timeline depends on complexity (number of SKUs, temperature requirements, integration needs). We manage the entire process to minimise disruption."
@@ -127,7 +127,7 @@ const ThreePLIntegrationPage = ({
                 3PL Integration & Logistics Optimisation for Multi-Site Operations
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Transitioning to direct manufacturer procurement doesn't require owning a warehouse. By partnering with the right third-party logistics (3PL) provider, you get the cost benefits of direct procurement—20-50% savings—without capital investment in warehousing infrastructure. We implement 3PL solutions that handle pick, pack, and distribution, then help you leverage the same infrastructure for ingredients, beverages, and marketing materials.
+                Transitioning to direct manufacturer procurement doesn't require owning a warehouse. By partnering with the right third-party logistics (3PL) provider, you get the cost benefits of direct procurement—20-30% savings—without capital investment in warehousing infrastructure. We implement 3PL solutions that handle pick, pack, and distribution, then help you leverage the same infrastructure for ingredients, beverages, and marketing materials.
               </p>
               <Button asChild size="lg" className="mt-4">
                 <Link to="/contact">Schedule Free Consultation</Link>
@@ -159,7 +159,7 @@ const ThreePLIntegrationPage = ({
                 Multi-site operators buying through merchants get a bundled service: procurement + warehousing + distribution to their locations. The merchant handles inventory management, order consolidation, and delivery logistics. It's convenient.
               </p>
               <p>
-                But convenience comes at a cost. That 20-50% merchant markup isn't just for sourcing—it's subsidizing their warehouse operations and distribution network. The question becomes: can you replicate those logistics functions more efficiently?
+                But convenience comes at a cost. That 20-30% merchant markup isn't just for sourcing—it's subsidizing their warehouse operations and distribution network. The question becomes: can you replicate those logistics functions more efficiently?
               </p>
               <p>
                 Most operators assume they need to:
