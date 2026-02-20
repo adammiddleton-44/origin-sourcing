@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, CheckCircle } from "lucide-react";
+import { Calendar, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const benefits = [
@@ -45,10 +45,10 @@ export function CTASection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild variant="hero" size="xl">
-              <Link to="/contact">
-                <Mail className="w-5 h-5" />
-                Contact Us
-              </Link>
+              <a href="https://app.apollo.io/#/meet/adam_middleton_851/30-min" target="_blank" rel="noopener noreferrer">
+                <Calendar className="w-5 h-5" />
+                Book a Call
+              </a>
             </Button>
             <Button
               asChild
