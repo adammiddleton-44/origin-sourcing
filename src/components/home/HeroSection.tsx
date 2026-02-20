@@ -44,10 +44,10 @@ export function HeroSection() {
           animationDelay: "0.3s"
         }}>
             <Button asChild variant="hero" size="xl">
-              <a href="https://app.apollo.io/#/meet/adam_middleton_851/30-min" target="_blank" rel="noopener noreferrer">
-                Book a Call
+              <Link to="/contact">
+                Contact Us
                 <ArrowRight className="w-5 h-5" />
-              </a>
+              </Link>
             </Button>
             <Button asChild variant="hero-outline" size="xl">
               <Link to="/case-studies">View Case Studies</Link>

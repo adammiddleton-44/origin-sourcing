@@ -120,7 +120,7 @@ export function Header() {
           ))}
 
           <Button asChild variant="hero" size="default" className="ml-2">
-            <a href="https://app.apollo.io/#/meet/adam_middleton_851/30-min" target="_blank" rel="noopener noreferrer">Book a Call</a>
+            <Link to="/contact">Contact Us</Link>
           </Button>
         </div>
 
@@ -177,9 +177,7 @@ export function Header() {
 
             <div className="pt-2">
               <Button asChild variant="hero" className="w-full">
-                <a href="https://app.apollo.io/#/meet/adam_middleton_851/30-min" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
-                  Book a Call
-                </a>
+                <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
               </Button>
             </div>
           </div>
