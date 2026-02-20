@@ -1,4 +1,4 @@
-import { Linkedin, Calendar } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import adamPhoto from "@/assets/adam-middleton.jpg";
@@ -47,10 +47,10 @@ export function FounderSection({
         {/* CTA */}
         <div className="flex flex-wrap gap-4 items-center">
           <Button asChild variant="default" size="lg">
-            <a href="https://app.apollo.io/#/meet/adam_middleton_851/30-min" target="_blank" rel="noopener noreferrer">
-              <Calendar className="w-4 h-4 mr-2" />
-              Book a Call
-            </a>
+            <Link to="/contact">
+              <Mail className="w-4 h-4 mr-2" />
+              Contact Us
+            </Link>
           </Button>
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
             <Linkedin className="w-5 h-5" />
