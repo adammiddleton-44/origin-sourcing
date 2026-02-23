@@ -52,7 +52,7 @@ export function FounderSection({
               Book a Call
             </a>
           </Button>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+          <a href="https://www.linkedin.com/in/adam-middleton-49988479/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
             <Linkedin className="w-5 h-5" />
             <span className="font-medium">Connect on LinkedIn</span>
           </a>
