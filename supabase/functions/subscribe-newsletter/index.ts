@@ -5,17 +5,65 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+// Simple in-memory rate limiter (per isolate instance)
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT_MAX = 3;
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+
+  entry.count++;
+  if (entry.count > RATE_LIMIT_MAX) {
+    return true;
+  }
+  return false;
+}
+
+// Periodically clean up expired entries to prevent memory leaks
+function cleanupRateLimitMap() {
+  const now = Date.now();
+  for (const [key, entry] of rateLimitMap) {
+    if (now > entry.resetAt) {
+      rateLimitMap.delete(key);
+    }
+  }
+}
+
 interface SubscribeRequest {
   email: string;
 }
 
 serve(async (req) => {
-  // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
+    // Rate limiting by IP
+    const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+               req.headers.get("cf-connecting-ip") ||
+               "unknown";
+
+    if (isRateLimited(ip)) {
+      console.warn(`Rate limited IP: ${ip}`);
+      return new Response(
+        JSON.stringify({ error: "Too many requests. Please try again later." }),
+        { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // Cleanup old entries periodically
+    if (rateLimitMap.size > 1000) {
+      cleanupRateLimitMap();
+    }
+
     const KLAVIYO_API_KEY = Deno.env.get("KLAVIYO_API_KEY");
     if (!KLAVIYO_API_KEY) {
       console.error("KLAVIYO_API_KEY is not configured");
@@ -24,7 +72,6 @@ serve(async (req) => {
 
     const { email }: SubscribeRequest = await req.json();
 
-    // Validate email
     if (!email || !email.includes("@")) {
       return new Response(
         JSON.stringify({ error: "Invalid email address" }),
@@ -36,7 +83,6 @@ serve(async (req) => {
 
     const listId = "UFrbqH";
 
-    // Step 1: Create or update profile and subscribe to list in one call
     const subscribeResponse = await fetch(
       `https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs`,
       {
@@ -85,7 +131,6 @@ serve(async (req) => {
       const errorText = await subscribeResponse.text();
       console.error("Klaviyo API error:", subscribeResponse.status, errorText);
       
-      // Check for specific error cases
       if (subscribeResponse.status === 409) {
         return new Response(
           JSON.stringify({ message: "You're already subscribed!", alreadySubscribed: true }),
