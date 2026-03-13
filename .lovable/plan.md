@@ -1,13 +1,14 @@
 
 
-## Update LinkedIn URL in Founder Section
+## Fix Domain Mismatch: `originsourcing.co.uk` → `www.originsourcing.co.uk`
 
-A single change to update the LinkedIn link to your actual profile URL.
+Update all references from `https://originsourcing.co.uk` to `https://www.originsourcing.co.uk` in these files:
 
-### Change
+1. **`public/sitemap.xml`** — All 12 `<loc>` URLs
+2. **`index.html`** — canonical link, og:url, og:image, twitter:image, schema.org JSON-LD url
+3. **`src/components/SEO.tsx`** — `BASE_URL` constant
+4. **`public/robots.txt`** — Sitemap URL
+5. **`supabase/functions/generate-sitemap/index.ts`** — base URL used for dynamic sitemap generation (needs verification)
 
-**File: src/components/home/FounderSection.tsx**
-- Line 58: Change `href="https://linkedin.com"` to `href="https://www.linkedin.com/in/adam-middleton-49988479/"`
-
-That's it -- one line change.
+Will also run a codebase search for any other `originsourcing.co.uk` references to ensure nothing is missed.
 
