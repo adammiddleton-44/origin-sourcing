@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://originsourcing.co.uk/sitemap.xml
+Sitemap: https://www.originsourcing.co.uk/sitemap.xml

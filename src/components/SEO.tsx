@@ -15,7 +15,7 @@ interface SEOProps {
   noindex?: boolean;
 }
 
-const BASE_URL = "https://originsourcing.co.uk";
+const BASE_URL = "https://www.originsourcing.co.uk";
 const DEFAULT_TITLE = "Origin Sourcing | Expert Packaging Procurement Consultancy";
 const DEFAULT_DESCRIPTION = "Transform your packaging supply chain with expert procurement strategy. Achieve 20-30% cost savings with Origin Sourcing's specialist consulting services.";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image-new.png`;
