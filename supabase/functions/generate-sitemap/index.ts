@@ -40,6 +40,17 @@ serve(async (req) => {
       throw postsError;
     }
 
+    // Fetch published case studies
+    const { data: caseStudies, error: caseStudiesError } = await supabase
+      .from('case_studies')
+      .select('id, updated_at')
+      .eq('published', true);
+
+    if (caseStudiesError) {
+      console.error('Error fetching case studies:', caseStudiesError);
+      throw caseStudiesError;
+    }
+
     // Build sitemap XML
     let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -82,9 +93,25 @@ serve(async (req) => {
 `;
     }
 
+    // Add case studies
+    for (const cs of caseStudies || []) {
+      const lastmod = cs.updated_at
+        ? new Date(cs.updated_at).toISOString().split('T')[0]
+        : new Date().toISOString().split('T')[0];
+
+      sitemap += `  <url>
+    <loc>${BASE_URL}/case-studies/${cs.id}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+`;
+    }
+
     sitemap += `</urlset>`;
 
-    console.log('Sitemap generated successfully with', (pages?.length || 0) + (posts?.length || 0), 'URLs');
+    const totalUrls = (pages?.length || 0) + (posts?.length || 0) + (caseStudies?.length || 0);
+    console.log('Sitemap generated successfully with', totalUrls, 'URLs');
 
     return new Response(sitemap, {
       headers: { 

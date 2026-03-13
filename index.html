@@ -51,6 +51,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-v4.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-v4.png">
 
+  <!-- FOSC Prevention: fade in after React hydration -->
+  <style>
+    #root { opacity: 0; transition: opacity 0.15s ease-in; }
+  </style>
+
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZDSHBJGW8"></script>
   <script>
@@ -78,7 +83,82 @@
 </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static SEO fallback — replaced by React on hydration -->
+      <header>
+        <nav aria-label="Main navigation">
+          <a href="/">Origin Sourcing</a>
+          <ul>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section aria-label="Hero">
+          <h1>Transform your Packaging Supply Chain</h1>
+          <h2>Direct Purchasing Strategy for the Food Service Industry</h2>
+          <p>Origin Sourcing is a specialist packaging procurement consultancy helping food service and hospitality businesses achieve 20-30% cost savings through expert purchasing strategy, supplier management, and supply chain optimisation.</p>
+          <a href="/contact">Get in Touch</a>
+          <a href="/services">Our Services</a>
+        </section>
+
+        <section aria-label="Services">
+          <h2>Our Services</h2>
+          <ul>
+            <li>
+              <h3><a href="/services/purchasing">Packaging Purchasing</a></h3>
+              <p>Strategic procurement and supplier management to reduce packaging costs by 20-30% while maintaining quality and supply security.</p>
+            </li>
+            <li>
+              <h3><a href="/services/3pl">3PL Integration &amp; Logistics</a></h3>
+              <p>Seamless third-party logistics integration to streamline your packaging supply chain and reduce operational complexity.</p>
+            </li>
+            <li>
+              <h3><a href="/services/sustainability">Sustainability &amp; EPR Compliance</a></h3>
+              <p>Navigate Extended Producer Responsibility regulations and transition to sustainable packaging solutions for the circular economy.</p>
+            </li>
+            <li>
+              <h3><a href="/services/packaging-development">Packaging Development</a></h3>
+              <p>End-to-end packaging design and development services, from concept to production, tailored to your brand and operational needs.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section aria-label="Case Studies">
+          <h2>Case Studies</h2>
+          <ul>
+            <li><a href="/case-studies/sessions-growth-platform-for-founder-led-brands">Sessions Arts Club — Growth Platform for Founder-Led Brands</a></li>
+            <li><a href="/case-studies/mikos-building-scalable-infrastructure-for-rapid-multi-site-expansion">Miko's — Building Scalable Infrastructure for Rapid Multi-Site Expansion</a></li>
+            <li><a href="/case-studies/Hawkins-Diner">Hawkins Diner</a></li>
+          </ul>
+        </section>
+
+        <section aria-label="About">
+          <h2>About Origin Sourcing</h2>
+          <p>Founded by Adam Middleton, Origin Sourcing brings over 15 years of packaging industry expertise to help food service businesses optimise their supply chains. Based in London, we work with restaurants, hospitality groups, and food service operators across the UK.</p>
+        </section>
+
+        <section aria-label="Contact">
+          <h2>Get in Touch</h2>
+          <p>Ready to transform your packaging supply chain? Contact Origin Sourcing today for a free consultation.</p>
+          <p>Email: <a href="mailto:info@originsourcing.co.uk">info@originsourcing.co.uk</a></p>
+          <p>Phone: <a href="tel:+447739473671">+44 7739 473671</a></p>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2026 Origin Sourcing. All rights reserved.</p>
+        <ul>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms &amp; Conditions</a></li>
+        </ul>
+      </footer>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
