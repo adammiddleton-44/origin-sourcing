@@ -1,13 +1,18 @@
 
 
-## Update LinkedIn URL in Founder Section
+## Plan: Restore Blog & Clean Up Posts
 
-A single change to update the LinkedIn link to your actual profile URL.
+### 1. Uncomment Blog link in Header
+In `src/components/layout/Header.tsx`, uncomment the Blog nav item to make it visible in the main menu again.
 
-### Change
+### 2. Delete 5 of 6 AI-generated blog posts
+Keep one post as a reference template (the first one: "5 Strategies to Reduce Packaging Costs Without Compromising Quality") and delete the other 5. This gives you a working example to reference when creating new posts via the admin dashboard.
 
-**File: src/components/home/FounderSection.tsx**
-- Line 58: Change `href="https://linkedin.com"` to `href="https://www.linkedin.com/in/adam-middleton-49988479/"`
+### 3. Update blog visibility memory
+The blog will be publicly visible again in navigation.
 
-That's it -- one line change.
+| File / Resource | Change |
+|---|---|
+| `src/components/layout/Header.tsx` | Uncomment Blog nav link |
+| Database (`blog_posts`) | Delete 5 posts, keep 1 as template |
 
