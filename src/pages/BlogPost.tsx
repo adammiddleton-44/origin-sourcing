@@ -152,6 +152,12 @@ export default function BlogPost() {
         </div>
       </section>
 
+      {/* About the Author */}
+      <AuthorBio />
+
+      {/* Related Articles */}
+      <RelatedArticles currentSlug={post.slug} category={post.category} />
+
       {/* CTA Section */}
       <section className="relative py-20 bg-section-dark overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
