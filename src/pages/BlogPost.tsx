@@ -6,6 +6,8 @@ import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { format } from "date-fns";
 import { SEO } from "@/components/SEO";
+import { AuthorBio } from "@/components/blog/AuthorBio";
+import { RelatedArticles } from "@/components/blog/RelatedArticles";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
