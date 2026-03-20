@@ -1,0 +1,1 @@
+UPDATE public.case_studies SET id = 'hawkins-diner' WHERE id = 'Hawkins-Diner';

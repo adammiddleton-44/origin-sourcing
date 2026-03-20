@@ -423,7 +423,7 @@ const PackagingDevelopmentPage = ({
       </section>
 
       {/* Proof Section - Hawkins Diner Case Study */}
-      <CaseStudyTile caseStudyId="Hawkins-Diner" />
+      <CaseStudyTile caseStudyId="hawkins-diner" />
 
       {/* FAQ Section */}
       <section className="py-16 bg-background md:py-[40px]">
