@@ -1,13 +1,12 @@
 
 
-## Update LinkedIn URL in Founder Section
+## Add Netlify SPA Redirect File
 
-A single change to update the LinkedIn link to your actual profile URL.
+Create `public/_redirects` with a single rewrite rule so Netlify serves `index.html` for all routes, enabling SPA client-side routing.
 
 ### Change
 
-**File: src/components/home/FounderSection.tsx**
-- Line 58: Change `href="https://linkedin.com"` to `href="https://www.linkedin.com/in/adam-middleton-49988479/"`
-
-That's it -- one line change.
+| File | Action |
+|---|---|
+| `public/_redirects` | Create with `/* /index.html 200` |
 
