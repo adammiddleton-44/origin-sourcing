@@ -1,31 +1,31 @@
 
 
-## Plan: Lowercase Hawkins-Diner Slug + Add 301 Redirects
+## Plan: Update Case Study SEO Entries in Database
 
-The database stores case study IDs as the URL slug. The ID `Hawkins-Diner` needs to become `hawkins-diner`. This requires a database migration plus updates to all code/static references.
+### Problem
+The `page_seo` table contains three outdated case study entries from the old placeholder case studies:
+- `/case-studies/fmcg-manufacturer`
+- `/case-studies/retail-chain`
+- `/case-studies/pharmaceutical`
 
-### 1. Database Migration
-Update the case study ID from `Hawkins-Diner` to `hawkins-diner`:
-```sql
-UPDATE public.case_studies SET id = 'hawkins-diner' WHERE id = 'Hawkins-Diner';
-```
+None of these exist anymore. The live case studies have no SEO entries:
+- `/case-studies/sessions-growth-flatform-for-founds-led-brands` (Sessions)
+- `/case-studies/mikos-building-scalable-infrastructure-for-rapid-multi-site-expansion` (Mikos)
+- `/case-studies/hawkins-diner` (Hawkins Diner)
 
-### 2. Code & Static File Updates
+### Fix (Database Migration)
 
-| File | Change |
+1. **Delete** the three old SEO entries for `fmcg-manufacturer`, `retail-chain`, and `pharmaceutical`
+2. **Insert** three new SEO entries for the live case studies with placeholder titles/descriptions you can then edit via the admin SEO dashboard
+
+| Old Path (delete) | New Path (insert) |
 |---|---|
-| `src/components/services/PackagingDevelopmentPage.tsx` | `caseStudyId="Hawkins-Diner"` → `"hawkins-diner"` |
-| `index.html` | Static link href `Hawkins-Diner` → `hawkins-diner` |
-| `public/sitemap.xml` | URL `Hawkins-Diner` → `hawkins-diner` |
-| `public/_redirects` | Add two 301 rules above the catch-all |
+| `/case-studies/fmcg-manufacturer` | `/case-studies/sessions-growth-flatform-for-founds-led-brands` |
+| `/case-studies/retail-chain` | `/case-studies/mikos-building-scalable-infrastructure-for-rapid-multi-site-expansion` |
+| `/case-studies/pharmaceutical` | `/case-studies/hawkins-diner` |
 
-### 3. `public/_redirects` (final content)
-```
-/case-studies/Hawkins-Diner /case-studies/hawkins-diner 301
-/case-studies/sessions-growth-flatform-for-founds-led-brands /case-studies/sessions-growth-platform-for-founder-led-brands 301
-/*    /index.html   200
-```
+New entries will have sensible default SEO titles and descriptions based on the live case study content. You can refine them via the admin dashboard afterwards.
 
-### 4. Generate-sitemap edge function
-No changes needed — it dynamically reads IDs from the database, so it will automatically use `hawkins-diner` after the migration.
+### No code changes required
+This is a data-only fix — one database migration.
 
