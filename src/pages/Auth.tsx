@@ -68,7 +68,7 @@ const Auth = () => {
           } else {
             toast({
               title: 'Login Failed',
-              description: error.message,
+              description: 'An unexpected error occurred. Please try again or contact support.',
               variant: 'destructive',
             });
           }
