@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { services } from "@/data/services";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 
 const Services = () => {
+  usePrerenderReady(true);
   const seo = usePageSEO("/services", {
     fallbackTitle: "Packaging Purchasing Services",
     fallbackDescription: "Comprehensive packaging purchasing services including EPR compliance, supply chain transformation, cost optimisation, and sustainability strategy."

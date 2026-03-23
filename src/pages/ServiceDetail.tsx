@@ -8,6 +8,7 @@ import { Package, Truck, Shield, ClipboardCheck, LucideIcon } from "lucide-react
 import { supabase } from "@/integrations/supabase/client";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 import PackagingPurchasingPage from "@/components/services/PackagingPurchasingPage";
 import ThreePLIntegrationPage from "@/components/services/ThreePLIntegrationPage";
 import PackagingDevelopmentPage from "@/components/services/PackagingDevelopmentPage";

@@ -7,6 +7,7 @@ import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { EngagementTimeline } from "@/components/EngagementTimeline";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 const values = [{
   icon: Target,
   title: "Results-Driven",

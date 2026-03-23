@@ -1,8 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 
 const NotFound = () => {
+  usePrerenderReady(true);
   const location = useLocation();
 
   useEffect(() => {

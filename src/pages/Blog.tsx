@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 export default function Blog() {
   const {
     data: blogPosts,

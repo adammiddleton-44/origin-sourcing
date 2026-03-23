@@ -1,8 +1,10 @@
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 
 const Privacy = () => {
+  usePrerenderReady(true);
   return (
     <Layout>
       <SEO 

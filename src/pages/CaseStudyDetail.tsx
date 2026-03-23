@@ -8,6 +8,7 @@ import { TrendingDown, Clock, Building2, Package, Leaf, Shield, LucideIcon } fro
 import { supabase } from "@/integrations/supabase/client";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 type KeyMetric = {
   label: string;
   value: string;

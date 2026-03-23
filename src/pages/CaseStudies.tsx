@@ -7,6 +7,7 @@ import { usePageSEO } from "@/hooks/usePageSEO";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 
 // Icon mapping for dynamic icon rendering
 const iconMap: Record<string, LucideIcon> = {
