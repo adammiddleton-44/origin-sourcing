@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 export default function Blog() {
   const {
     data: blogPosts,
@@ -25,6 +26,7 @@ export default function Blog() {
       return data;
     }
   });
+  usePrerenderReady(!isLoading);
   const seo = usePageSEO("/blog", {
     fallbackTitle: "Packaging Industry Insights & News",
     fallbackDescription: "Expert insights on packaging purchasing, sustainability, EPR compliance, and supply chain optimization from Origin Sourcing."

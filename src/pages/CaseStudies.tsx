@@ -7,6 +7,7 @@ import { usePageSEO } from "@/hooks/usePageSEO";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 
 // Icon mapping for dynamic icon rendering
 const iconMap: Record<string, LucideIcon> = {
@@ -34,6 +35,7 @@ interface KeyMetric {
 }
 
 const CaseStudies = () => {
+  usePrerenderReady(true);
   const seo = usePageSEO("/case-studies", {
     fallbackTitle: "Client Success Stories",
     fallbackDescription: "Discover how Origin Sourcing has helped clients achieve significant cost savings and operational improvements."

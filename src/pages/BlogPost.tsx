@@ -8,6 +8,7 @@ import { format } from "date-fns";
 import { SEO } from "@/components/SEO";
 import { AuthorBio } from "@/components/blog/AuthorBio";
 import { RelatedArticles } from "@/components/blog/RelatedArticles";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -27,6 +28,7 @@ export default function BlogPost() {
     },
     enabled: !!slug
   });
+  usePrerenderReady(!isLoading && !!post);
 
   if (isLoading) {
     return (

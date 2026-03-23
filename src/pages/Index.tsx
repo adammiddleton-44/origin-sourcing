@@ -7,7 +7,9 @@ import { CaseStudiesSection } from "@/components/home/CaseStudiesSection";
 import { CTASection } from "@/components/home/CTASection";
 import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 const Index = () => {
+  usePrerenderReady(true);
   const seo = usePageSEO("/", {
     fallbackTitle: "Expert Packaging Purchasing Consultancy",
     fallbackDescription: "Transform your packaging supply chain with expert purchasing strategy. Achieve 20-30% cost savings with Origin Sourcing's specialist consulting services."

@@ -7,6 +7,7 @@ import { SEO } from "@/components/SEO";
 import { usePageSEO } from "@/hooks/usePageSEO";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { EngagementTimeline } from "@/components/EngagementTimeline";
+import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 const values = [{
   icon: Target,
   title: "Results-Driven",
@@ -59,6 +60,7 @@ const ReadMoreSection = () => {
     </Collapsible>;
 };
 const About = () => {
+  usePrerenderReady(true);
   const seo = usePageSEO("/about", {
     fallbackTitle: "About Us - Our Mission & Values",
     fallbackDescription: "Learn about Origin Sourcing's mission to transform packaging purchasing. 10 years of expertise delivering sustainable, cost-effective solutions."
