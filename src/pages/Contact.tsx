@@ -30,6 +30,7 @@ const contactInfo = [{
   href: null
 }];
 const Contact = () => {
+  usePrerenderReady(true);
   const {
     toast
   } = useToast();

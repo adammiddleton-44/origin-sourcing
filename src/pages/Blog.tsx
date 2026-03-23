@@ -26,6 +26,7 @@ export default function Blog() {
       return data;
     }
   });
+  usePrerenderReady(!isLoading);
   const seo = usePageSEO("/blog", {
     fallbackTitle: "Packaging Industry Insights & News",
     fallbackDescription: "Expert insights on packaging purchasing, sustainability, EPR compliance, and supply chain optimization from Origin Sourcing."

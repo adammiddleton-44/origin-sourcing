@@ -28,6 +28,7 @@ export default function BlogPost() {
     },
     enabled: !!slug
   });
+  usePrerenderReady(!isLoading && !!post);
 
   if (isLoading) {
     return (

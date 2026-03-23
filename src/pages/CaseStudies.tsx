@@ -35,6 +35,7 @@ interface KeyMetric {
 }
 
 const CaseStudies = () => {
+  usePrerenderReady(true);
   const seo = usePageSEO("/case-studies", {
     fallbackTitle: "Client Success Stories",
     fallbackDescription: "Discover how Origin Sourcing has helped clients achieve significant cost savings and operational improvements."

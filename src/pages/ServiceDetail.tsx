@@ -53,6 +53,7 @@ const customPageMap: Record<string, React.ComponentType<{ prevService: { id: str
 };
 
 const ServiceDetail = () => {
+  usePrerenderReady(true);
   const {
     serviceId
   } = useParams<{

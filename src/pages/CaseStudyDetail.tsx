@@ -62,6 +62,7 @@ const iconMap: Record<string, LucideIcon> = {
   Shield
 };
 const CaseStudyDetail = () => {
+  usePrerenderReady(true);
   const {
     caseId
   } = useParams<{

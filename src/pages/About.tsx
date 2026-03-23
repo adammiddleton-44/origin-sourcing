@@ -60,6 +60,7 @@ const ReadMoreSection = () => {
     </Collapsible>;
 };
 const About = () => {
+  usePrerenderReady(true);
   const seo = usePageSEO("/about", {
     fallbackTitle: "About Us - Our Mission & Values",
     fallbackDescription: "Learn about Origin Sourcing's mission to transform packaging purchasing. 10 years of expertise delivering sustainable, cost-effective solutions."
