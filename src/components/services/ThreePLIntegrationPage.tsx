@@ -293,7 +293,7 @@ const ThreePLIntegrationPage = ({
       </section>
 
       {/* Proof Section - Mikos Case Study */}
-      <CaseStudyTile caseStudyId="mikes-building-scalable-infrastructure-for-rapid-multi-site-expansion" />
+      <CaseStudyTile caseStudyId="mikos-building-scalable-infrastructure-for-rapid-multi-site-expansion" />
 
       {/* FAQ Section */}
       <section className="py-16 bg-background md:py-[40px]">
