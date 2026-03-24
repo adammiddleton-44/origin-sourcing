@@ -147,8 +147,19 @@ export default function BlogPost() {
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               {post.excerpt}
             </p>
-            <div className="text-foreground leading-relaxed whitespace-pre-wrap">
-              {post.content}
+            <div className="text-foreground leading-relaxed">
+              {post.content.split('\n').map((line, i) => {
+                if (line.startsWith('### ')) {
+                  return <h3 key={i} className="text-xl font-bold text-foreground mt-8 mb-3">{line.replace('### ', '')}</h3>;
+                }
+                if (line.startsWith('## ')) {
+                  return <h2 key={i} className="text-2xl font-bold text-foreground mt-10 mb-4">{line.replace('## ', '')}</h2>;
+                }
+                if (line.trim() === '') {
+                  return <br key={i} />;
+                }
+                return <p key={i} className="mb-4">{line}</p>;
+              })}
             </div>
           </div>
         </div>
