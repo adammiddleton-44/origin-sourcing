@@ -1,12 +1,26 @@
 
 
-## Updated Plan: `window.prerenderReady` — Services Page Clarification
+## Plan: Publish EPR Blog Post
 
-**Finding**: `src/pages/Services.tsx` imports from `src/data/services` (a static TypeScript file), not from Supabase. It has no `useQuery`, no `isLoading` state, and no Supabase calls. The `usePageSEO` hook does fetch SEO metadata from Supabase, but that's non-content metadata and irrelevant to prerender readiness.
+Insert the blog post into the `blog_posts` table with all provided content, published immediately.
 
-**Conclusion**: The original plan is correct — `/services` should use `usePrerenderReady(true)` (mount-based). No change needed.
+### Database Insert
 
-Note: Individual service detail pages (`/services/:serviceId` via `ServiceDetail.tsx`) do fetch from Supabase and would need the async pattern, but per the user's original instructions those are listed as mount-based. If desired, those could be updated too, but the services listing page itself is purely static.
+One row into `blog_posts` with:
+- **Title**: How EPR Changed Food Service Packaging: The PLA vs Aqueous Coating Debate, Settled
+- **Slug**: `epr-pla-vs-aqueous-coating-food-service-packaging`
+- **Category**: Sustainability
+- **Excerpt**: UK EPR fees created a £265/tonne gap between PLA and aqueous coated packaging. What the new fee structure means for food service operators planning 2025-2028 packaging strategy.
+- **Content**: Full article text as provided
+- **Read time**: 8 min read
+- **Published**: true, with `published_at` set to now
+- **SEO title**: How EPR Changed Food Service Packaging: PLA vs Aqueous Coatings Explained | Origin Sourcing
+- **Meta description**: UK EPR fees created a £265/tonne gap between PLA and aqueous coated packaging. What the new fee structure means for food service operators planning 2025-2028 packaging strategy.
 
-### No changes to the approved plan required.
+### Also insert a `page_seo` entry
+
+For path `/blog/epr-pla-vs-aqueous-coating-food-service-packaging` with the same SEO title and meta description.
+
+### No code changes required
+Data-only operation via two database inserts.
 
