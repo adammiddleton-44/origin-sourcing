@@ -1,25 +1,18 @@
 
 
-## Plan: Publish "UK Restaurant Packaging Spend Benchmarks" Blog Post with Image
+## Plan: Delete 3 Original Sample Blog Posts
 
-### 1. Generate blog image
-Use the AI image generation model to create a professional editorial image relevant to UK restaurant packaging spend/benchmarks — e.g. stacked takeaway packaging, cost analysis visuals, food service context. Upload to the `blog-images` storage bucket.
+Remove the three placeholder blog posts that were created with the initial site setup and have no user-written content.
 
-### 2. Insert blog post into `blog_posts` table
-- **Title**: UK Restaurant Packaging Spend Benchmarks: What Multi-Site Operators Should Actually Be Paying
-- **Slug**: `uk-restaurant-packaging-spend-benchmarks`
-- **Category**: Supply Chain & Logistics
-- **Excerpt**: Most multi-site UK food service operators are paying 20 to 35% more than benchmark on packaging. Here's what the numbers actually look like by format, and how to tell if you're overspending.
-- **Content**: Full article text as provided (markdown formatted)
-- **Read time**: 10 min read
-- **Published**: true, `published_at` = now
-- **SEO title**: UK Restaurant Packaging Spend Benchmarks 2026: What Should You Be Paying? | Origin Sourcing
-- **Meta description**: Most multi-site UK food service operators are paying 20 to 35% more than benchmark on packaging. Here's what the numbers actually look like by format, and how to tell if you're overspending.
-- **image_url**: URL from uploaded storage image
+### Posts to delete
 
-### 3. Insert `page_seo` entry
-For path `/blog/uk-restaurant-packaging-spend-benchmarks` with the same SEO title and meta description.
+| Title | Slug |
+|---|---|
+| 5 Strategies to Reduce Packaging Costs Without Compromising Quality | `5-strategies-reduce-packaging-costs` |
+| Case Study: How We Helped a Food Manufacturer Save £310K | `case-study-food-manufacturer-310k` |
+| Understanding EPR: What UK Businesses Need to Know in 2024 | `understanding-epr-uk-2024` |
 
-### No code changes required
-Data-only operation plus image generation/upload.
+### Action
+
+Single database DELETE statement removing these three rows from `blog_posts` by their IDs. No `page_seo` entries exist for these posts, so no additional cleanup needed. No code changes required.
 
