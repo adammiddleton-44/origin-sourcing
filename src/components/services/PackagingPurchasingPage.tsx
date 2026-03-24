@@ -248,7 +248,7 @@ const PackagingPurchasingPage = ({
       </section>
 
       {/* Proof Section - Sessions Case Study */}
-      <CaseStudyTile caseStudyId="sessions-growth-flatform-for-founds-led-brands" />
+      <CaseStudyTile caseStudyId="sessions-growth-platform-for-founder-led-brands" />
 
       {/* Final CTA Section */}
       <section className="section-padding bg-section-dark relative overflow-hidden">
