@@ -1,26 +1,25 @@
 
 
-## Plan: Publish EPR Blog Post
+## Plan: Publish "UK Restaurant Packaging Spend Benchmarks" Blog Post with Image
 
-Insert the blog post into the `blog_posts` table with all provided content, published immediately.
+### 1. Generate blog image
+Use the AI image generation model to create a professional editorial image relevant to UK restaurant packaging spend/benchmarks — e.g. stacked takeaway packaging, cost analysis visuals, food service context. Upload to the `blog-images` storage bucket.
 
-### Database Insert
+### 2. Insert blog post into `blog_posts` table
+- **Title**: UK Restaurant Packaging Spend Benchmarks: What Multi-Site Operators Should Actually Be Paying
+- **Slug**: `uk-restaurant-packaging-spend-benchmarks`
+- **Category**: Supply Chain & Logistics
+- **Excerpt**: Most multi-site UK food service operators are paying 20 to 35% more than benchmark on packaging. Here's what the numbers actually look like by format, and how to tell if you're overspending.
+- **Content**: Full article text as provided (markdown formatted)
+- **Read time**: 10 min read
+- **Published**: true, `published_at` = now
+- **SEO title**: UK Restaurant Packaging Spend Benchmarks 2026: What Should You Be Paying? | Origin Sourcing
+- **Meta description**: Most multi-site UK food service operators are paying 20 to 35% more than benchmark on packaging. Here's what the numbers actually look like by format, and how to tell if you're overspending.
+- **image_url**: URL from uploaded storage image
 
-One row into `blog_posts` with:
-- **Title**: How EPR Changed Food Service Packaging: The PLA vs Aqueous Coating Debate, Settled
-- **Slug**: `epr-pla-vs-aqueous-coating-food-service-packaging`
-- **Category**: Sustainability
-- **Excerpt**: UK EPR fees created a £265/tonne gap between PLA and aqueous coated packaging. What the new fee structure means for food service operators planning 2025-2028 packaging strategy.
-- **Content**: Full article text as provided
-- **Read time**: 8 min read
-- **Published**: true, with `published_at` set to now
-- **SEO title**: How EPR Changed Food Service Packaging: PLA vs Aqueous Coatings Explained | Origin Sourcing
-- **Meta description**: UK EPR fees created a £265/tonne gap between PLA and aqueous coated packaging. What the new fee structure means for food service operators planning 2025-2028 packaging strategy.
-
-### Also insert a `page_seo` entry
-
-For path `/blog/epr-pla-vs-aqueous-coating-food-service-packaging` with the same SEO title and meta description.
+### 3. Insert `page_seo` entry
+For path `/blog/uk-restaurant-packaging-spend-benchmarks` with the same SEO title and meta description.
 
 ### No code changes required
-Data-only operation via two database inserts.
+Data-only operation plus image generation/upload.
 
