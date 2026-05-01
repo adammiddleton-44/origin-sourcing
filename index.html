@@ -59,29 +59,48 @@
 
   <script>window.prerenderReady=false;</script>
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZDSHBJGW8"></script>
+  <!-- Deferred third-party analytics: load after page is interactive to keep LCP/TBT low -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LZDSHBJGW8');
-  </script>
+    (function () {
+      function loadAnalytics() {
+        // Google Analytics 4
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-LZDSHBJGW8';
+        document.head.appendChild(gaScript);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-LZDSHBJGW8');
 
-  <!-- Apollo Website Tracker -->
-  <script>
-    function initApollo(){
-      var n=Math.random().toString(36).substring(7),
-          o=document.createElement("script");
-      o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n;
-      o.async=!0;
-      o.defer=!0;
-      o.onload=function(){
-        window.trackingFunctions.onLoad({appId:"694588d712ea2a001d86e027"})
-      };
-      document.head.appendChild(o)
-    }
-    initApollo();
+        // Apollo Website Tracker
+        var n = Math.random().toString(36).substring(7);
+        var o = document.createElement('script');
+        o.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + n;
+        o.async = true;
+        o.defer = true;
+        o.onload = function () {
+          if (window.trackingFunctions && window.trackingFunctions.onLoad) {
+            window.trackingFunctions.onLoad({ appId: '694588d712ea2a001d86e027' });
+          }
+        };
+        document.head.appendChild(o);
+      }
+
+      function schedule() {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadAnalytics, { timeout: 2500 });
+        } else {
+          setTimeout(loadAnalytics, 1500);
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        schedule();
+      } else {
+        window.addEventListener('load', schedule, { once: true });
+      }
+    })();
   </script>
 </head>
 

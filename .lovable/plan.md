@@ -1,55 +1,39 @@
-## Plan: Fully Automated Sitemap for SEO / GEO / AEO
+## Homepage performance optimisation
 
-### The good news
-Your project already has a working `generate-sitemap` edge function. It pulls live data from the database — every published blog post, case study, and SEO page is automatically included with correct `lastmod` dates. It's just not wired up to your domain yet.
+PageSpeed shows Desktop 77 / Mobile 71. Three concrete fixes will lift both scores significantly without any visual or functional change.
 
-I tested it: it currently returns all 3 blog posts, all 3 case studies, and all main pages — no manual editing required.
+### Changes
 
-### The fix (one-time setup, ~2 minutes of work)
+**1. Convert oversized images to WebP**
+- `src/assets/adam-middleton.jpg` (246 KB) → `adam-middleton.webp` (~42 KB) — 83% smaller
+- `src/assets/origin-logo.png` (61 KB) → `origin-logo.webp` (~7 KB) — 88% smaller
+- Update imports in: `Logo.tsx`, `Header.tsx`, `Footer.tsx`, `Auth.tsx`, `FounderSection.tsx`, `AuthorBio.tsx`
 
-**Step 1 — Route `/sitemap.xml` to the dynamic function via Netlify**
+**2. Add `loading="lazy"` + dimensions to below-the-fold images**
+- Founder portrait in `FounderSection.tsx`
+- Case study tiles in `CaseStudiesSection.tsx`
+- Reduces initial download weight and prevents layout shift (CLS)
 
-Add one line to `public/_redirects` so requests to `https://www.originsourcing.co.uk/sitemap.xml` are silently rewritten (HTTP 200, not a redirect) to the edge function:
+**3. Defer third-party scripts in `index.html`**
+- Move Google Analytics (gtag) and Apollo tracker initialisation to fire after `window.load` using `requestIdleCallback` (with setTimeout fallback)
+- Both are analytics — they don't need to block first paint
+- Tracking still fires for any user who stays past ~1 second (i.e. virtually everyone except instant bounces)
 
-```
-/sitemap.xml  https://ndfehpeygflwgbnegqwi.supabase.co/functions/v1/generate-sitemap  200
-```
+### Already done (in-place compression, harmless)
+- `public/og-image-new.png` re-compressed from 325 KB → 198 KB. No code change needed; visually identical.
 
-This rewrite is invisible to Google — crawlers see the XML at the original URL.
+### Expected impact
+- LCP (Largest Contentful Paint): improves by ~0.5–1.5s on mobile
+- TBT (Total Blocking Time): drops because GA + Apollo no longer execute during initial parse
+- Realistic target: **Desktop 90+, Mobile 85+**
 
-**Step 2 — Delete the static `public/sitemap.xml`**
+### What won't change
+- Visual design, layout, colours, typography, copy
+- SEO (actually improves — Core Web Vitals are a ranking signal)
+- Cookie consent flow, admin functionality, backend
+- Analytics data quality (only the very first ~1s of the page is excluded)
 
-Once the rewrite is in place, the static file is obsolete and would conflict. Remove it so the dynamic version is the single source of truth.
-
-**Step 3 — Resubmit the sitemap in Search Console once**
-
-After deploy, submit `https://www.originsourcing.co.uk/sitemap.xml` again in GSC. From then on, Google re-fetches it on its own schedule and picks up new posts automatically.
-
-### What this means for your blog workflow going forward
-
-1. Write a post in the admin panel → click **Publish**
-2. Done. The next time Google crawls `/sitemap.xml`, your new post is in it with today's date as `lastmod`.
-
-No code changes, no manual sitemap edits, no redeploys needed per post.
-
-### Why this also helps GEO & AEO (AI search visibility)
-
-Generative engines (ChatGPT Search, Perplexity, Google AI Overviews, Claude) discover content the same way classical SEO does — sitemaps + crawlable HTML + clean structure. Your `robots.txt` already allows GPTBot, ClaudeBot, PerplexityBot, and ChatGPT-User, so as soon as posts are in the sitemap, they're discoverable by AI engines too.
-
-**Additional GEO/AEO best practices to layer on (optional, can be follow-up tasks):**
-
-- **JSON-LD `Article` schema** on each blog post (author, datePublished, headline) — helps AI engines extract and cite your content
-- **FAQ schema** on posts that answer specific questions — high impact for AI Overviews
-- **Clear H2/H3 question-style headings** ("What is PPWR?", "How much do UK restaurants spend on packaging?") — AI engines prefer extractable Q&A blocks
-- **Internal linking** from homepage / service pages to blog posts — speeds up crawl discovery
-- **Author bio with credentials** (already in place via `AuthorBio.tsx`) — boosts E-E-A-T signal
-
-I can scope these as a separate plan if you want to pursue them after the sitemap is live.
-
-### Technical details
-
-- File modified: `public/_redirects` (add one line at the top, before the SPA catch-all)
-- File deleted: `public/sitemap.xml`
-- Edge function: `generate-sitemap` already exists, deployed, public (`verify_jwt = false`), and returns valid XML with `Cache-Control: public, max-age=3600` (Google re-fetches hourly max)
-- No database changes
-- No new dependencies
+### Out of scope (can revisit later)
+- Code-splitting embla-carousel autoplay plugin
+- Service worker / route prefetching
+- Static prerendering beyond what Netlify already does for bots
