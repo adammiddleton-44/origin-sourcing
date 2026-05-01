@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, Package, Truck, ClipboardCheck, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/origin-logo.webp";
+import logo from "@/assets/origin-logo.png";
 
 const navigation = [
   { name: "Services", href: "/services" },

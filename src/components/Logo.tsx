@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/origin-logo.webp";
+import logo from "@/assets/origin-logo.png";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg" | "xl";

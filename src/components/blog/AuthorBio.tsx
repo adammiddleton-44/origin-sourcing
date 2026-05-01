@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import adamPhoto from "@/assets/adam-middleton.webp";
+import adamPhoto from "@/assets/adam-middleton.jpg";
 
 export function AuthorBio() {
   return (

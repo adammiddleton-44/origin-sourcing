@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
-import logo from "@/assets/origin-logo.webp";
+import logo from "@/assets/origin-logo.png";
 
 const footerLinks = {
   services: [
