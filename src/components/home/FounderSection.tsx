@@ -1,7 +1,7 @@
 import { Linkedin, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import adamPhoto from "@/assets/adam-middleton.jpg";
+import adamPhoto from "@/assets/adam-middleton.webp";
 export function FounderSection({
   className
 }: {
