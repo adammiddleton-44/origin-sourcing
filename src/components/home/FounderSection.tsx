@@ -12,7 +12,7 @@ export function FounderSection({
         {/* Header with LinkedIn-style photo */}
         <div className="flex items-center gap-4 mb-6">
           <div className="w-28 h-36 md:w-32 md:h-40 rounded-xl border-2 border-primary/20 overflow-hidden flex-shrink-0 shadow-lg">
-            <img src={adamPhoto} alt="Adam Middleton - Packaging Procurement Consultant" className="w-full h-full object-cover object-top" />
+            <img src={adamPhoto} alt="Adam Middleton - Packaging Procurement Consultant" width={500} height={625} loading="lazy" decoding="async" className="w-full h-full object-cover object-top" />
           </div>
           <div>
             <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider">
