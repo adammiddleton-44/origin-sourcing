@@ -55,24 +55,24 @@ export function HeroSection() {
           </div>
 
           {/* Trust indicators */}
-          <div className="mt-16 flex flex-wrap justify-center gap-8 text-muted-foreground animate-fade-up" style={{
+          <div className="mt-16 flex flex-wrap md:flex-nowrap justify-center gap-3 lg:gap-4 text-muted-foreground animate-fade-up" style={{
           animationDelay: "0.4s"
         }}>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border/50">
-              <Handshake className="w-5 h-5 text-accent" />
-              <span className="text-sm font-medium">Direct manufacturer relationships</span>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/80 border border-border/50 whitespace-nowrap shrink-0">
+              <Handshake className="w-4 h-4 text-accent" />
+              <span className="text-xs md:text-sm font-medium">Direct manufacturer relationships</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border/50">
-              <Repeat className="w-5 h-5 text-accent" />
-              <span className="text-sm font-medium">Supplier transitions</span>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/80 border border-border/50 whitespace-nowrap shrink-0">
+              <Repeat className="w-4 h-4 text-accent" />
+              <span className="text-xs md:text-sm font-medium">Supplier transitions</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border/50">
-              <BadgePercent className="w-5 h-5 text-accent" />
-              <span className="text-sm font-medium">Performance-based pricing</span>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/80 border border-border/50 whitespace-nowrap shrink-0">
+              <BadgePercent className="w-4 h-4 text-accent" />
+              <span className="text-xs md:text-sm font-medium">Performance-based pricing</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border/50">
-              <Truck className="w-5 h-5 text-accent" />
-              <span className="text-sm font-medium">3PL integration expertise</span>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/80 border border-border/50 whitespace-nowrap shrink-0">
+              <Truck className="w-4 h-4 text-accent" />
+              <span className="text-xs md:text-sm font-medium">3PL integration expertise</span>
             </div>
           </div>
         </div>
