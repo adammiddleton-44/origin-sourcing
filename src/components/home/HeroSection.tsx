@@ -38,7 +38,7 @@ export function HeroSection() {
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-up" style={{
           animationDelay: "0.25s"
-        }}>With 10 years inside the packaging industry, we help food service, retail and FMCG operators rethink how they buy. Whether that's optimising a single supplier relationship or designing a direct-purchasing supply chain from the ground up.</p>
+        }}>With 10 years inside the packaging industry, we match the supplier or manufacturer for your business. Whether that's optimising a single supplier relationship or building a direct purchasing supply chain from scratch.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{
           animationDelay: "0.3s"
