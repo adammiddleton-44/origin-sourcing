@@ -38,7 +38,7 @@ export function HeroSection() {
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-up" style={{
           animationDelay: "0.25s"
-        }}>We help multi-site operators buy packaging better — from a straightforward switch to a stronger supplier, through to building a full direct-purchasing supply chain. Expect 20-30% cost savings, reliable supply and seamless 3PL fulfilment.</p>
+        }}>With 10 years inside the packaging industry, we help food service, retail and FMCG operators rethink how they buy. Whether that's optimising a single supplier relationship or designing a direct-purchasing supply chain from the ground up.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{
           animationDelay: "0.3s"
