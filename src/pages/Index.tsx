@@ -11,8 +11,8 @@ import { usePrerenderReady } from "@/hooks/usePrerenderReady";
 const Index = () => {
   usePrerenderReady(true);
   const seo = usePageSEO("/", {
-    fallbackTitle: "Expert Packaging Purchasing Consultancy",
-    fallbackDescription: "Transform your packaging supply chain with expert purchasing strategy. Achieve 20-30% cost savings with Origin Sourcing's specialist consulting services."
+    fallbackTitle: "Packaging Purchasing Consultancy for Multi-Site Operators",
+    fallbackDescription: "Independent UK packaging purchasing and procurement consultancy helping multi-site food service, retail and FMCG operators cut cost by 20-30% with smarter buying and 3PL fulfilment."
   });
   return <Layout>
       <SEO title={seo.title} description={seo.description} canonical="/" ogImage={seo.ogImage} noindex={seo.noindex} />
