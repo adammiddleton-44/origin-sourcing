@@ -68,7 +68,7 @@ export function HeroSection() {
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border/50">
               <BadgePercent className="w-5 h-5 text-accent" />
-              <span className="text-sm font-medium">Performance-based pricing available</span>
+              <span className="text-sm font-medium">Performance-based pricing</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border/50">
               <Truck className="w-5 h-5 text-accent" />
