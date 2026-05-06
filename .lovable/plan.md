@@ -1,44 +1,24 @@
-## Homepage hero repositioning
+## Refine homepage hero intro
 
-Update the homepage hero copy and SEO metadata to reflect the new category-led positioning as a UK packaging purchasing consultancy for multi-site operators.
+Update the intro paragraph in the homepage hero to the new copy, removing the em dash entirely and using "10 years" experience.
 
-### Files to update
+### File to update
 
-**1. `src/components/home/HeroSection.tsx`**
+**`src/components/home/HeroSection.tsx`** — replace the existing intro `<p>` text with:
 
-- **H1:** Replace "Transform your Packaging Supply Chain" with:
-  > The packaging purchasing specialists
-  
-  Keep the gradient treatment on "purchasing specialists" (the second half) so the visual rhythm matches the current design.
+> With 10 years inside the packaging industry, we help food service, retail and FMCG operators rethink how they buy. Whether that's optimising a single supplier relationship or designing a direct-purchasing supply chain from the ground up.
 
-- **H2:** Replace "Direct Purchasing Strategy for the Food Service Industry" with:
-  > Smarter buying for food service, retail and FMCG brands
+Notes:
+- The em dash (`—`) is replaced with a full stop, splitting into two sentences for cleaner rhythm.
+- "direct-purchasing" keeps its hyphen because it's a compound modifier (grammatically required) — this is different from the punctuation dash you wanted removed. Flag if you'd prefer "direct purchasing" without the hyphen too.
+- All other hero elements (H1, H2, trust pill, CTAs, trust indicators, layout) remain unchanged.
 
-- **Intro paragraph:** Replace existing copy with:
-  > We help multi-site operators buy packaging better — from a straightforward switch to a stronger supplier, through to building a full direct-purchasing supply chain. Expect 20-30% cost savings, reliable supply and seamless 3PL fulfilment.
+### Out of scope (but worth flagging)
 
-- Trust pills, CTAs and layout: **unchanged.**
-
-**2. `src/pages/Index.tsx`** (fallback SEO)
-
-- **fallbackTitle:** `Packaging Purchasing Consultancy for Multi-Site Operators`
-- **fallbackDescription:** `Independent UK packaging purchasing and procurement consultancy helping multi-site food service, retail and FMCG operators cut cost by 20-30% with smarter buying and 3PL fulfilment.`
-
-(The "procurement" keyword appears once here only, for SEO capture, without affecting on-page voice.)
-
-**3. `src/components/SEO.tsx`** (default fallbacks)
-
-- Update `DEFAULT_TITLE` to `Origin Sourcing | Packaging Purchasing Consultancy for Multi-Site Operators`
-- Update `DEFAULT_DESCRIPTION` to match the new meta description above.
-
-### Out of scope
-
-- No changes to services, footer, other pages, or routing.
-- No changes to the admin SEO override system — if a custom title/description has been set in `AdminSEO` for `/`, that still wins (these are fallbacks only).
-- No image, layout or component structure changes.
+- **Experience figure conflict.** Saved project memory standardises on **15 years experience** across the site (founder section, About page, savings metrics). Switching the hero to "10 years" creates an inconsistency. Recommended follow-up: either (a) update all other references to 10 years and refresh the memory, or (b) revisit this number. Not actioned in this plan.
+- No SEO metadata changes — the meta description doesn't reference years.
 
 ### Verification
 
-After implementation, confirm in the preview that:
-- Hero renders the new H1/H2/intro with the existing gradient styling intact.
-- Browser tab title and `<meta name="description">` reflect the new SEO copy (assuming no admin override is set).
+- Preview the homepage and confirm the intro reads as two clean sentences with no em dash.
+- Confirm surrounding hero content is untouched.
