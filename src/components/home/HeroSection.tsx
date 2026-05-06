@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Handshake, BadgePercent, Truck, Shield } from "lucide-react";
+import { ArrowRight, Handshake, BadgePercent, Truck, Shield, Repeat } from "lucide-react";
 import { Button } from "@/components/ui/button";
 export function HeroSection() {
   return <section className="relative overflow-hidden bg-gradient-to-br from-section-primary via-background to-section-accent">
@@ -61,6 +61,10 @@ export function HeroSection() {
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border/50">
               <Handshake className="w-5 h-5 text-accent" />
               <span className="text-sm font-medium">Direct manufacturer relationships</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border/50">
+              <Repeat className="w-5 h-5 text-accent" />
+              <span className="text-sm font-medium">Supplier transitions</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/80 border border-border/50">
               <BadgePercent className="w-5 h-5 text-accent" />
