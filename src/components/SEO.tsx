@@ -16,8 +16,8 @@ interface SEOProps {
 }
 
 const BASE_URL = "https://www.originsourcing.co.uk";
-const DEFAULT_TITLE = "Origin Sourcing | Expert Packaging Procurement Consultancy";
-const DEFAULT_DESCRIPTION = "Transform your packaging supply chain with expert procurement strategy. Achieve 20-30% cost savings with Origin Sourcing's specialist consulting services.";
+const DEFAULT_TITLE = "Origin Sourcing | Packaging Purchasing Consultancy for Multi-Site Operators";
+const DEFAULT_DESCRIPTION = "Independent UK packaging purchasing and procurement consultancy helping multi-site food service, retail and FMCG operators cut cost by 20-30% with smarter buying and 3PL fulfilment.";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image-new.png`;
 
 export function SEO({
